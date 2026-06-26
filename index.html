@@ -9,153 +9,64 @@
   @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
   :root{
-    --void: #08060c;
-    --void-soft: #100b18;
-    --panel: #150f20;
-    --panel-2: #1a1228;
-    --line: #2e2244;
-    --line-bright: #4a3568;
-    --chrome: #f1edfb;
-    --chrome-dim: #b3a9cc;
-    --chrome-faint: #6b6088;
-    --magenta: #ff2d78;
-    --magenta-soft: #ff6fa8;
-    --cyan: #1de9d8;
-    --cyan-dim: #0d5a52;
-    --amber: #ffc145;
-    --green: #3df08c;
-    --red: #ff4d6a;
+    --void:#08060c;--void-soft:#100b18;--panel:#150f20;--panel-2:#1a1228;
+    --line:#2e2244;--line-bright:#4a3568;--chrome:#f1edfb;--chrome-dim:#b3a9cc;
+    --chrome-faint:#6b6088;--magenta:#ff2d78;--magenta-soft:#ff6fa8;
+    --cyan:#1de9d8;--cyan-dim:#0d5a52;--amber:#ffc145;--green:#3df08c;--red:#ff4d6a;
   }
-
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{
-    background:var(--void);
-    color:var(--chrome);
-    font-family:'Space Grotesk',sans-serif;
-    min-height:100vh;
-    line-height:1.55;
-    overflow-x:hidden;
-  }
+  body{background:var(--void);color:var(--chrome);font-family:'Space Grotesk',sans-serif;min-height:100vh;line-height:1.55;overflow-x:hidden;}
   ::selection{background:var(--magenta);color:var(--void);}
   ::-webkit-scrollbar{width:9px;height:9px;}
   ::-webkit-scrollbar-track{background:var(--void-soft);}
   ::-webkit-scrollbar-thumb{background:var(--line-bright);border-radius:5px;}
-  a{color:inherit;}
-  button{font-family:inherit;}
+  a{color:inherit;}button{font-family:inherit;}
   :focus-visible{outline:2px solid var(--cyan);outline-offset:2px;}
   .wrap{max-width:1180px;margin:0 auto;padding:0 22px;}
 
-  .scanlines{
-    position:fixed;inset:0;pointer-events:none;z-index:999;
-    background:repeating-linear-gradient(to bottom,rgba(255,255,255,0.018) 0px,rgba(255,255,255,0.018) 1px,transparent 1px,transparent 3px);
-    mix-blend-mode:overlay;opacity:0.6;
-  }
+  .scanlines{position:fixed;inset:0;pointer-events:none;z-index:999;background:repeating-linear-gradient(to bottom,rgba(255,255,255,0.018) 0px,rgba(255,255,255,0.018) 1px,transparent 1px,transparent 3px);mix-blend-mode:overlay;opacity:0.6;}
 
   /* HERO */
-  .hero{
-    position:relative;
-    min-height:88vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    overflow:hidden;
-    border-bottom:1px solid var(--line);
-  }
+  .hero{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border-bottom:1px solid var(--line);background:#08060c;}
 
-  /* IMAGEN BANNER */
-  .hero-bg-img{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center 30%;
-    z-index:0;
-  }
+  /* BANNER — fallback al skyline SVG si la imagen no carga */
+  .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:0;}
+  .hero-bg-fallback{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 90% 50% at 50% 0%,rgba(139,61,240,0.2),transparent 65%),linear-gradient(180deg,#050309 0%,#0a0614 30%,#0c0818 55%,#08060c 100%);}
 
-  /* Overlay degradado sobre la imagen */
-  .hero-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-      to bottom,
-      rgba(8,6,12,0.55) 0%,
-      rgba(8,6,12,0.3) 40%,
-      rgba(8,6,12,0.85) 75%,
-      rgba(8,6,12,1) 100%
-    );
-    z-index:1;
-  }
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,6,12,0.45) 0%,rgba(8,6,12,0.2) 35%,rgba(8,6,12,0.8) 72%,rgba(8,6,12,1) 100%);z-index:1;}
+  .hero-noise{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.5) 0.6px,transparent 0.6px);background-size:3px 3px;opacity:0.025;z-index:2;pointer-events:none;}
 
-  /* Scanlines ligeras sobre la imagen */
-  .hero-noise{
-    position:absolute;inset:0;
-    background-image:radial-gradient(rgba(255,255,255,0.5) 0.6px,transparent 0.6px);
-    background-size:3px 3px;
-    opacity:0.025;
-    z-index:2;
-    pointer-events:none;
-  }
-
-  .hero-content{
-    position:relative;
-    z-index:3;
-    padding:28px 22px 46px;
-  }
+  .hero-content{position:relative;z-index:3;padding:28px 22px 46px;}
   .hero-inner{max-width:1180px;margin:0 auto;}
 
-  .topline{
-    display:flex;justify-content:space-between;align-items:center;
-    font-family:'JetBrains Mono',monospace;
-    font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;
-    color:var(--chrome-faint);
-    padding-bottom:clamp(40px,14vh,130px);
-    flex-wrap:wrap;gap:12px;
-  }
-
-  .lang-toggle{
-    position:relative;display:inline-flex;align-items:center;
-    width:60px;height:26px;
-    background:var(--panel-2);border:1px solid var(--line-bright);border-radius:999px;
-    cursor:pointer;padding:0;font-family:'JetBrains Mono',monospace;
-  }
+  .topline{display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--chrome-faint);padding-bottom:clamp(40px,14vh,130px);flex-wrap:wrap;gap:12px;}
+  .lang-toggle{position:relative;display:inline-flex;align-items:center;width:60px;height:26px;background:var(--panel-2);border:1px solid var(--line-bright);border-radius:999px;cursor:pointer;padding:0;font-family:'JetBrains Mono',monospace;}
   .lang-toggle .lang-opt{flex:1;text-align:center;font-size:9px;letter-spacing:0.05em;color:var(--chrome-faint);z-index:2;transition:color 0.2s ease;pointer-events:none;}
-  .lang-toggle .lang-thumb{
-    position:absolute;top:2px;left:2px;width:28px;height:20px;
-    background:linear-gradient(135deg,var(--magenta),var(--cyan));border-radius:999px;
-    box-shadow:0 0 10px rgba(255,45,120,0.5);transition:transform 0.25s cubic-bezier(.4,0,.2,1);
-  }
+  .lang-toggle .lang-thumb{position:absolute;top:2px;left:2px;width:28px;height:20px;background:linear-gradient(135deg,var(--magenta),var(--cyan));border-radius:999px;box-shadow:0 0 10px rgba(255,45,120,0.5);transition:transform 0.25s cubic-bezier(.4,0,.2,1);}
   .lang-toggle[data-active="en"] .lang-thumb{transform:translateX(30px);}
   .lang-toggle[data-active="es"] .lang-opt[data-lang-opt="es"]{color:#fff;font-weight:700;}
   .lang-toggle[data-active="en"] .lang-opt[data-lang-opt="en"]{color:#fff;font-weight:700;}
-
   .topline .live{display:flex;align-items:center;gap:7px;color:var(--cyan);}
   .dot-live{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:blink 1.6s infinite;}
   @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.25;}}
 
-  h1.wordmark{
-    font-family:'Teko',sans-serif;font-weight:700;
-    font-size:clamp(64px,13vw,168px);line-height:0.82;letter-spacing:0.01em;
-    text-transform:uppercase;color:var(--chrome);
-    -webkit-text-stroke:1px rgba(255,255,255,0.1);
-    text-shadow:0 0 2px rgba(255,255,255,0.3),0 0 22px rgba(255,45,120,0.32),0 2px 40px rgba(0,0,0,0.6);
-  }
-  h1.wordmark .accent{
-    background:linear-gradient(180deg,var(--cyan) 0%,#0d9c8f 100%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-    -webkit-text-stroke:0;text-shadow:0 0 30px rgba(29,233,216,0.6);
-  }
+  h1.wordmark{font-family:'Teko',sans-serif;font-weight:700;font-size:clamp(64px,13vw,168px);line-height:0.82;letter-spacing:0.01em;text-transform:uppercase;color:var(--chrome);-webkit-text-stroke:1px rgba(255,255,255,0.1);text-shadow:0 0 2px rgba(255,255,255,0.3),0 0 22px rgba(255,45,120,0.32),0 2px 40px rgba(0,0,0,0.6);}
+  h1.wordmark .accent{background:linear-gradient(180deg,var(--cyan) 0%,#0d9c8f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0;text-shadow:0 0 30px rgba(29,233,216,0.6);}
   h1.wordmark .slash{color:var(--magenta);-webkit-text-stroke:0;font-size:0.55em;opacity:0.8;margin:0 4px;vertical-align:middle;}
-
   .hero-tagline{font-size:14.5px;color:var(--chrome-dim);max-width:540px;margin-top:14px;}
   .hero-tagline b{color:var(--chrome);font-weight:600;}
-
   .hero-meta-row{display:flex;gap:28px;flex-wrap:wrap;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);}
   .meta-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--chrome-faint);margin-bottom:5px;}
   .meta-value{font-weight:700;font-size:15px;color:var(--chrome);}
   .meta-value.cyan{color:var(--cyan);}
   .mono{font-family:'JetBrains Mono',monospace;}
+
+  /* ADS */
+  .ad-slot{background:rgba(255,255,255,0.03);border:1px dashed var(--line-bright);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--chrome-faint);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.08em;text-transform:uppercase;}
+  .ad-slot-leaderboard{width:100%;height:90px;margin:20px 0;}
+  .ad-slot-rectangle{width:100%;max-width:336px;height:280px;margin:0 auto 24px;}
+  .ad-slot-banner{width:100%;height:60px;margin:16px 0;}
 
   /* NAV */
   .radar-nav{position:sticky;top:0;z-index:50;background:rgba(8,6,12,0.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
@@ -175,7 +86,6 @@
   .panel-section{display:none;}
   .panel-section.active{display:block;animation:fadein 0.3s ease;}
   @keyframes fadein{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
-
   .section-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
   .section-eyebrow::before{content:"//";color:var(--magenta);}
   .section-title{font-family:'Teko',sans-serif;font-weight:700;font-size:clamp(34px,5vw,50px);letter-spacing:0.01em;text-transform:uppercase;line-height:0.95;color:var(--chrome);margin-bottom:8px;}
@@ -190,9 +100,8 @@
   .grid{display:grid;gap:14px;}
   .grid-2{grid-template-columns:repeat(2,1fr);}
   .grid-3{grid-template-columns:repeat(3,1fr);}
-  .grid-4{grid-template-columns:repeat(4,1fr);}
-  @media(max-width:860px){.grid-3,.grid-4{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+  @media(max-width:860px){.grid-3{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.grid-2,.grid-3{grid-template-columns:1fr;}}
 
   .card{background:linear-gradient(160deg,var(--panel) 0%,var(--void-soft) 100%);border:1px solid var(--line);border-radius:12px;padding:18px;position:relative;transition:border-color 0.2s ease,transform 0.2s ease;}
   .card:hover{border-color:var(--line-bright);transform:translateY(-2px);}
@@ -202,6 +111,7 @@
   .pill{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.05em;text-transform:uppercase;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;}
   .pill-confirmed{background:rgba(61,240,140,0.12);color:var(--green);border:1px solid rgba(61,240,140,0.35);}
   .pill-vacio{background:rgba(255,255,255,0.04);color:var(--chrome-faint);border:1px solid var(--line);}
+  .pill-price{background:rgba(255,193,69,0.12);color:var(--amber);border:1px solid rgba(255,193,69,0.35);}
 
   .fact-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:30px;}
   @media(max-width:760px){.fact-strip{grid-template-columns:repeat(2,1fr);}}
@@ -220,15 +130,26 @@
   .protag-name.jason{color:var(--cyan);text-shadow:0 0 20px rgba(29,233,216,0.4);}
   .protag-desc{font-size:12.5px;color:var(--chrome-dim);margin-top:8px;position:relative;}
 
+  /* TIMELINE */
   .timeline{position:relative;padding-left:26px;}
   .timeline::before{content:"";position:absolute;left:5px;top:4px;bottom:4px;width:2px;background:linear-gradient(180deg,var(--magenta),var(--cyan));}
-  .tl-item{position:relative;padding-bottom:22px;}
+  .tl-item{position:relative;padding-bottom:28px;}
   .tl-item:last-child{padding-bottom:0;}
   .tl-item::before{content:"";position:absolute;left:-26px;top:3px;width:11px;height:11px;border-radius:50%;background:var(--void);border:2px solid var(--cyan);box-shadow:0 0 8px rgba(29,233,216,0.6);}
   .tl-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);margin-bottom:4px;}
   .tl-title{font-weight:700;font-size:14px;margin-bottom:4px;}
-  .tl-body{font-size:12.5px;color:var(--chrome-dim);}
+  .tl-body{font-size:12.5px;color:var(--chrome-dim);margin-bottom:10px;}
+  .tl-prices{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;}
+  .price-tag{display:flex;flex-direction:column;background:var(--panel-2);border:1px solid var(--line-bright);border-radius:8px;padding:10px 14px;min-width:120px;}
+  .price-edition{font-family:'JetBrains Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:0.08em;color:var(--chrome-faint);margin-bottom:4px;}
+  .price-amount{font-family:'Teko',sans-serif;font-size:24px;font-weight:700;color:var(--amber);}
+  .price-amount span{font-size:13px;color:var(--chrome-faint);font-family:'Space Grotesk',sans-serif;font-weight:400;}
 
+  /* VIDEO EMBED */
+  .video-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;border:1px solid var(--line);margin-top:12px;}
+  .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;}
+
+  /* NEWS */
   .news-list{display:flex;flex-direction:column;gap:14px;}
   .news-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;transition:border-color 0.2s ease;}
   .news-card:hover{border-color:var(--line-bright);}
@@ -240,6 +161,7 @@
   .news-body{font-size:12.5px;color:var(--chrome-dim);line-height:1.65;margin-bottom:12px;}
   .news-source{font-size:10px;color:var(--chrome-faint);letter-spacing:0.03em;}
 
+  /* MAP */
   .map-shell{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:26px;}
   .map-svg-wrap{background:radial-gradient(ellipse at 50% 20%,#1a0f2e 0%,#08060c 75%);border-radius:12px;border:1px solid var(--line);overflow:hidden;position:relative;min-height:360px;display:flex;align-items:center;justify-content:center;}
   .scan-sweep{position:absolute;inset:0;background:conic-gradient(from 0deg at 50% 50%,transparent 0deg,rgba(29,233,216,0.12) 18deg,transparent 40deg);animation:sweep 4s linear infinite;}
@@ -249,20 +171,19 @@
   .empty-icon{font-size:38px;margin-bottom:14px;opacity:0.6;filter:drop-shadow(0 0 10px rgba(29,233,216,0.4));}
   .empty-title{font-weight:700;font-size:16px;margin-bottom:8px;}
   .empty-body{font-size:12.5px;color:var(--chrome-faint);max-width:380px;margin:0 auto;}
-
   .loc-list{display:flex;flex-direction:column;gap:10px;}
   .loc-row{display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 15px;}
   .loc-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(61,240,140,0.6);flex-shrink:0;}
   .loc-name{font-weight:600;font-size:13px;flex:1;}
   .loc-note{font-size:11.5px;color:var(--chrome-faint);}
 
+  /* ACTIVITIES */
   .activity-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:17px;display:flex;flex-direction:column;gap:9px;}
   .activity-head{display:flex;align-items:center;gap:11px;}
   .activity-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:rgba(29,233,216,0.06);border:1px solid var(--line);font-size:17px;flex-shrink:0;}
   .activity-title{font-weight:700;font-size:13.5px;}
   .activity-meta{font-size:10.5px;color:var(--chrome-faint);font-family:'JetBrains Mono',monospace;letter-spacing:0.04em;}
   .activity-fill{margin-top:4px;border:1px dashed var(--line-bright);border-radius:8px;padding:11px 13px;font-size:11.5px;color:var(--chrome-faint);font-style:italic;}
-
   .checklist{display:flex;flex-direction:column;gap:8px;margin-top:10px;}
   .check-item{display:flex;align-items:center;gap:11px;font-size:12.5px;color:var(--chrome-dim);padding:10px 13px;background:var(--panel);border:1px solid var(--line);border-radius:8px;cursor:pointer;user-select:none;transition:border-color 0.15s ease;}
   .check-item:hover{border-color:var(--cyan-dim);}
@@ -270,17 +191,16 @@
   .check-item.done .check-box{background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 8px rgba(29,233,216,0.5);}
   .check-item.done span.label{color:var(--chrome-faint);text-decoration:line-through;}
 
+  /* LEAKS */
   .leak-disclaimer{background:repeating-linear-gradient(135deg,rgba(255,193,69,0.08),rgba(255,193,69,0.08) 11px,rgba(255,193,69,0.02) 11px,rgba(255,193,69,0.02) 22px);border:1px solid rgba(255,193,69,0.35);border-radius:12px;padding:17px 19px;margin-bottom:26px;display:flex;gap:13px;align-items:flex-start;}
   .leak-disclaimer .ico{font-size:20px;}
   .leak-disclaimer-text{font-size:12.5px;color:#ffe7b8;line-height:1.65;}
   .leak-disclaimer-text b{color:#fff;}
-
   .leak-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:17px 19px;margin-bottom:12px;}
   .leak-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:11px;}
   .leak-name{font-weight:700;font-size:14.5px;}
   .leak-source{font-size:10.5px;color:var(--chrome-faint);font-family:'JetBrains Mono',monospace;margin-top:3px;}
   .leak-desc{font-size:12.5px;color:var(--chrome-dim);line-height:1.65;margin-bottom:13px;}
-
   .confidence-meter{display:flex;align-items:center;gap:10px;}
   .meter-track{flex:1;height:6px;border-radius:3px;background:var(--void-soft);overflow:hidden;}
   .meter-fill{height:100%;border-radius:3px;}
@@ -301,7 +221,6 @@
   .tip-fab .tip-fab-icon{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;animation:fabpulse 2.2s ease-in-out infinite;}
   @keyframes fabpulse{0%,100%{transform:scale(1);}50%{transform:scale(1.12);}}
   @media(max-width:480px){.tip-fab span.tip-fab-label{display:none;}.tip-fab{padding:14px;}}
-
   .tip-overlay{position:fixed;inset:0;z-index:250;background:rgba(5,3,9,0.78);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px;}
   .tip-overlay.open{display:flex;animation:fadein 0.2s ease;}
   .tip-panel{position:relative;width:min(380px,100%);background:linear-gradient(165deg,var(--panel-2) 0%,var(--void-soft) 100%);border:1px solid var(--line-bright);border-radius:18px;padding:26px 24px 24px;box-shadow:0 0 0 1px rgba(255,255,255,0.04) inset,0 30px 80px rgba(0,0,0,0.6),0 0 60px rgba(255,45,120,0.12);}
@@ -313,8 +232,8 @@
   .tip-title{font-family:'Teko',sans-serif;font-weight:700;font-size:30px;letter-spacing:0.01em;text-transform:uppercase;color:var(--chrome);line-height:1;margin-bottom:10px;}
   .tip-desc{font-size:12.5px;color:var(--chrome-dim);line-height:1.6;margin-bottom:20px;}
   .tip-desc b{color:var(--chrome);}
-  .tip-qr-wrap{background:#fff;border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 0 0 1px var(--line),0 0 30px rgba(29,233,216,0.1);}
-  .tip-qr-wrap img{width:100%;max-width:220px;display:block;border-radius:6px;}
+  .tip-qr-wrap{background:#fff;border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+  .tip-qr-placeholder{width:160px;height:160px;background:#f0f0f0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#999;font-size:11px;text-align:center;font-family:sans-serif;}
   .tip-caption{text-align:center;font-size:11.5px;color:var(--chrome-faint);font-family:'JetBrains Mono',monospace;letter-spacing:0.03em;}
   .tip-caption b{color:var(--cyan);}
 </style>
@@ -325,10 +244,12 @@
 
 <!-- HERO -->
 <div class="hero">
-  <img 
+  <div class="hero-bg-fallback"></div>
+  <img
     src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/GTArada.jpg"
-    alt="GTA 6 Radar — Banner"
-    class="hero-bg-img"
+    alt="GTA 6 Radar Banner"
+    class="hero-bg"
+    onload="document.querySelector('.hero-bg-fallback').style.display='none'"
     onerror="this.style.display='none'"
   >
   <div class="hero-overlay"></div>
@@ -352,25 +273,18 @@
       <p class="hero-tagline" data-i18n="hero_tagline">Tu centro de señal para <b>Grand Theft Auto VI</b>: lo confirmado por Rockstar, el mapa de Leonida, guías de actividades y todo lo que la comunidad ha rastreado — separado y etiquetado con claridad.</p>
 
       <div class="hero-meta-row">
-        <div class="meta-item">
-          <div class="meta-label" data-i18n="meta_launch">Lanzamiento</div>
-          <div class="meta-value cyan">19 NOV 2026</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label" data-i18n="meta_platforms">Plataformas</div>
-          <div class="meta-value">PS5 · XBOX SERIES X|S</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label" data-i18n="meta_setting">Escenario</div>
-          <div class="meta-value">LEONIDA</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label" data-i18n="meta_countdown">Cuenta regresiva</div>
-          <div class="meta-value cyan mono" id="cdInline">--d --h --m</div>
-        </div>
+        <div class="meta-item"><div class="meta-label" data-i18n="meta_launch">Lanzamiento</div><div class="meta-value cyan">19 NOV 2026</div></div>
+        <div class="meta-item"><div class="meta-label" data-i18n="meta_platforms">Plataformas</div><div class="meta-value">PS5 · XBOX SERIES X|S</div></div>
+        <div class="meta-item"><div class="meta-label" data-i18n="meta_setting">Escenario</div><div class="meta-value">LEONIDA</div></div>
+        <div class="meta-item"><div class="meta-label" data-i18n="meta_countdown">Cuenta regresiva</div><div class="meta-value cyan mono" id="cdInline">--d --h --m</div></div>
       </div>
     </div>
   </div>
+</div>
+
+<!-- AD — Leaderboard bajo hero -->
+<div class="wrap">
+  <div class="ad-slot ad-slot-leaderboard"><!-- 728×90 · AdSense / tu red publicitaria --></div>
 </div>
 
 <!-- NAV -->
@@ -388,16 +302,18 @@
 
   <!-- TAB RESUMEN -->
   <section class="panel-section active" id="panel-resumen">
-    <div class="banner banner-official">
-      <div class="banner-icon">✓</div>
-      <div data-i18n="banner_resumen">Todo en esta sección proviene de comunicados oficiales de <b>Rockstar Games</b> y <b>Take-Two Interactive</b>. Se actualiza a medida que se confirma más información.</div>
-    </div>
+    <div class="banner banner-official"><div class="banner-icon">✓</div><div data-i18n="banner_resumen">Todo en esta sección proviene de comunicados oficiales de <b>Rockstar Games</b> y <b>Take-Two Interactive</b>. Se actualiza a medida que se confirma más información.</div></div>
+
     <div class="fact-strip">
       <div class="fact"><div class="fact-label" data-i18n="meta_launch">Lanzamiento</div><div class="fact-value">19 nov 2026</div></div>
       <div class="fact"><div class="fact-label" data-i18n="meta_platforms">Plataformas</div><div class="fact-value">PS5 · Xbox Series X/S</div></div>
       <div class="fact"><div class="fact-label" data-i18n="meta_setting">Escenario</div><div class="fact-value" data-i18n="fact_leonida_val">Leonida (Florida ficticia)</div></div>
       <div class="fact"><div class="fact-label" data-i18n="fact_main_city">Ciudad principal</div><div class="fact-value">Vice City</div></div>
     </div>
+
+    <!-- AD rectangular mid-content -->
+    <div class="ad-slot ad-slot-rectangle"><!-- 336×280 · AdSense / tu red publicitaria --></div>
+
     <div class="section-eyebrow" data-i18n="eyebrow_protag">Protagonistas</div>
     <h2 class="section-title" data-i18n="title_protag">Lucia &amp; Jason</h2>
     <p class="section-desc" data-i18n="desc_protag">Primera pareja protagonista de la saga — Lucia es además la primera protagonista femenina principal y no opcional de la franquicia.</p>
@@ -411,41 +327,108 @@
         <div class="protag-desc" data-i18n="desc_jason">Pareja sentimental y criminal de Lucia. Juntos forman el dúo central de la historia, que mezcla momentos amorosos con la vida criminal de Leonida.</div>
       </div>
     </div>
+
     <div class="section-eyebrow" data-i18n="eyebrow_cronologia">Cronología</div>
     <h2 class="section-title" data-i18n="title_timeline">Línea de tiempo confirmada</h2>
+
     <div class="timeline">
-      <div class="tl-item"><div class="tl-date">DIC 2023</div><div class="tl-title" data-i18n="tl1_title">Primer tráiler</div><div class="tl-body" data-i18n="tl1_body">Revelado tras una filtración previa que adelantó el anuncio oficial.</div></div>
-      <div class="tl-item"><div class="tl-date">MAY 2025</div><div class="tl-title" data-i18n="tl2_title">Segundo tráiler</div><div class="tl-body" data-i18n="tl2_body">Se confirman Lucia y Jason y se publican 70 capturas del mundo de Leonida.</div></div>
-      <div class="tl-item"><div class="tl-date">NOV 2025</div><div class="tl-title" data-i18n="tl3_title">Segundo retraso</div><div class="tl-body" data-i18n="tl3_body">La fecha se mueve de mayo a 19 de noviembre de 2026.</div></div>
-      <div class="tl-item"><div class="tl-date">JUN 2026</div><div class="tl-title" data-i18n="tl4_title">Portada oficial</div><div class="tl-body" data-i18n="tl4_body">Rockstar revela la portada del juego. Reservas abren el 25 de junio.</div></div>
-      <div class="tl-item"><div class="tl-date" data-i18n="tl5_date">VERANO 2026</div><div class="tl-title" data-i18n="tl5_title">Arranque de marketing</div><div class="tl-body" data-i18n="tl5_body">Campaña completa y pre-pedidos tras el Mundial. Tercer tráiler esperado.</div></div>
-      <div class="tl-item"><div class="tl-date">19 NOV 2026</div><div class="tl-title" data-i18n="tl6_title">Lanzamiento</div><div class="tl-body" data-i18n="tl6_body">Fecha de salida en consolas. Sin fecha de PC anunciada todavía.</div></div>
+
+      <!-- DIC 2023 — Primer tráiler -->
+      <div class="tl-item">
+        <div class="tl-date">DIC 2023</div>
+        <div class="tl-title" data-i18n="tl1_title">Primer tráiler</div>
+        <div class="tl-body" data-i18n="tl1_body">Revelado tras una filtración previa que adelantó el anuncio oficial. El mundo recibió la primera mirada oficial a Leonida y sus protagonistas.</div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/QdBZY2fkU-0?si=5j0RJSSA9hyqlfdr" title="GTA 6 — Tráiler 1 oficial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- MAY 2025 — Segundo tráiler -->
+      <div class="tl-item">
+        <div class="tl-date">MAY 2025</div>
+        <div class="tl-title" data-i18n="tl2_title">Segundo tráiler</div>
+        <div class="tl-body" data-i18n="tl2_body">Se confirman los nombres de Lucia Caminos y Jason Duval, y se publican 70 capturas del mundo de Leonida.</div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/VQRLujxTm3c?si=pvqxzIFSrZAKlG5H" title="GTA 6 — Tráiler 2 oficial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- NOV 2025 — Retraso -->
+      <div class="tl-item">
+        <div class="tl-date">NOV 2025</div>
+        <div class="tl-title" data-i18n="tl3_title">Segundo retraso</div>
+        <div class="tl-body" data-i18n="tl3_body">La fecha se mueve de mayo a 19 de noviembre de 2026.</div>
+      </div>
+
+      <!-- JUN 2026 — Portada oficial -->
+      <div class="tl-item">
+        <div class="tl-date">JUN 2026</div>
+        <div class="tl-title" data-i18n="tl4_title">Portada oficial</div>
+        <div class="tl-body" data-i18n="tl4_body">Rockstar revela el arte de portada oficial de GTA 6 en un teaser de 30 segundos.</div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/EiQEBYDox_k?si=XCppYKRAEZ0R9NFF" title="GTA 6 — Portada oficial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <!-- JUN 2026 — Preventa + precios -->
+      <div class="tl-item">
+        <div class="tl-date">25 JUN 2026</div>
+        <div class="tl-title" data-i18n="tl5_title">Inicio de preventas</div>
+        <div class="tl-body" data-i18n="tl5_body">Reservas abiertas en tiendas digitales y minoristas seleccionados. Precios confirmados por Rockstar / Take-Two:</div>
+        <div class="tl-prices">
+          <div class="price-tag">
+            <div class="price-edition" data-i18n="price_standard_label">Edición Estándar</div>
+            <div class="price-amount">$80 <span>USD</span></div>
+          </div>
+          <div class="price-tag">
+            <div class="price-edition" data-i18n="price_ultimate_label">Edición Ultimate</div>
+            <div class="price-amount">$100 <span>USD</span></div>
+          </div>
+        </div>
+      </div>
+
+      
+
+      <!-- 19 NOV 2026 — Lanzamiento -->
+      <div class="tl-item">
+        <div class="tl-date">19 NOV 2026</div>
+        <div class="tl-title" data-i18n="tl7_title">Lanzamiento</div>
+        <div class="tl-body" data-i18n="tl7_body">Fecha de salida en consolas. Sin fecha de PC anunciada todavía.</div>
+      </div>
+
     </div>
+
+    <!-- AD banner fin de sección -->
+    <div class="ad-slot ad-slot-banner" style="margin-top:32px;"><!-- 728×60 · AdSense / tu red publicitaria --></div>
   </section>
 
   <!-- TAB NOTICIAS -->
   <section class="panel-section" id="panel-noticias">
-    <div class="banner banner-official"><div class="banner-icon">✓</div><div data-i18n="banner_noticias">Cobertura basada en comunicados de Rockstar Games / Take-Two y reportes de medios verificados. Cada nota indica su fuente.</div></div>
+    <div class="banner banner-official"><div class="banner-icon">✓</div><div data-i18n="banner_noticias">Cobertura basada en comunicados de Rockstar Games / Take-Two y reportes de medios verificados.</div></div>
     <div class="section-eyebrow" data-i18n="eyebrow_noticias">Última hora</div>
     <h2 class="section-title" data-i18n="title_noticias">Noticias de GTA 6</h2>
     <p class="section-desc" data-i18n="desc_noticias">Actualizaciones recientes sobre Grand Theft Auto VI, en orden cronológico.</p>
+
+    <!-- AD en noticias -->
+    <div class="ad-slot ad-slot-leaderboard"><!-- 728×90 · AdSense --></div>
+
     <div class="news-list">
       <article class="news-card news-featured">
-        <div class="news-meta"><span class="news-date mono">20 JUN 2026</span><span class="pill pill-confirmed" data-i18n="pill_confirmado">confirmado</span></div>
+        <div class="news-meta"><span class="news-date mono">25 JUN 2026</span><span class="pill pill-confirmed" data-i18n="pill_confirmado">confirmado</span></div>
         <h3 class="news-title" data-i18n="news1_title">Las reservas de GTA 6 abren el 25 de junio</h3>
-        <p class="news-body" data-i18n="news1_body">Rockstar confirmó que las reservas de Grand Theft Auto VI comienzan el 25 de junio en tiendas digitales y minoristas seleccionados, junto con la revelación de la portada oficial del juego. La fecha de lanzamiento del 19 de noviembre de 2026 se mantiene sin cambios.</p>
+        <p class="news-body" data-i18n="news1_body">Rockstar confirmó que las reservas de Grand Theft Auto VI comienzan el 25 de junio. Edición Estándar a $80 USD, Edición Ultimate a $100 USD. La fecha de lanzamiento del 19 de noviembre de 2026 se mantiene sin cambios.</p>
         <div class="news-source mono" data-i18n="news1_source">FUENTE: Rockstar Games · IBTimes · GamesRadar+</div>
       </article>
       <article class="news-card">
         <div class="news-meta"><span class="news-date mono">20 JUN 2026</span><span class="pill pill-vacio" data-i18n="pill_analisis">análisis</span></div>
-        <h3 class="news-title" data-i18n="news2_title">¿Cuánto costará GTA 6? Los analistas dudan del precio de $100</h3>
-        <p class="news-body" data-i18n="news2_body">El analista James Heaney (Jefferies) considera poco probable una edición base de $100, y apunta a un precio más cercano a $70-80 antes de la apertura de reservas. Take-Two no ha confirmado el precio oficial todavía.</p>
+        <h3 class="news-title" data-i18n="news2_title">¿Cuánto costará GTA 6? Analistas y precios confirmados</h3>
+        <p class="news-body" data-i18n="news2_body">Tras rumores de $100 para la base, Take-Two confirmó $80 para la edición estándar y $100 para la Ultimate. El analista James Heaney (Jefferies) había anticipado el rango de $70-80 para la edición base.</p>
         <div class="news-source mono" data-i18n="news2_source">FUENTE: GTA BOOM · GamesRadar+</div>
       </article>
       <article class="news-card">
         <div class="news-meta"><span class="news-date mono">19 JUN 2026</span><span class="pill pill-confirmed" data-i18n="pill_confirmado">confirmado</span></div>
         <h3 class="news-title" data-i18n="news3_title">GTA 6 no llegará a Nintendo Switch 2</h3>
-        <p class="news-body" data-i18n="news3_body">Rockstar Games confirmó que PlayStation 5 y Xbox Series X/S son las únicas plataformas de lanzamiento. No hay versión planeada para Nintendo Switch 2 ni anuncio de fecha para PC.</p>
+        <p class="news-body" data-i18n="news3_body">Rockstar Games confirmó que PlayStation 5 y Xbox Series X/S son las únicas plataformas de lanzamiento. Sin versión para Switch 2 ni fecha de PC.</p>
         <div class="news-source mono" data-i18n="news3_source">FUENTE: GTA BOOM</div>
       </article>
       <article class="news-card">
@@ -457,7 +440,7 @@
       <article class="news-card">
         <div class="news-meta"><span class="news-date mono">JUN 2026</span><span class="pill pill-vacio" data-i18n="pill_contexto">contexto</span></div>
         <h3 class="news-title" data-i18n="news5_title">El camino hasta aquí: de la primera filtración al lanzamiento</h3>
-        <p class="news-body" data-i18n="news5_body">Rockstar confirmó el desarrollo del juego en febrero de 2022. Tras una filtración masiva en septiembre de ese año, el primer tráiler oficial llegó en diciembre de 2023. El segundo tráiler, en mayo de 2025, confirmó a Lucia y Jason. Dos retrasos después, la fecha quedó fijada en el 19 de noviembre de 2026.</p>
+        <p class="news-body" data-i18n="news5_body">Rockstar confirmó el desarrollo en febrero de 2022. Filtración masiva en septiembre, primer tráiler en diciembre de 2023, segundo en mayo de 2025. Dos retrasos después, el lanzamiento queda fijado para el 19 de noviembre de 2026.</p>
         <div class="news-source mono" data-i18n="news5_source">FUENTE: Wikipedia · Rockstar Games</div>
       </article>
     </div>
@@ -476,13 +459,15 @@
         <div class="empty-state">
           <div class="empty-icon">◎</div>
           <div class="empty-title" data-i18n="map_empty_title">Pendiente de señal oficial</div>
-          <div class="empty-body" data-i18n="map_empty_body">Cuando Rockstar publique el mapa, este radar mostrará Vice City y el resto de Leonida con puntos de interés clicables: misiones, tiendas, actividades y coleccionables.</div>
+          <div class="empty-body" data-i18n="map_empty_body">Cuando Rockstar publique el mapa, este radar mostrará Vice City y el resto de Leonida con puntos de interés clicables.</div>
         </div>
       </div>
     </div>
+    <!-- AD mapa -->
+    <div class="ad-slot ad-slot-rectangle"><!-- 336×280 --></div>
     <div class="section-eyebrow" data-i18n="eyebrow_zonas">Zonas confirmadas</div>
     <h2 class="section-title" data-i18n="title_zonas">Lo que ya se ha mostrado</h2>
-    <p class="section-desc" data-i18n="desc_zonas">Solo lo que Rockstar ha mostrado directamente en tráilers y capturas oficiales — sin detalle interno de puntos de interés todavía.</p>
+    <p class="section-desc" data-i18n="desc_zonas">Solo lo que Rockstar ha mostrado directamente en tráilers y capturas oficiales.</p>
     <div class="loc-list">
       <div class="loc-row"><div class="loc-dot"></div><div class="loc-name">Vice City</div><div class="loc-note" data-i18n="loc_vicecity_note">Ciudad principal, inspirada en Miami</div></div>
       <div class="loc-row"><div class="loc-dot"></div><div class="loc-name" data-i18n="loc_leonida_name">Leonida (estado)</div><div class="loc-note" data-i18n="loc_leonida_note">Ambientación general inspirada en Florida</div></div>
@@ -491,15 +476,17 @@
 
   <!-- TAB GUIAS -->
   <section class="panel-section" id="panel-guias">
-    <div class="banner banner-official"><div class="banner-icon">○</div><div data-i18n="banner_guias">Rockstar no ha detallado mecánicas de misiones secundarias ni actividades todavía. Estas tarjetas son <b>plantillas vacías por categoría</b>, listas para llenarse con guías reales el día del lanzamiento.</div></div>
+    <div class="banner banner-official"><div class="banner-icon">○</div><div data-i18n="banner_guias">Rockstar no ha detallado mecánicas todavía. Estas tarjetas son <b>plantillas vacías por categoría</b>, listas para el día del lanzamiento.</div></div>
     <div class="section-eyebrow" data-i18n="eyebrow_plantilla">Plantilla</div>
     <h2 class="section-title" data-i18n="title_categorias">Categorías de actividad</h2>
-    <p class="section-desc" data-i18n="desc_categorias">Basadas en categorías típicas de la saga GTA. Se actualizarán con nombres y mecánicas reales cuando se confirmen.</p>
+    <p class="section-desc" data-i18n="desc_categorias">Basadas en categorías típicas de la saga GTA.</p>
+    <!-- AD guias -->
+    <div class="ad-slot ad-slot-leaderboard"><!-- 728×90 --></div>
     <div class="grid grid-3" style="margin-bottom:34px;">
       <div class="activity-card"><div class="activity-head"><div class="activity-icon">🎯</div><div><div class="activity-title" data-i18n="act1_title">Misión principal</div><div class="activity-meta" data-i18n="act1_meta">CAPÍTULOS — 0/?</div></div></div><div class="activity-fill" data-i18n="act1_fill">Guía paso a paso pendiente de contenido oficial.</div></div>
       <div class="activity-card"><div class="activity-head"><div class="activity-icon">💰</div><div><div class="activity-title" data-i18n="act2_title">Golpes / heists</div><div class="activity-meta" data-i18n="act2_meta">EQUIPO — pendiente</div></div></div><div class="activity-fill" data-i18n="act2_fill">Mecánicas y composición de equipo aún no confirmadas.</div></div>
       <div class="activity-card"><div class="activity-head"><div class="activity-icon">🏁</div><div><div class="activity-title" data-i18n="act3_title">Carreras</div><div class="activity-meta" data-i18n="act3_meta">CIRCUITOS — pendiente</div></div></div><div class="activity-fill" data-i18n="act3_fill">Ubicación y tipos de carrera por confirmar.</div></div>
-      <div class="activity-card"><div class="activity-head"><div class="activity-icon">🦫</div><div><div class="activity-title" data-i18n="act4_title">Vida salvaje / Grassrivers</div><div class="activity-meta" data-i18n="act4_meta">CAZA, KAYAK — pendiente</div></div></div><div class="activity-fill" data-i18n="act4_fill">Posibles actividades al aire libre sugeridas por material promocional, sin mecánica confirmada.</div></div>
+      <div class="activity-card"><div class="activity-head"><div class="activity-icon">🦫</div><div><div class="activity-title" data-i18n="act4_title">Vida salvaje / Grassrivers</div><div class="activity-meta" data-i18n="act4_meta">CAZA, KAYAK — pendiente</div></div></div><div class="activity-fill" data-i18n="act4_fill">Posibles actividades al aire libre, sin mecánica confirmada.</div></div>
       <div class="activity-card"><div class="activity-head"><div class="activity-icon">🏠</div><div><div class="activity-title" data-i18n="act5_title">Propiedades</div><div class="activity-meta" data-i18n="act5_meta">COMPRAS — pendiente</div></div></div><div class="activity-fill" data-i18n="act5_fill">Sistema de propiedades y negocios sin detalles oficiales aún.</div></div>
       <div class="activity-card"><div class="activity-head"><div class="activity-icon">🎮</div><div><div class="activity-title" data-i18n="act6_title">Coleccionables</div><div class="activity-meta" data-i18n="act6_meta">TRACKER — pendiente</div></div></div><div class="activity-fill" data-i18n="act6_fill">Sin información sobre coleccionables tipo easter egg confirmada.</div></div>
     </div>
@@ -511,21 +498,21 @@
 
   <!-- TAB LEAKS -->
   <section class="panel-section" id="panel-leaks">
-    <div class="leak-disclaimer"><div class="ico">⚠</div><div class="leak-disclaimer-text" data-i18n="leak_disclaimer"><b>Todo lo de esta sección es especulación de la comunidad, no información oficial de Rockstar.</b> Proviene de proyectos de mapeo creados por fans (basados en tráilers, capturas y filtraciones previas), de imágenes circulando en foros, y de análisis de la comunidad. Varias filtraciones de "mapa completo" han sido identificadas como generadas por IA. Trátalo como entretenimiento, no como guía confiable.</div></div>
+    <div class="leak-disclaimer"><div class="ico">⚠</div><div class="leak-disclaimer-text" data-i18n="leak_disclaimer"><b>Todo lo de esta sección es especulación de la comunidad, no información oficial de Rockstar.</b> Proviene de proyectos de mapeo creados por fans. Varias filtraciones han sido identificadas como generadas por IA. Trátalo como entretenimiento.</div></div>
     <div class="section-eyebrow" data-i18n="eyebrow_sin_confirmar">Sin confirmar</div>
     <h2 class="section-title" data-i18n="title_regiones">Regiones filtradas</h2>
-    <p class="section-desc" data-i18n="desc_regiones">Cada tarjeta incluye un medidor de credibilidad según qué tan respaldada está la filtración por fuentes o material oficial indirecto.</p>
-
-    <div class="leak-card"><div class="leak-top"><div><div class="leak-name">Grassrivers</div><div class="leak-source mono" data-i18n="leak1_source">FUENTE: capturas oficiales del tráiler 2 + interpretación de la comunidad</div></div><span class="pill pill-vacio" data-i18n="pill_region">región</span></div><div class="leak-desc" data-i18n="leak1_desc">Inspirada en los Everglades de Florida. Aparece en material oficial, pero las actividades específicas (carreras, caza, kayak) son interpretación de la comunidad sobre lo mostrado en pantalla, no confirmación de mecánicas.</div><div class="confidence-meter conf-alta"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_alta_oficial">Alta — visible en material oficial</div></div></div>
-    <div class="leak-card"><div class="leak-top"><div><div class="leak-name">Ambrosia</div><div class="leak-source mono" data-i18n="leak2_source">FUENTE: capturas oficiales del tráiler 2</div></div><span class="pill pill-vacio" data-i18n="pill_region">región</span></div><div class="leak-desc" data-i18n="leak2_desc">Centro agroindustrial de Leonida, con una refinería de azúcar como eje económico. Inspirada en Clewiston, Florida. La presencia de una pandilla motera controlando la zona es interpretación de fans.</div><div class="confidence-meter conf-alta"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_alta_oficial">Alta — visible en material oficial</div></div></div>
-    <div class="leak-card"><div class="leak-top"><div><div class="leak-name">Mount Kalaga</div><div class="leak-source mono" data-i18n="leak3_source">FUENTE: proyecto de mapeo comunitario</div></div><span class="pill pill-vacio" data-i18n="pill_region">región</span></div><div class="leak-desc" data-i18n="leak3_desc">Supuesto parque nacional montañoso al norte de Leonida. Proviene de un leak de 2022 combinado con el proyecto de mapeo de la comunidad, no de material oficial reciente.</div><div class="confidence-meter conf-media"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_media1">Media — leak 2022 + reconstrucción fan</div></div></div>
-    <div class="leak-card"><div class="leak-top"><div><div class="leak-name">Leonida Keys</div><div class="leak-source mono" data-i18n="leak4_source">FUENTE: tráilers oficiales + mapeo comunitario</div></div><span class="pill pill-vacio" data-i18n="pill_region">región</span></div><div class="leak-desc" data-i18n="leak4_desc">Cadena de islas conectadas por puentes, equivalente ficticio de los Cayos de Florida. Sugerida en tráilers oficiales; extensión y contenido jugable son especulación.</div><div class="confidence-meter conf-alta"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_alta_sugerida">Alta — sugerida en material oficial</div></div></div>
-    <div class="leak-card"><div class="leak-top"><div><div class="leak-name">Port Gellhorn</div><div class="leak-source mono" data-i18n="leak5_source">FUENTE: proyecto de mapeo comunitario</div></div><span class="pill pill-vacio" data-i18n="pill_region">región</span></div><div class="leak-desc" data-i18n="leak5_desc">Supuesta zona portuaria/industrial al estilo de misiones de muelle clásicas de la saga. Sin confirmación visual oficial directa; nombre y rol vienen de reconstrucciones de fans.</div><div class="confidence-meter conf-baja"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_baja_sinconfirmar">Baja — sin confirmar</div></div></div>
-    <div class="leak-card"><div class="leak-top"><div><div class="leak-name" data-i18n="leak6_name">"Mapa completo" viral (abr-may 2026)</div><div class="leak-source mono" data-i18n="leak6_source">FUENTE: imagen viral sin verificar</div></div><span class="pill pill-vacio" data-i18n="pill_desmentido">desmentido parcial</span></div><div class="leak-desc" data-i18n="leak6_desc">Varias imágenes de "mapa completo" circularon en foros y fueron señaladas por la propia comunidad de mapeo como generadas por IA, con inconsistencias claras en el trazado de carreteras.</div><div class="confidence-meter conf-baja"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_baja_ia">Baja — posible IA</div></div></div>
-
+    <p class="section-desc" data-i18n="desc_regiones">Cada tarjeta incluye un medidor de credibilidad.</p>
+    <!-- AD leaks -->
+    <div class="ad-slot ad-slot-leaderboard"><!-- 728×90 --></div>
+    <div class="leak-card"><div class="leak-top"><div><div class="leak-name">Grassrivers</div><div class="leak-source mono" data-i18n="leak1_source">FUENTE: capturas oficiales del tráiler 2 + comunidad</div></div><span class="pill pill-vacio" data-i18n="pill_region">región</span></div><div class="leak-desc" data-i18n="leak1_desc">Inspirada en los Everglades de Florida. Las actividades específicas son interpretación de la comunidad.</div><div class="confidence-meter conf-alta"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_alta_oficial">Alta — visible en material oficial</div></div></div>
+    <div class="leak-card"><div class="leak-top"><div><div class="leak-name">Ambrosia</div><div class="leak-source mono" data-i18n="leak2_source">FUENTE: capturas oficiales del tráiler 2</div></div><span class="pill pill-vacio" data-i18n="pill_region">región</span></div><div class="leak-desc" data-i18n="leak2_desc">Centro agroindustrial de Leonida, con una refinería de azúcar como eje económico. Inspirada en Clewiston, Florida.</div><div class="confidence-meter conf-alta"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_alta_oficial">Alta — visible en material oficial</div></div></div>
+    <div class="leak-card"><div class="leak-top"><div><div class="leak-name">Mount Kalaga</div><div class="leak-source mono" data-i18n="leak3_source">FUENTE: proyecto de mapeo comunitario</div></div><span class="pill pill-vacio" data-i18n="pill_region">región</span></div><div class="leak-desc" data-i18n="leak3_desc">Supuesto parque nacional montañoso al norte de Leonida. Proviene de un leak de 2022.</div><div class="confidence-meter conf-media"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_media1">Media — leak 2022 + reconstrucción fan</div></div></div>
+    <div class="leak-card"><div class="leak-top"><div><div class="leak-name">Leonida Keys</div><div class="leak-source mono" data-i18n="leak4_source">FUENTE: tráilers oficiales + mapeo comunitario</div></div><span class="pill pill-vacio" data-i18n="pill_region">región</span></div><div class="leak-desc" data-i18n="leak4_desc">Cadena de islas conectadas por puentes, equivalente ficticio de los Cayos de Florida.</div><div class="confidence-meter conf-alta"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_alta_sugerida">Alta — sugerida en material oficial</div></div></div>
+    <div class="leak-card"><div class="leak-top"><div><div class="leak-name">Port Gellhorn</div><div class="leak-source mono" data-i18n="leak5_source">FUENTE: proyecto de mapeo comunitario</div></div><span class="pill pill-vacio" data-i18n="pill_region">región</span></div><div class="leak-desc" data-i18n="leak5_desc">Supuesta zona portuaria/industrial. Sin confirmación visual oficial directa.</div><div class="confidence-meter conf-baja"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_baja_sinconfirmar">Baja — sin confirmar</div></div></div>
+    <div class="leak-card"><div class="leak-top"><div><div class="leak-name" data-i18n="leak6_name">"Mapa completo" viral (abr-may 2026)</div><div class="leak-source mono" data-i18n="leak6_source">FUENTE: imagen viral sin verificar</div></div><span class="pill pill-vacio" data-i18n="pill_desmentido">desmentido parcial</span></div><div class="leak-desc" data-i18n="leak6_desc">Varias imágenes señaladas por la comunidad como generadas por IA, con inconsistencias en el trazado de carreteras.</div><div class="confidence-meter conf-baja"><div class="meter-track"><div class="meter-fill"></div></div><div class="meter-label" data-i18n="conf_baja_ia">Baja — posible IA</div></div></div>
     <div class="grid grid-2" style="margin-top:30px;">
-      <div class="card"><div class="card-title"><span data-i18n="card_tamano_title">Tamaño estimado</span><span class="pill pill-vacio" data-i18n="pill_estimado">estimado</span></div><div class="card-body" data-i18n="card_tamano_body">Estimaciones de fans basadas en medición de tráilers sitúan el mapa entre un 70% y el doble del tamaño de Los Santos (GTA V). Cálculos no oficiales que varían según la fuente.</div></div>
-      <div class="card"><div class="card-title"><span data-i18n="card_puntos_title">Puntos mapeados</span><span class="pill pill-vacio" data-i18n="pill_estimado">estimado</span></div><div class="card-body" data-i18n="card_puntos_body">El proyecto de mapeo comunitario ha catalogado más de 1.400 ubicaciones especuladas combinando tráilers, leaks de 2022 y comparación con Florida real.</div></div>
+      <div class="card"><div class="card-title"><span data-i18n="card_tamano_title">Tamaño estimado</span><span class="pill pill-vacio" data-i18n="pill_estimado">estimado</span></div><div class="card-body" data-i18n="card_tamano_body">Estimaciones de fans sitúan el mapa entre un 70% y el doble del tamaño de Los Santos (GTA V).</div></div>
+      <div class="card"><div class="card-title"><span data-i18n="card_puntos_title">Puntos mapeados</span><span class="pill pill-vacio" data-i18n="pill_estimado">estimado</span></div><div class="card-body" data-i18n="card_puntos_body">El proyecto comunitario ha catalogado más de 1.400 ubicaciones especuladas.</div></div>
     </div>
   </section>
 
@@ -541,52 +528,30 @@
   <span class="tip-fab-icon">⛽</span>
   <span class="tip-fab-label" data-i18n="tip_fab_label">Apoyar el proyecto</span>
 </button>
-
 <div class="tip-overlay" id="tipOverlay">
   <div class="tip-panel" role="dialog" aria-modal="true">
     <button class="tip-close" id="tipCloseBtn" aria-label="Cerrar">✕</button>
     <div class="tip-eyebrow" data-i18n="tip_eyebrow">Tanque de combustible</div>
     <div class="tip-title" data-i18n="tip_title">Apoya GTA6 Radar</div>
-    <p class="tip-desc" data-i18n="tip_desc">Este proyecto es independiente y se mantiene <b>sin patrocinio de Rockstar Games</b>. Si te sirve el seguimiento, una propina ayuda a mantenerlo actualizado y sin ads invasivos.</p>
-    <div class="tip-qr-wrap">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Camponotus_flavomarginatus_ant.jpg/1200px-Camponotus_flavomarginatus_ant.jpg" alt="QR PayPal" style="width:160px;height:160px;object-fit:cover;border-radius:8px;" onerror="this.parentElement.innerHTML='<p style=\'color:#666;font-size:12px;text-align:center;\'>QR de PayPal<br>próximamente</p>'">
-    </div>
+    <p class="tip-desc" data-i18n="tip_desc">Este proyecto es independiente y se mantiene <b>sin patrocinio de Rockstar Games</b>. Si te sirve el seguimiento, una propina ayuda a mantenerlo actualizado.</p>
+    <div class="tip-qr-wrap"><div class="tip-qr-placeholder">QR PayPal<br>próximamente</div></div>
     <div class="tip-caption" data-i18n="tip_caption">Escanea con la cámara o la app de <b>PayPal</b></div>
   </div>
 </div>
 
 <script>
 // TABS
-const tabBtns = document.querySelectorAll('.blip-btn');
-const panels = document.querySelectorAll('.panel-section');
-tabBtns.forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    tabBtns.forEach(b=>b.classList.remove('active'));
-    panels.forEach(p=>p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
-    window.scrollTo({top:document.querySelector('.radar-nav').offsetTop-1,behavior:'smooth'});
-  });
-});
+const tabBtns=document.querySelectorAll('.blip-btn');
+const panels=document.querySelectorAll('.panel-section');
+tabBtns.forEach(btn=>{btn.addEventListener('click',()=>{tabBtns.forEach(b=>b.classList.remove('active'));panels.forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById('panel-'+btn.dataset.tab).classList.add('active');window.scrollTo({top:document.querySelector('.radar-nav').offsetTop-1,behavior:'smooth'});});});
 
 // CLOCK
-function tick(){
-  const now=new Date();
-  document.getElementById('liveClock').textContent=now.toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
-}
+function tick(){document.getElementById('liveClock').textContent=new Date().toLocaleTimeString('es-CO',{hour:'2-digit',minute:'2-digit',second:'2-digit'});}
 tick();setInterval(tick,1000);
 
 // COUNTDOWN
 const release=new Date('2026-11-19T00:00:00-05:00');
-function renderCountdown(){
-  const now=new Date();let diff=release-now;
-  const el=document.getElementById('cdInline');
-  if(diff<=0){el.textContent='¡LANZADO!';return;}
-  const d=Math.floor(diff/(1000*60*60*24));
-  const h=Math.floor((diff/(1000*60*60))%24);
-  const m=Math.floor((diff/(1000*60))%60);
-  el.textContent=`${d}d ${h}h ${m}m`;
-}
+function renderCountdown(){const now=new Date();let diff=release-now;const el=document.getElementById('cdInline');if(diff<=0){el.textContent='¡LANZADO!';return;}const d=Math.floor(diff/(86400000));const h=Math.floor((diff/3600000)%24);const m=Math.floor((diff/60000)%60);el.textContent=`${d}d ${h}h ${m}m`;}
 renderCountdown();setInterval(renderCountdown,30000);
 
 // TIP
@@ -606,58 +571,59 @@ const i18n={
     meta_launch:"Lanzamiento",meta_platforms:"Plataformas",meta_setting:"Escenario",meta_countdown:"Cuenta regresiva",
     nav_resumen:"Resumen",nav_noticias:"Noticias",nav_mapa:"Mapa & puntos de interés",nav_guias:"Guías & actividades",nav_leaks:"Leaks & especulación",
     tag_oficial:"oficial",tag_no_oficial:"no oficial",
-    banner_noticias:"Cobertura basada en comunicados de Rockstar Games / Take-Two y reportes de medios verificados. Cada nota indica su fuente.",
+    banner_noticias:"Cobertura basada en comunicados de Rockstar Games / Take-Two y reportes de medios verificados.",
     eyebrow_noticias:"Última hora",title_noticias:"Noticias de GTA 6",desc_noticias:"Actualizaciones recientes sobre Grand Theft Auto VI, en orden cronológico.",
     pill_confirmado:"confirmado",pill_analisis:"análisis",pill_contexto:"contexto",
-    news1_title:"Las reservas de GTA 6 abren el 25 de junio",news1_body:"Rockstar confirmó que las reservas de Grand Theft Auto VI comienzan el 25 de junio en tiendas digitales y minoristas seleccionados, junto con la revelación de la portada oficial del juego. La fecha de lanzamiento del 19 de noviembre de 2026 se mantiene sin cambios.",news1_source:"FUENTE: Rockstar Games · IBTimes · GamesRadar+",
-    news2_title:"¿Cuánto costará GTA 6? Los analistas dudan del precio de $100",news2_body:"El analista James Heaney (Jefferies) considera poco probable una edición base de $100, y apunta a un precio más cercano a $70-80 antes de la apertura de reservas. Take-Two no ha confirmado el precio oficial todavía.",news2_source:"FUENTE: GTA BOOM · GamesRadar+",
-    news3_title:"GTA 6 no llegará a Nintendo Switch 2",news3_body:"Rockstar Games confirmó que PlayStation 5 y Xbox Series X/S son las únicas plataformas de lanzamiento. No hay versión planeada para Nintendo Switch 2 ni anuncio de fecha para PC.",news3_source:"FUENTE: GTA BOOM",
-    news4_title:"Rockstar revela la portada oficial del juego",news4_body:"En un teaser de 30 segundos publicado en YouTube, Rockstar mostró por primera vez el arte de portada oficial de GTA 6, coincidiendo con el anuncio de la fecha de reservas.",news4_source:"FUENTE: Rockstar Games · WBRC",
-    news5_title:"El camino hasta aquí: de la primera filtración al lanzamiento",news5_body:"Rockstar confirmó el desarrollo del juego en febrero de 2022. Tras una filtración masiva en septiembre de ese año, el primer tráiler oficial llegó en diciembre de 2023. El segundo tráiler, en mayo de 2025, confirmó a Lucia y Jason. Dos retrasos después, la fecha quedó fijada en el 19 de noviembre de 2026.",news5_source:"FUENTE: Wikipedia · Rockstar Games",
+    news1_title:"Las reservas de GTA 6 abren el 25 de junio",news1_body:"Rockstar confirmó que las reservas de Grand Theft Auto VI comienzan el 25 de junio. Edición Estándar a $80 USD, Edición Ultimate a $100 USD. La fecha de lanzamiento del 19 de noviembre de 2026 se mantiene sin cambios.",news1_source:"FUENTE: Rockstar Games · IBTimes · GamesRadar+",
+    news2_title:"¿Cuánto costará GTA 6? Analistas y precios confirmados",news2_body:"Tras rumores de $100 para la base, Take-Two confirmó $80 para la edición estándar y $100 para la Ultimate. El analista James Heaney (Jefferies) había anticipado el rango de $70-80 para la edición base.",news2_source:"FUENTE: GTA BOOM · GamesRadar+",
+    news3_title:"GTA 6 no llegará a Nintendo Switch 2",news3_body:"Rockstar confirmó PS5 y Xbox Series X/S como únicas plataformas de lanzamiento. Sin versión para Switch 2 ni fecha de PC.",news3_source:"FUENTE: GTA BOOM",
+    news4_title:"Rockstar revela la portada oficial del juego",news4_body:"En un teaser de 30 segundos en YouTube, Rockstar mostró por primera vez el arte de portada oficial de GTA 6.",news4_source:"FUENTE: Rockstar Games · WBRC",
+    news5_title:"El camino hasta aquí: de la primera filtración al lanzamiento",news5_body:"Rockstar confirmó el desarrollo en febrero de 2022. Filtración masiva en septiembre, primer tráiler en diciembre de 2023, segundo en mayo de 2025. Dos retrasos después, lanzamiento fijado para el 19 de noviembre de 2026.",news5_source:"FUENTE: Wikipedia · Rockstar Games",
     banner_resumen:'Todo en esta sección proviene de comunicados oficiales de <b>Rockstar Games</b> y <b>Take-Two Interactive</b>. Se actualiza a medida que se confirma más información.',
     fact_leonida_val:"Leonida (Florida ficticia)",fact_main_city:"Ciudad principal",
     eyebrow_protag:"Protagonistas",title_protag:"Lucia &amp; Jason",desc_protag:"Primera pareja protagonista de la saga — Lucia es además la primera protagonista femenina principal y no opcional de la franquicia.",
     desc_lucia:"Recién salida de la prisión estatal de Leonida. Su padre le enseñó a pelear desde pequeña; está decidida a cambiar las tornas a su favor cueste lo que cueste.",
     desc_jason:"Pareja sentimental y criminal de Lucia. Juntos forman el dúo central de la historia, que mezcla momentos amorosos con la vida criminal de Leonida.",
     eyebrow_cronologia:"Cronología",title_timeline:"Línea de tiempo confirmada",
-    tl1_title:"Primer tráiler",tl1_body:"Revelado tras una filtración previa que adelantó el anuncio oficial.",
-    tl2_title:"Segundo tráiler",tl2_body:"Se confirman Lucia y Jason y se publican 70 capturas del mundo de Leonida.",
+    tl1_title:"Primer tráiler",tl1_body:"Revelado tras una filtración previa que adelantó el anuncio oficial. El mundo recibió la primera mirada oficial a Leonida y sus protagonistas.",
+    tl2_title:"Segundo tráiler",tl2_body:"Se confirman los nombres de Lucia Caminos y Jason Duval, y se publican 70 capturas del mundo de Leonida.",
     tl3_title:"Segundo retraso",tl3_body:"La fecha se mueve de mayo a 19 de noviembre de 2026.",
-    tl4_title:"Portada oficial",tl4_body:"Rockstar revela la portada del juego. Reservas abren el 25 de junio.",
-    tl5_date:"VERANO 2026",tl5_title:"Arranque de marketing",tl5_body:"Campaña completa y pre-pedidos tras el Mundial. Tercer tráiler esperado.",
-    tl6_title:"Lanzamiento",tl6_body:"Fecha de salida en consolas. Sin fecha de PC anunciada todavía.",
+    tl4_title:"Portada oficial",tl4_body:"Rockstar revela el arte de portada oficial de GTA 6 en un teaser de 30 segundos.",
+    tl5_title:"Inicio de preventas",tl5_body:"Reservas abiertas en tiendas digitales y minoristas seleccionados. Precios confirmados por Rockstar / Take-Two:",
+    price_standard_label:"Edición Estándar",price_ultimate_label:"Edición Ultimate",
+    tl7_title:"Lanzamiento",tl7_body:"Fecha de salida en consolas. Sin fecha de PC anunciada todavía.",
     banner_mapa:'Rockstar <b>no ha publicado el mapa completo</b> de Leonida todavía. Esta sección es una plantilla lista para llenarse con el mapa oficial y los puntos de interés confirmados apenas se publiquen.',
     eyebrow_cartografia:"Cartografía",title_mapa:"Mapa interactivo de Leonida",
-    map_empty_title:"Pendiente de señal oficial",map_empty_body:"Cuando Rockstar publique el mapa, este radar mostrará Vice City y el resto de Leonida con puntos de interés clicables: misiones, tiendas, actividades y coleccionables.",
-    eyebrow_zonas:"Zonas confirmadas",title_zonas:"Lo que ya se ha mostrado",desc_zonas:"Solo lo que Rockstar ha mostrado directamente en tráilers y capturas oficiales — sin detalle interno de puntos de interés todavía.",
+    map_empty_title:"Pendiente de señal oficial",map_empty_body:"Cuando Rockstar publique el mapa, este radar mostrará Vice City y el resto de Leonida con puntos de interés clicables.",
+    eyebrow_zonas:"Zonas confirmadas",title_zonas:"Lo que ya se ha mostrado",desc_zonas:"Solo lo que Rockstar ha mostrado directamente en tráilers y capturas oficiales.",
     loc_vicecity_note:"Ciudad principal, inspirada en Miami",loc_leonida_name:"Leonida (estado)",loc_leonida_note:"Ambientación general inspirada en Florida",
-    banner_guias:'Rockstar no ha detallado mecánicas de misiones secundarias ni actividades todavía. Estas tarjetas son <b>plantillas vacías por categoría</b>, listas para llenarse con guías reales el día del lanzamiento.',
-    eyebrow_plantilla:"Plantilla",title_categorias:"Categorías de actividad",desc_categorias:"Basadas en categorías típicas de la saga GTA. Se actualizarán con nombres y mecánicas reales cuando se confirmen.",
+    banner_guias:'Rockstar no ha detallado mecánicas todavía. Estas tarjetas son <b>plantillas vacías por categoría</b>, listas para el día del lanzamiento.',
+    eyebrow_plantilla:"Plantilla",title_categorias:"Categorías de actividad",desc_categorias:"Basadas en categorías típicas de la saga GTA.",
     act1_title:"Misión principal",act1_meta:"CAPÍTULOS — 0/?",act1_fill:"Guía paso a paso pendiente de contenido oficial.",
     act2_title:"Golpes / heists",act2_meta:"EQUIPO — pendiente",act2_fill:"Mecánicas y composición de equipo aún no confirmadas.",
     act3_title:"Carreras",act3_meta:"CIRCUITOS — pendiente",act3_fill:"Ubicación y tipos de carrera por confirmar.",
-    act4_title:"Vida salvaje / Grassrivers",act4_meta:"CAZA, KAYAK — pendiente",act4_fill:"Posibles actividades al aire libre sugeridas por material promocional, sin mecánica confirmada.",
+    act4_title:"Vida salvaje / Grassrivers",act4_meta:"CAZA, KAYAK — pendiente",act4_fill:"Posibles actividades al aire libre, sin mecánica confirmada.",
     act5_title:"Propiedades",act5_meta:"COMPRAS — pendiente",act5_fill:"Sistema de propiedades y negocios sin detalles oficiales aún.",
     act6_title:"Coleccionables",act6_meta:"TRACKER — pendiente",act6_fill:"Sin información sobre coleccionables tipo easter egg confirmada.",
     eyebrow_pendiente:"Tu pendiente",title_checklist:"Checklist de lanzamiento",desc_checklist:"Esto sí lo puedes usar ya — pendientes tuyos antes del 19 de noviembre. Haz clic para marcar.",
-    leak_disclaimer:'<b>Todo lo de esta sección es especulación de la comunidad, no información oficial de Rockstar.</b> Proviene de proyectos de mapeo creados por fans (basados en tráilers, capturas y filtraciones previas), de imágenes circulando en foros, y de análisis de la comunidad. Varias filtraciones de "mapa completo" han sido identificadas como generadas por IA. Trátalo como entretenimiento, no como guía confiable.',
-    eyebrow_sin_confirmar:"Sin confirmar",title_regiones:"Regiones filtradas",desc_regiones:"Cada tarjeta incluye un medidor de credibilidad según qué tan respaldada está la filtración por fuentes o material oficial indirecto.",
+    leak_disclaimer:'<b>Todo lo de esta sección es especulación de la comunidad, no información oficial de Rockstar.</b> Proviene de proyectos de mapeo creados por fans. Varias filtraciones han sido identificadas como generadas por IA. Trátalo como entretenimiento.',
+    eyebrow_sin_confirmar:"Sin confirmar",title_regiones:"Regiones filtradas",desc_regiones:"Cada tarjeta incluye un medidor de credibilidad.",
     pill_region:"región",pill_desmentido:"desmentido parcial",pill_estimado:"estimado",
-    leak1_source:"FUENTE: capturas oficiales del tráiler 2 + interpretación de la comunidad",leak1_desc:"Inspirada en los Everglades de Florida. Aparece en material oficial, pero las actividades específicas (carreras, caza, kayak) son interpretación de la comunidad sobre lo mostrado en pantalla, no confirmación de mecánicas.",
-    leak2_source:"FUENTE: capturas oficiales del tráiler 2",leak2_desc:"Centro agroindustrial de Leonida, con una refinería de azúcar como eje económico. Inspirada en Clewiston, Florida. La presencia de una pandilla motera controlando la zona es interpretación de fans.",
-    leak3_source:"FUENTE: proyecto de mapeo comunitario",leak3_desc:"Supuesto parque nacional montañoso al norte de Leonida. Proviene de un leak de 2022 combinado con el proyecto de mapeo de la comunidad, no de material oficial reciente.",
-    leak4_source:"FUENTE: tráilers oficiales + mapeo comunitario",leak4_desc:"Cadena de islas conectadas por puentes, equivalente ficticio de los Cayos de Florida. Sugerida en tráilers oficiales; extensión y contenido jugable son especulación.",
-    leak5_source:"FUENTE: proyecto de mapeo comunitario",leak5_desc:"Supuesta zona portuaria/industrial al estilo de misiones de muelle clásicas de la saga. Sin confirmación visual oficial directa; nombre y rol vienen de reconstrucciones de fans.",
-    leak6_name:'"Mapa completo" viral (abr-may 2026)',leak6_source:"FUENTE: imagen viral sin verificar",leak6_desc:'Varias imágenes de "mapa completo" circularon en foros y fueron señaladas por la propia comunidad de mapeo como generadas por IA, con inconsistencias claras en el trazado de carreteras.',
+    leak1_source:"FUENTE: capturas oficiales del tráiler 2 + comunidad",leak1_desc:"Inspirada en los Everglades de Florida. Las actividades específicas son interpretación de la comunidad.",
+    leak2_source:"FUENTE: capturas oficiales del tráiler 2",leak2_desc:"Centro agroindustrial de Leonida, con una refinería de azúcar como eje económico. Inspirada en Clewiston, Florida.",
+    leak3_source:"FUENTE: proyecto de mapeo comunitario",leak3_desc:"Supuesto parque nacional montañoso al norte de Leonida. Proviene de un leak de 2022.",
+    leak4_source:"FUENTE: tráilers oficiales + mapeo comunitario",leak4_desc:"Cadena de islas conectadas por puentes, equivalente ficticio de los Cayos de Florida.",
+    leak5_source:"FUENTE: proyecto de mapeo comunitario",leak5_desc:"Supuesta zona portuaria/industrial. Sin confirmación visual oficial directa.",
+    leak6_name:'"Mapa completo" viral (abr-may 2026)',leak6_source:"FUENTE: imagen viral sin verificar",leak6_desc:'Varias imágenes señaladas por la comunidad como generadas por IA, con inconsistencias en el trazado de carreteras.',
     conf_alta_oficial:"Alta — visible en material oficial",conf_alta_sugerida:"Alta — sugerida en material oficial",conf_media1:"Media — leak 2022 + reconstrucción fan",conf_baja_sinconfirmar:"Baja — sin confirmar",conf_baja_ia:"Baja — posible IA",
-    card_tamano_title:"Tamaño estimado",card_tamano_body:"Estimaciones de fans basadas en medición de tráilers sitúan el mapa entre un 70% y el doble del tamaño de Los Santos (GTA V). Cálculos no oficiales que varían según la fuente.",
-    card_puntos_title:"Puntos mapeados",card_puntos_body:"El proyecto de mapeo comunitario ha catalogado más de 1.400 ubicaciones especuladas combinando tráilers, leaks de 2022 y comparación con Florida real.",
+    card_tamano_title:"Tamaño estimado",card_tamano_body:"Estimaciones de fans sitúan el mapa entre un 70% y el doble del tamaño de Los Santos (GTA V).",
+    card_puntos_title:"Puntos mapeados",card_puntos_body:"El proyecto comunitario ha catalogado más de 1.400 ubicaciones especuladas.",
     footer_text:"proyecto de seguimiento no oficial · datos confirmados vía Rockstar Games / Take-Two · leaks vía comunidad GTA6",
     tip_fab_label:"Apoyar el proyecto",tip_eyebrow:"Tanque de combustible",tip_title:"Apoya GTA6 Radar",
-    tip_desc:'Este proyecto es independiente y se mantiene <b>sin patrocinio de Rockstar Games</b>. Si te sirve el seguimiento, una propina ayuda a mantenerlo actualizado y sin ads invasivos.',
+    tip_desc:'Este proyecto es independiente y se mantiene <b>sin patrocinio de Rockstar Games</b>. Si te sirve el seguimiento, una propina ayuda a mantenerlo actualizado.',
     tip_caption:'Escanea con la cámara o la app de <b>PayPal</b>',
-    page_title:"GTA 6 Radar — Mapa, Guías y Leaks de Leonida",page_desc:"GTA 6 Radar: el centro de seguimiento de GTA VI. Fecha de lanzamiento, mapa de Leonida, guías de actividades y leaks verificados, todo en un solo lugar.",
-    checklist_items:["Confirmar plataforma (PS5 / Xbox Series X|S)","Activar reservas cuando abran (25 jun 2026 en adelante)","Revisar requisitos de almacenamiento al confirmarse","Decidir edición (estándar / especial / coleccionista)","Ver tráiler 3 cuando se publique","Liberar espacio en consola antes del 19 de noviembre","Pedir el día libre del lanzamiento 😏"]
+    page_title:"GTA 6 Radar — Mapa, Guías y Leaks de Leonida",page_desc:"GTA 6 Radar: el centro de seguimiento de GTA VI. Fecha de lanzamiento, mapa de Leonida, guías de actividades y leaks verificados.",
+    checklist_items:["Confirmar plataforma (PS5 / Xbox Series X|S)","Activar reservas (desde el 25 jun 2026)","Revisar requisitos de almacenamiento al confirmarse","Decidir edición — Estándar $80 o Ultimate $100","Ver tráiler 3 cuando se publique","Liberar espacio en consola antes del 19 de noviembre","Pedir el día libre del lanzamiento 😏"]
   },
   en:{
     topline:"LEONIDA STATE · UNOFFICIAL TRACKER",
@@ -665,58 +631,59 @@ const i18n={
     meta_launch:"Release date",meta_platforms:"Platforms",meta_setting:"Setting",meta_countdown:"Countdown",
     nav_resumen:"Overview",nav_noticias:"News",nav_mapa:"Map & points of interest",nav_guias:"Guides & activities",nav_leaks:"Leaks & speculation",
     tag_oficial:"official",tag_no_oficial:"unofficial",
-    banner_noticias:"Coverage based on official statements from Rockstar Games / Take-Two and verified media reports. Each story lists its source.",
+    banner_noticias:"Coverage based on official statements from Rockstar Games / Take-Two and verified media reports.",
     eyebrow_noticias:"Latest",title_noticias:"GTA 6 news",desc_noticias:"Recent updates on Grand Theft Auto VI, in chronological order.",
     pill_confirmado:"confirmed",pill_analisis:"analysis",pill_contexto:"context",
-    news1_title:"GTA 6 pre-orders open June 25",news1_body:"Rockstar confirmed that Grand Theft Auto VI pre-orders begin June 25 on digital storefronts and select retailers, alongside the reveal of the game's official cover art. The November 19, 2026 release date remains unchanged.",news1_source:"SOURCE: Rockstar Games · IBTimes · GamesRadar+",
-    news2_title:"How much will GTA 6 cost? Analysts doubt the $100 price tag",news2_body:"Analyst James Heaney (Jefferies) considers a $100 base edition unlikely, pointing to a price closer to $70-80 ahead of pre-orders opening. Take-Two has not confirmed official pricing yet.",news2_source:"SOURCE: GTA BOOM · GamesRadar+",
-    news3_title:"GTA 6 is not coming to Nintendo Switch 2",news3_body:"Rockstar Games confirmed PlayStation 5 and Xbox Series X/S as the only launch platforms. No version is planned for Nintendo Switch 2, and no PC release date has been announced.",news3_source:"SOURCE: GTA BOOM",
-    news4_title:"Rockstar reveals the game's official cover art",news4_body:"In a 30-second teaser posted on YouTube, Rockstar showed the official GTA 6 cover art for the first time, alongside the pre-order date announcement.",news4_source:"SOURCE: Rockstar Games · WBRC",
-    news5_title:"How we got here: from the first leak to launch",news5_body:"Rockstar confirmed the game was in development in February 2022. After a massive leak that September, the first official trailer arrived in December 2023. The second trailer, in May 2025, confirmed Lucia and Jason. After two delays, the date was set for November 19, 2026.",news5_source:"SOURCE: Wikipedia · Rockstar Games",
+    news1_title:"GTA 6 pre-orders open June 25",news1_body:"Rockstar confirmed pre-orders begin June 25. Standard Edition at $80 USD, Ultimate Edition at $100 USD. The November 19, 2026 release date remains unchanged.",news1_source:"SOURCE: Rockstar Games · IBTimes · GamesRadar+",
+    news2_title:"How much will GTA 6 cost? Confirmed prices",news2_body:"Take-Two confirmed $80 for the Standard Edition and $100 for the Ultimate Edition. Analyst James Heaney (Jefferies) had anticipated a $70-80 range for the base edition.",news2_source:"SOURCE: GTA BOOM · GamesRadar+",
+    news3_title:"GTA 6 is not coming to Nintendo Switch 2",news3_body:"Rockstar confirmed PS5 and Xbox Series X/S as the only launch platforms. No Switch 2 version or PC date announced.",news3_source:"SOURCE: GTA BOOM",
+    news4_title:"Rockstar reveals the game's official cover art",news4_body:"In a 30-second YouTube teaser, Rockstar showed the official GTA 6 cover art for the first time.",news4_source:"SOURCE: Rockstar Games · WBRC",
+    news5_title:"How we got here: from the first leak to launch",news5_body:"Rockstar confirmed development in February 2022. Massive leak that September, first trailer December 2023, second May 2025. After two delays, launch set for November 19, 2026.",news5_source:"SOURCE: Wikipedia · Rockstar Games",
     banner_resumen:'Everything in this section comes from official statements by <b>Rockstar Games</b> and <b>Take-Two Interactive</b>. Updated as more information is confirmed.',
     fact_leonida_val:"Leonida (fictional Florida)",fact_main_city:"Main city",
     eyebrow_protag:"Protagonists",title_protag:"Lucia &amp; Jason",desc_protag:"The series' first protagonist duo — Lucia is also the franchise's first leading, non-optional female protagonist.",
     desc_lucia:"Freshly out of Leonida state prison. Her father taught her to fight from a young age; she's determined to turn the tables in her favor no matter the cost.",
     desc_jason:"Lucia's romantic and criminal partner. Together they form the story's central duo, blending romance with Leonida's criminal underworld.",
     eyebrow_cronologia:"Timeline",title_timeline:"Confirmed timeline",
-    tl1_title:"First trailer",tl1_body:"Revealed after an earlier leak forced the official announcement.",
-    tl2_title:"Second trailer",tl2_body:"Lucia and Jason are confirmed, and 70 screenshots of the Leonida world are released.",
+    tl1_title:"First trailer",tl1_body:"Revealed after an earlier leak forced the official announcement. The world got its first official look at Leonida and its protagonists.",
+    tl2_title:"Second trailer",tl2_body:"Lucia Caminos and Jason Duval's names confirmed, along with 70 screenshots of the Leonida world.",
     tl3_title:"Second delay",tl3_body:"Release date moves from May to November 19, 2026.",
-    tl4_title:"Official cover art",tl4_body:"Rockstar reveals the game's cover. Pre-orders open June 25.",
-    tl5_date:"SUMMER 2026",tl5_title:"Marketing kickoff",tl5_body:"Full campaign and pre-orders begin after the World Cup. Third trailer expected.",
-    tl6_title:"Release",tl6_body:"Console release date. No PC date announced yet.",
-    banner_mapa:'Rockstar <b>has not published the full Leonida map</b> yet. This section is a template ready to be filled with the official map and confirmed points of interest as soon as they\'re released.',
+    tl4_title:"Official cover art",tl4_body:"Rockstar reveals the official GTA 6 cover art in a 30-second teaser.",
+    tl5_title:"Pre-orders launch",tl5_body:"Pre-orders open on digital storefronts and select retailers. Confirmed prices from Rockstar / Take-Two:",
+    price_standard_label:"Standard Edition",price_ultimate_label:"Ultimate Edition",
+    tl7_title:"Release",tl7_body:"Console release date. No PC date announced yet.",
+    banner_mapa:'Rockstar <b>has not published the full Leonida map</b> yet. This section is a template ready to be filled with the official map and confirmed points of interest.',
     eyebrow_cartografia:"Cartography",title_mapa:"Interactive map of Leonida",
-    map_empty_title:"Awaiting official signal",map_empty_body:"Once Rockstar publishes the map, this radar will show Vice City and the rest of Leonida with clickable points of interest: missions, shops, activities, and collectibles.",
-    eyebrow_zonas:"Confirmed zones",title_zonas:"What's been shown so far",desc_zonas:"Only what Rockstar has shown directly in official trailers and screenshots — no internal point-of-interest detail yet.",
+    map_empty_title:"Awaiting official signal",map_empty_body:"Once Rockstar publishes the map, this radar will show Vice City and the rest of Leonida with clickable points of interest.",
+    eyebrow_zonas:"Confirmed zones",title_zonas:"What's been shown so far",desc_zonas:"Only what Rockstar has shown directly in official trailers and screenshots.",
     loc_vicecity_note:"Main city, inspired by Miami",loc_leonida_name:"Leonida (state)",loc_leonida_note:"Overall setting inspired by Florida",
-    banner_guias:"Rockstar hasn't detailed side mission or activity mechanics yet. These cards are <b>empty templates by category</b>, ready to be filled with real guides on release day.",
-    eyebrow_plantilla:"Template",title_categorias:"Activity categories",desc_categorias:"Based on categories typical of the GTA series. Will be updated with real names and mechanics once confirmed.",
+    banner_guias:"Rockstar hasn't detailed mechanics yet. These cards are <b>empty templates by category</b>, ready for release day.",
+    eyebrow_plantilla:"Template",title_categorias:"Activity categories",desc_categorias:"Based on categories typical of the GTA series.",
     act1_title:"Main story",act1_meta:"CHAPTERS — 0/?",act1_fill:"Step-by-step guide pending official content.",
     act2_title:"Heists",act2_meta:"CREW — pending",act2_fill:"Mechanics and crew composition not yet confirmed.",
     act3_title:"Races",act3_meta:"CIRCUITS — pending",act3_fill:"Location and race types to be confirmed.",
-    act4_title:"Wildlife / Grassrivers",act4_meta:"HUNTING, KAYAK — pending",act4_fill:"Possible outdoor activities suggested by promo material, no confirmed mechanics.",
+    act4_title:"Wildlife / Grassrivers",act4_meta:"HUNTING, KAYAK — pending",act4_fill:"Possible outdoor activities, no confirmed mechanics.",
     act5_title:"Properties",act5_meta:"PURCHASES — pending",act5_fill:"Property and business system with no official details yet.",
     act6_title:"Collectibles",act6_meta:"TRACKER — pending",act6_fill:"No confirmed information on easter-egg style collectibles.",
     eyebrow_pendiente:"Your to-do list",title_checklist:"Launch checklist",desc_checklist:"This one you can use right now — your own to-dos before November 19. Click to check off.",
-    leak_disclaimer:'<b>Everything in this section is community speculation, not official Rockstar information.</b> It comes from fan-made mapping projects (based on trailers, screenshots, and earlier leaks), images circulating on forums, and community analysis. Several "full map" leaks have been identified as AI-generated. Treat this as entertainment, not a reliable guide.',
-    eyebrow_sin_confirmar:"Unconfirmed",title_regiones:"Leaked regions",desc_regiones:"Each card includes a credibility meter based on how well the leak is backed by sources or indirect official material.",
+    leak_disclaimer:'<b>Everything in this section is community speculation, not official Rockstar information.</b> It comes from fan-made mapping projects. Several leaks have been identified as AI-generated. Treat this as entertainment.',
+    eyebrow_sin_confirmar:"Unconfirmed",title_regiones:"Leaked regions",desc_regiones:"Each card includes a credibility meter.",
     pill_region:"region",pill_desmentido:"partially debunked",pill_estimado:"estimate",
-    leak1_source:"SOURCE: official trailer 2 footage + community interpretation",leak1_desc:"Inspired by the Florida Everglades. Appears in official material, but specific activities (racing, hunting, kayaking) are community interpretation of what's shown on screen, not confirmed mechanics.",
-    leak2_source:"SOURCE: official trailer 2 footage",leak2_desc:"Leonida's agro-industrial hub, centered on a sugar refinery. Inspired by Clewiston, Florida. A biker gang controlling the area is fan interpretation.",
-    leak3_source:"SOURCE: community mapping project",leak3_desc:"Rumored mountainous national park north of Leonida. Comes from a 2022 leak combined with the community mapping project, not recent official material.",
-    leak4_source:"SOURCE: official trailers + community mapping",leak4_desc:"Chain of islands connected by bridges, the fictional equivalent of the Florida Keys. Suggested in official trailers; extent and playable content are speculation.",
-    leak5_source:"SOURCE: community mapping project",leak5_desc:"Rumored port/industrial zone in the style of the series' classic dock missions. No direct official visual confirmation; name and role come from fan reconstructions.",
-    leak6_name:'"Full map" viral leak (Apr-May 2026)',leak6_source:"SOURCE: unverified viral image",leak6_desc:'Several "full map" images circulated on forums and were flagged by the mapping community itself as AI-generated, with clear inconsistencies in road layouts.',
+    leak1_source:"SOURCE: official trailer 2 footage + community",leak1_desc:"Inspired by the Florida Everglades. Specific activities are community interpretation.",
+    leak2_source:"SOURCE: official trailer 2 footage",leak2_desc:"Leonida's agro-industrial hub, centered on a sugar refinery. Inspired by Clewiston, Florida.",
+    leak3_source:"SOURCE: community mapping project",leak3_desc:"Rumored mountainous national park north of Leonida. From a 2022 leak.",
+    leak4_source:"SOURCE: official trailers + community mapping",leak4_desc:"Chain of islands connected by bridges, fictional equivalent of the Florida Keys.",
+    leak5_source:"SOURCE: community mapping project",leak5_desc:"Rumored port/industrial zone. No direct official visual confirmation.",
+    leak6_name:'"Full map" viral leak (Apr-May 2026)',leak6_source:"SOURCE: unverified viral image",leak6_desc:'Several images flagged by the community as AI-generated, with clear inconsistencies in road layouts.',
     conf_alta_oficial:"High — visible in official material",conf_alta_sugerida:"High — suggested in official material",conf_media1:"Medium — 2022 leak + fan reconstruction",conf_baja_sinconfirmar:"Low — unconfirmed",conf_baja_ia:"Low — possibly AI",
-    card_tamano_title:"Estimated size",card_tamano_body:"Fan estimates based on trailer measurements place the map between 70% and double the size of Los Santos (GTA V). Unofficial calculations that vary by source.",
-    card_puntos_title:"Mapped points",card_puntos_body:"The community mapping project has cataloged over 1,400 speculated locations combining trailers, 2022 leaks, and comparison with real Florida.",
+    card_tamano_title:"Estimated size",card_tamano_body:"Fan estimates place the map between 70% and double the size of Los Santos (GTA V).",
+    card_puntos_title:"Mapped points",card_puntos_body:"The community project has cataloged over 1,400 speculated locations.",
     footer_text:"unofficial tracking project · confirmed data via Rockstar Games / Take-Two · leaks via the GTA6 community",
     tip_fab_label:"Support the project",tip_eyebrow:"Fuel tank",tip_title:"Support GTA6 Radar",
-    tip_desc:'This project is independent and runs <b>without Rockstar Games sponsorship</b>. If the tracker is useful to you, a tip helps keep it updated and free of invasive ads.',
+    tip_desc:'This project is independent and runs <b>without Rockstar Games sponsorship</b>. If the tracker is useful, a tip helps keep it updated.',
     tip_caption:'Scan with your camera or the <b>PayPal</b> app',
-    page_title:"GTA 6 Radar — Map, Guides & Leonida Leaks",page_desc:"GTA 6 Radar: your GTA VI tracking hub. Release date, Leonida map, activity guides, and verified leaks, all in one place.",
-    checklist_items:["Confirm platform (PS5 / Xbox Series X|S)","Activate pre-orders when they open (June 25, 2026 onward)","Check storage requirements once confirmed","Decide on edition (standard / special / collector's)","Watch trailer 3 when it's released","Free up console space before November 19","Request launch day off 😏"]
+    page_title:"GTA 6 Radar — Map, Guides & Leonida Leaks",page_desc:"GTA 6 Radar: your GTA VI tracking hub. Release date, Leonida map, activity guides, and verified leaks.",
+    checklist_items:["Confirm platform (PS5 / Xbox Series X|S)","Activate pre-orders (from June 25, 2026)","Check storage requirements once confirmed","Choose edition — Standard $80 or Ultimate $100","Watch trailer 3 when it's released","Free up console space before November 19","Request launch day off 😏"]
   }
 };
 
@@ -724,49 +691,38 @@ let currentLang='es';
 function applyLanguage(lang){
   currentLang=lang;
   const dict=i18n[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const key=el.getAttribute('data-i18n');
-    if(dict[key]!==undefined)el.innerHTML=dict[key];
-  });
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.getAttribute('data-i18n');if(dict[key]!==undefined)el.innerHTML=dict[key];});
   document.title=dict.page_title;
-  const metaDesc=document.querySelector('meta[name="description"]');
-  if(metaDesc)metaDesc.setAttribute('content',dict.page_desc);
+  const m=document.querySelector('meta[name="description"]');
+  if(m)m.setAttribute('content',dict.page_desc);
   document.documentElement.setAttribute('lang',lang);
-  const checklistEl=document.getElementById('checklist');
-  const doneStates=Array.from(checklistEl.children).map(c=>c.classList.contains('done'));
-  checklistEl.innerHTML='';
+  const cl=document.getElementById('checklist');
+  const done=Array.from(cl.children).map(c=>c.classList.contains('done'));
+  cl.innerHTML='';
   dict.checklist_items.forEach((text,i)=>{
     const item=document.createElement('div');
-    item.className='check-item'+(doneStates[i]?' done':'');
-    item.innerHTML=`<div class="check-box">${doneStates[i]?'✓':''}</div><span class="label">${text}</span>`;
-    item.addEventListener('click',()=>{
-      item.classList.toggle('done');
-      item.querySelector('.check-box').textContent=item.classList.contains('done')?'✓':'';
-    });
-    checklistEl.appendChild(item);
+    item.className='check-item'+(done[i]?' done':'');
+    item.innerHTML=`<div class="check-box">${done[i]?'✓':''}</div><span class="label">${text}</span>`;
+    item.addEventListener('click',()=>{item.classList.toggle('done');item.querySelector('.check-box').textContent=item.classList.contains('done')?'✓':'';});
+    cl.appendChild(item);
   });
   langToggle.setAttribute('data-active',lang);
 }
-
 const langToggle=document.getElementById('langToggle');
 langToggle.setAttribute('data-active','es');
 langToggle.addEventListener('click',()=>applyLanguage(currentLang==='es'?'en':'es'));
 
-// Init checklist
+// Init checklist ES
 (function(){
-  const checklistEl=document.getElementById('checklist');
+  const cl=document.getElementById('checklist');
   i18n.es.checklist_items.forEach(text=>{
     const item=document.createElement('div');
     item.className='check-item';
     item.innerHTML=`<div class="check-box"></div><span class="label">${text}</span>`;
-    item.addEventListener('click',()=>{
-      item.classList.toggle('done');
-      item.querySelector('.check-box').textContent=item.classList.contains('done')?'✓':'';
-    });
-    checklistEl.appendChild(item);
+    item.addEventListener('click',()=>{item.classList.toggle('done');item.querySelector('.check-box').textContent=item.classList.contains('done')?'✓':'';});
+    cl.appendChild(item);
   });
 })();
 </script>
-
 </body>
 </html>
