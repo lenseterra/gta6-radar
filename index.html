@@ -71,13 +71,15 @@
   /* NAV */
   .radar-nav{position:sticky;top:0;z-index:50;background:rgba(8,6,12,0.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
   .radar-nav-inner{max-width:1180px;margin:0 auto;padding:0 22px;display:flex;align-items:center;gap:4px;overflow-x:auto;}
-  .blip-btn{position:relative;display:flex;align-items:center;gap:8px;background:transparent;border:none;cursor:pointer;color:var(--chrome-faint);font-weight:600;font-size:13px;padding:16px 16px;white-space:nowrap;transition:color 0.15s ease;}
-  .blip-btn .blip-dot{width:7px;height:7px;border-radius:50%;background:var(--chrome-faint);transition:all 0.2s ease;}
-  .blip-btn:hover{color:var(--chrome-dim);}
-  .blip-btn.active{color:var(--chrome);}
-  .blip-btn.active .blip-dot{background:var(--cyan);box-shadow:0 0 8px var(--cyan),0 0 16px rgba(29,233,216,0.5);}
-  .blip-btn.active::after{content:"";position:absolute;left:16px;right:16px;bottom:0;height:2px;background:linear-gradient(90deg,var(--magenta),var(--cyan));box-shadow:0 0 8px var(--cyan);}
-  .blip-btn .tag{font-family:'JetBrains Mono',monospace;font-size:8.5px;padding:2px 6px;border-radius:3px;letter-spacing:0.05em;}
+  .blip-btn{position:relative;display:flex;align-items:center;gap:10px;background:transparent;border:none;border-bottom:3px solid transparent;cursor:pointer;color:var(--chrome-faint);font-weight:700;font-size:14px;padding:18px 20px;white-space:nowrap;transition:all 0.2s ease;letter-spacing:0.02em;}
+  .blip-btn .blip-dot{width:8px;height:8px;border-radius:50%;background:var(--chrome-faint);transition:all 0.2s ease;flex-shrink:0;}
+  .blip-btn:hover{color:var(--chrome);background:rgba(255,255,255,0.04);border-bottom-color:var(--line-bright);}
+  .blip-btn.active{color:#fff;background:rgba(29,233,216,0.07);border-bottom-color:var(--cyan);}
+  .blip-btn.active .blip-dot{background:var(--cyan);box-shadow:0 0 10px var(--cyan),0 0 20px rgba(29,233,216,0.5);}
+  .blip-btn.active::after{content:"";position:absolute;left:20px;right:20px;bottom:0;height:3px;background:linear-gradient(90deg,var(--magenta),var(--cyan));box-shadow:0 0 10px var(--cyan);}
+  .blip-btn .tag{font-family:'JetBrains Mono',monospace;font-size:8.5px;padding:2px 7px;border-radius:3px;letter-spacing:0.05em;}
+  .home-btn{font-size:12px !important;color:var(--chrome-faint) !important;}
+  .home-btn:hover{color:var(--cyan) !important;}
   .tag-official{background:rgba(61,240,140,0.12);color:var(--green);border:1px solid rgba(61,240,140,0.3);}
   .tag-leak{background:rgba(255,193,69,0.12);color:var(--amber);border:1px solid rgba(255,193,69,0.3);}
 
@@ -274,7 +276,7 @@
 
       <div class="hero-meta-row">
         <div class="meta-item"><div class="meta-label" data-i18n="meta_launch">Lanzamiento</div><div class="meta-value cyan">19 NOV 2026</div></div>
-        <div class="meta-item"><div class="meta-label" data-i18n="meta_platforms">Plataformas</div><div class="meta-value">PS5 · XBOX SERIES X|S</div></div>
+        <div class="meta-item"><div class="meta-label" data-i18n="meta_platforms">Plataformas</div><div class="meta-value">PS5 · XBOX · PC<span style="font-size:9px;color:var(--chrome-faint);display:block;font-family:'JetBrains Mono',monospace;margin-top:3px;">PC: post-lanzamiento</span></div></div>
         <div class="meta-item"><div class="meta-label" data-i18n="meta_setting">Escenario</div><div class="meta-value">LEONIDA</div></div>
         <div class="meta-item"><div class="meta-label" data-i18n="meta_countdown">Cuenta regresiva</div><div class="meta-value cyan mono" id="cdInline">--d --h --m</div></div>
       </div>
@@ -290,6 +292,10 @@
 <!-- NAV -->
 <nav class="radar-nav">
   <div class="radar-nav-inner" id="tabBar">
+    <a href="/" class="blip-btn home-btn" style="text-decoration:none;border-right:1px solid var(--line);padding-right:20px;margin-right:4px;" aria-label="Inicio">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span style="font-size:12px;">HOME</span>
+    </a>
     <button class="blip-btn active" data-tab="resumen"><span class="blip-dot"></span><span data-i18n="nav_resumen">Resumen</span><span class="tag tag-official" data-i18n="tag_oficial">oficial</span></button>
     <button class="blip-btn" data-tab="noticias"><span class="blip-dot"></span><span data-i18n="nav_noticias">Noticias</span></button>
     <button class="blip-btn" data-tab="mapa"><span class="blip-dot"></span><span data-i18n="nav_mapa">Mapa &amp; puntos de interés</span></button>
@@ -307,7 +313,7 @@
     <div class="fact-strip">
       <div class="fact"><div class="fact-label" data-i18n="meta_launch">Lanzamiento</div><div class="fact-value">19 nov 2026</div></div>
       <div class="fact"><div class="fact-label" data-i18n="meta_platforms">Plataformas</div><div class="fact-value">PS5 · Xbox Series X/S</div></div>
-      <div class="fact"><div class="fact-label" data-i18n="meta_setting">Escenario</div><div class="fact-value" data-i18n="fact_leonida_val">Leonida (Florida ficticia)</div></div>
+      <div class="fact"><div class="fact-label">Precio base</div><div class="fact-value" style="color:var(--amber);">$79.99 USD</div></div>
       <div class="fact"><div class="fact-label" data-i18n="fact_main_city">Ciudad principal</div><div class="fact-value">Vice City</div></div>
     </div>
 
@@ -407,42 +413,62 @@
     <div class="banner banner-official"><div class="banner-icon">✓</div><div data-i18n="banner_noticias">Cobertura basada en comunicados de Rockstar Games / Take-Two y reportes de medios verificados.</div></div>
     <div class="section-eyebrow" data-i18n="eyebrow_noticias">Última hora</div>
     <h2 class="section-title" data-i18n="title_noticias">Noticias de GTA 6</h2>
-    <p class="section-desc" data-i18n="desc_noticias">Actualizaciones recientes sobre Grand Theft Auto VI, en orden cronológico.</p>
+    <p class="section-desc" data-i18n="desc_noticias">Actualizaciones recientes sobre Grand Theft Auto VI · Actualizado 26 jun 2026</p>
 
     <!-- AD en noticias -->
     <div class="ad-slot ad-slot-leaderboard"><!-- 728×90 · AdSense --></div>
 
     <div class="news-list">
+
       <article class="news-card news-featured">
-        <div class="news-meta"><span class="news-date mono">25 JUN 2026</span><span class="pill pill-confirmed" data-i18n="pill_confirmado">confirmado</span></div>
-        <h3 class="news-title" data-i18n="news1_title">Las reservas de GTA 6 abren el 25 de junio</h3>
-        <p class="news-body" data-i18n="news1_body">Rockstar confirmó que las reservas de Grand Theft Auto VI comienzan el 25 de junio. Edición Estándar a $80 USD, Edición Ultimate a $100 USD. La fecha de lanzamiento del 19 de noviembre de 2026 se mantiene sin cambios.</p>
-        <div class="news-source mono" data-i18n="news1_source">FUENTE: Rockstar Games · IBTimes · GamesRadar+</div>
+        <div class="news-meta"><span class="news-date mono">26 JUN 2026</span><span class="pill pill-confirmed">confirmado</span></div>
+        <h3 class="news-title">GTA 6 solo será single-player al lanzamiento — GTA Online llega después</h3>
+        <p class="news-body">Rockstar confirmó oficialmente que GTA 6 será una <b>experiencia de un jugador en el lanzamiento</b>. GTA Online para la nueva entrega llegará como actualización posterior. La noticia, revelada junto con los detalles de pre-orden, pone fin a meses de especulación sobre el modo multijugador en el día uno.</p>
+        <div class="news-source mono">FUENTE: Variety · Rockstar Games</div>
       </article>
+
+      <article class="news-card news-featured">
+        <div class="news-meta"><span class="news-date mono">25 JUN 2026</span><span class="pill pill-confirmed">confirmado</span></div>
+        <h3 class="news-title">10 detalles nuevos confirmados por Rockstar: pesca, TV de cocodrilos y venta de botín robado</h3>
+        <p class="news-body">El sitio oficial de la Ultimate Edition reveló mecánicas concretas: <b>sistema de pesca</b>, programa de TV animado llamado "Macca the Gator", <b>venta de mercancía robada</b> desde vehículos, cambio de personaje entre Jason y Lucia (incluyendo modo dual simultáneo), sistema de diálogo al estilo RDR2 ("Saludar, Amenazar, Robar"), y <b>personalización profunda</b> de ropa, tatuajes y peinado para ambos protagonistas.</p>
+        <div class="news-source mono">FUENTE: Kotaku · GamesRadar+</div>
+      </article>
+
       <article class="news-card">
-        <div class="news-meta"><span class="news-date mono">20 JUN 2026</span><span class="pill pill-vacio" data-i18n="pill_analisis">análisis</span></div>
-        <h3 class="news-title" data-i18n="news2_title">¿Cuánto costará GTA 6? Analistas y precios confirmados</h3>
-        <p class="news-body" data-i18n="news2_body">Tras rumores de $100 para la base, Take-Two confirmó $80 para la edición estándar y $100 para la Ultimate. El analista James Heaney (Jefferies) había anticipado el rango de $70-80 para la edición base.</p>
-        <div class="news-source mono" data-i18n="news2_source">FUENTE: GTA BOOM · GamesRadar+</div>
+        <div class="news-meta"><span class="news-date mono">25 JUN 2026</span><span class="pill pill-confirmed">confirmado</span></div>
+        <h3 class="news-title">Pre-orden con bonus: Vintage Vice City Pack y 1 mes de GTA+ gratis</h3>
+        <p class="news-body">Todos los que reserven antes del 20 de noviembre recibirán el <b>Vintage Vice City Pack</b>, una colección de cosméticos inspirados en la estética neón de los 80s del Vice City original. Las pre-órdenes digitales incluyen además <b>un mes gratis de GTA+</b>. Las copias físicas solo contienen un código de descarga — no hay disco.</p>
+        <div class="news-source mono">FUENTE: Rockstar Games · GameRant</div>
       </article>
+
       <article class="news-card">
-        <div class="news-meta"><span class="news-date mono">19 JUN 2026</span><span class="pill pill-confirmed" data-i18n="pill_confirmado">confirmado</span></div>
-        <h3 class="news-title" data-i18n="news3_title">GTA 6 no llegará a Nintendo Switch 2</h3>
-        <p class="news-body" data-i18n="news3_body">Rockstar Games confirmó que PlayStation 5 y Xbox Series X/S son las únicas plataformas de lanzamiento. Sin versión para Switch 2 ni fecha de PC.</p>
-        <div class="news-source mono" data-i18n="news3_source">FUENTE: GTA BOOM</div>
+        <div class="news-meta"><span class="news-date mono">25 JUN 2026</span><span class="pill pill-confirmed">confirmado</span></div>
+        <h3 class="news-title">Precios oficiales confirmados: $79.99 estándar y $99.99 Ultimate</h3>
+        <p class="news-body">Take-Two e Rockstar fijaron los precios definitivos: <b>Edición Estándar a $79.99 USD</b> y <b>Ultimate Edition a $99.99 USD</b>. La Ultimate incluye vehículos premium exclusivos, armas personalizadas, ropa de ambos protagonistas y acceso a dos tiendas de modificación exclusivas en el juego. Analistas de Circana y Ampere Analysis consideran que este precio puede marcar un antes y un después en los AAA.</p>
+        <div class="news-source mono">FUENTE: Variety · PC Gamer · Kotaku</div>
       </article>
+
       <article class="news-card">
-        <div class="news-meta"><span class="news-date mono">18 JUN 2026</span><span class="pill pill-confirmed" data-i18n="pill_confirmado">confirmado</span></div>
-        <h3 class="news-title" data-i18n="news4_title">Rockstar revela la portada oficial del juego</h3>
-        <p class="news-body" data-i18n="news4_body">En un teaser de 30 segundos publicado en YouTube, Rockstar mostró por primera vez el arte de portada oficial de GTA 6, coincidiendo con el anuncio de la fecha de reservas.</p>
-        <div class="news-source mono" data-i18n="news4_source">FUENTE: Rockstar Games · WBRC</div>
+        <div class="news-meta"><span class="news-date mono">26 JUN 2026</span><span class="pill pill-vacio">análisis</span></div>
+        <h3 class="news-title">Ultimate Edition confirma: Mount Kalaga y los pantanos de Lake Leonida son zonas jugables completas</h3>
+        <p class="news-body">Los vehículos exclusivos de la Ultimate Edition (buggy, speedboat, kayak) confirman indirectamente que las zonas rurales y marinas del mapa — incluyendo Mount Kalaga y los pantanos de Lake Leonida — son <b>áreas de exploración sustanciales</b>, no solo decorado. Esto respalda las estimaciones de fans que sitúan el mapa como uno de los más grandes de la saga.</p>
+        <div class="news-source mono">FUENTE: GameRant · GTABase</div>
       </article>
+
       <article class="news-card">
-        <div class="news-meta"><span class="news-date mono">JUN 2026</span><span class="pill pill-vacio" data-i18n="pill_contexto">contexto</span></div>
-        <h3 class="news-title" data-i18n="news5_title">El camino hasta aquí: de la primera filtración al lanzamiento</h3>
-        <p class="news-body" data-i18n="news5_body">Rockstar confirmó el desarrollo en febrero de 2022. Filtración masiva en septiembre, primer tráiler en diciembre de 2023, segundo en mayo de 2025. Dos retrasos después, el lanzamiento queda fijado para el 19 de noviembre de 2026.</p>
-        <div class="news-source mono" data-i18n="news5_source">FUENTE: Wikipedia · Rockstar Games</div>
+        <div class="news-meta"><span class="news-date mono">24 JUN 2026</span><span class="pill pill-confirmed">confirmado</span></div>
+        <h3 class="news-title">Más de 60 capturas oficiales muestran personalización de personajes en detalle</h3>
+        <p class="news-body">Rockstar publicó más de 60 imágenes inéditas centradas en las opciones de personalización de Jason y Lucia: ropa, cortes de pelo, tatuajes y variantes de armas. También se muestra el <b>Vintage Vice City Pack</b> con referencias visuales al GTA: Vice City original.</p>
+        <div class="news-source mono">FUENTE: Kotaku · IGN</div>
       </article>
+
+      <article class="news-card">
+        <div class="news-meta"><span class="news-date mono">24 JUN 2026</span><span class="pill pill-vacio">análisis</span></div>
+        <h3 class="news-title">Analistas predicen 45 millones de copias en las primeras 24 horas</h3>
+        <p class="news-body">Según Piper Sandler, GTA 6 podría vender más de <b>45 millones de copias en su primer día</b>, cuadruplicando el récord de GTA V y convirtiéndose en el lanzamiento AAA más grande de la historia. Sony además ha confirmado que el juego recibirá <b>soporte especial en PS5</b>, superior incluso al de algunos exclusivos de primera parte.</p>
+        <div class="news-source mono">FUENTE: VGTimes · Last Word On Gaming</div>
+      </article>
+
     </div>
   </section>
 
