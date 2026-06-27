@@ -820,7 +820,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!-- TAB NOTICIAS -->
-  <section class="panel-section" id="panel-noticias">
+  <section class="panel-section" id="panel-noticias" data-i18n-section="noticias">
     
     <div class="section-eyebrow" data-i18n="eyebrow_noticias">Última hora</div>
     <h2 class="section-title" data-i18n="title_noticias">Noticias de GTA 6</h2>
@@ -1235,7 +1235,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <!-- TAB FAQ -->
-  <section class="panel-section" id="panel-faq">
+  <section class="panel-section" id="panel-faq" data-i18n-section="faq">
 
     <div class="section-eyebrow">Base de conocimiento</div>
     <h2 class="section-title">Preguntas frecuentes</h2>
@@ -1669,6 +1669,7 @@ if(langSelect){
   langSelect.value='es';
   langSelect.addEventListener('change',function(){
     const lang=this.value;
+    renderFAQ(lang);
     if(lang==='pt'){
       // aplicar portugués
       currentLang='pt';
