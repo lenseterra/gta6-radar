@@ -523,6 +523,34 @@
   .zona-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(8,6,12,0.7) 100%);display:flex;align-items:flex-end;padding:8px 10px;}
   .zona-card.with-img{padding:0;overflow:hidden;}
   .zona-card.with-img .zona-content{padding:14px;}
+
+  /* GUÍA DE INICIO */
+  .guia-step{display:flex;gap:16px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:12px;transition:border-color 0.2s ease;}
+  .guia-step:hover{border-color:var(--line-bright);}
+  .guia-step-num{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Teko',sans-serif;font-size:20px;font-weight:700;flex-shrink:0;color:#000;}
+  .guia-step-num.cyan{background:var(--cyan);}
+  .guia-step-num.magenta{background:var(--magenta);}
+  .guia-step-num.amber{background:var(--amber);}
+  .guia-step-num.green{background:var(--green);}
+  .guia-step-body{flex:1;}
+  .guia-step-title{font-weight:700;font-size:14.5px;color:var(--chrome);margin-bottom:5px;}
+  .guia-step-desc{font-size:12.5px;color:var(--chrome-dim);line-height:1.7;}
+  .guia-step-desc b{color:var(--chrome);}
+  .guia-step-desc .tip{display:inline-flex;align-items:center;gap:5px;background:rgba(29,233,216,0.08);border:1px solid rgba(29,233,216,0.2);border-radius:6px;padding:4px 10px;font-size:11.5px;color:var(--cyan);margin-top:8px;}
+
+  .error-card{background:linear-gradient(160deg,rgba(255,77,106,0.06),rgba(255,77,106,0.02));border:1px solid rgba(255,77,106,0.25);border-radius:12px;padding:16px 18px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;}
+  .error-icon{font-size:18px;flex-shrink:0;margin-top:1px;}
+  .error-title{font-weight:700;font-size:13.5px;color:var(--red);margin-bottom:4px;}
+  .error-desc{font-size:12.5px;color:var(--chrome-dim);line-height:1.6;}
+  .error-desc b{color:var(--chrome);}
+
+  .mecanica-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start;}
+  .mecanica-icon{font-size:20px;flex-shrink:0;}
+  .mecanica-title{font-weight:700;font-size:13px;color:var(--chrome);margin-bottom:3px;}
+  .mecanica-desc{font-size:12px;color:var(--chrome-dim);line-height:1.6;}
+
+  .update-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,193,69,0.1);border:1px solid rgba(255,193,69,0.3);border-radius:8px;padding:8px 14px;font-size:12px;color:var(--amber);margin-bottom:24px;}
+
 </style>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -735,6 +763,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <button class="nav-item" data-tab="guias">
       <span class="nav-icon">&#128203;</span><span class="nav-dot"></span>
       <span data-i18n="nav_guias">Guias</span>
+    </button>
+    <button class="nav-item" data-tab="inicio">
+      <span class="nav-icon">&#127919;</span><span class="nav-dot"></span>
+      <span>Gu&iacute;a de inicio</span>
+      <span class="nav-tag nav-tag-official" style="background:rgba(61,240,140,0.12);color:var(--green);border:1px solid rgba(61,240,140,0.3);">nuevo</span>
     </button>
     <button class="nav-item" data-tab="ediciones">
       <span class="nav-icon">&#128717;</span><span class="nav-dot"></span>
@@ -1741,6 +1774,226 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
       </section>
+
+
+  <!-- TAB INICIO -->
+  <section class="panel-section" id="panel-inicio">
+
+    <div class="section-eyebrow">Pre-lanzamiento</div>
+    <h2 class="section-title">Gu&iacute;a de inicio r&aacute;pido</h2>
+    <p class="section-desc">Todo lo que necesitas saber antes de entrar a Leonida el <b>19 de noviembre de 2026</b>. Esta gu&iacute;a se actualizar&aacute; en tiempo real el d&iacute;a del lanzamiento.</p>
+
+    <div class="update-badge">
+      &#9201; Esta gu&iacute;a se actualiza el 19 de noviembre con informaci&oacute;n real del juego &mdash; s&iacute;guela desde el primer minuto
+    </div>
+
+    <!-- ANTES DE JUGAR -->
+    <div class="section-eyebrow">Antes de encender el juego</div>
+    <h2 class="section-title" style="font-size:28px;">Lista de preparaci&oacute;n</h2>
+
+    <div class="guia-step">
+      <div class="guia-step-num cyan">1</div>
+      <div class="guia-step-body">
+        <div class="guia-step-title">&#128190; Pre-carga desde el 12 de noviembre</div>
+        <div class="guia-step-desc">Si compraste la versi&oacute;n digital, la pre-carga est&aacute; disponible desde el <b>12 de noviembre</b>. Desc&aacute;rgala con anticipaci&oacute;n para jugar desde el primer segundo del 19 de noviembre. El juego se estima en <b>~150 GB</b> — verifica que tengas espacio libre suficiente.</div>
+      </div>
+    </div>
+
+    <div class="guia-step">
+      <div class="guia-step-num cyan">2</div>
+      <div class="guia-step-body">
+        <div class="guia-step-title">&#128267; Libera espacio en tu consola</div>
+        <div class="guia-step-desc">Borra juegos que no uses. Con ~150 GB necesitar&aacute;s espacio libre real — muchas consolas no tienen m&aacute;s de 200-400 GB disponibles despu&eacute;s del sistema operativo. <b>No esperes al d&iacute;a del lanzamiento para hacer limpieza.</b></div>
+      </div>
+    </div>
+
+    <div class="guia-step">
+      <div class="guia-step-num cyan">3</div>
+      <div class="guia-step-body">
+        <div class="guia-step-title">&#127873; Canjea tu bonus de pre-orden</div>
+        <div class="guia-step-desc">Si reservaste el juego, revisa tu biblioteca digital o el email de confirmaci&oacute;n. El <b>Vintage Vice City Pack</b> debe estar disponible desde el d&iacute;a uno. Si compraste f&iacute;sico, el c&oacute;digo viene dentro de la caja — c&aacute;njealo antes de iniciar.</div>
+      </div>
+    </div>
+
+    <div class="guia-step">
+      <div class="guia-step-num cyan">4</div>
+      <div class="guia-step-body">
+        <div class="guia-step-title">&#9881;&#65039; Ajusta la configuraci&oacute;n antes de la primera misi&oacute;n</div>
+        <div class="guia-step-desc">Antes de empezar: configura <b>subtítulos en español</b> (si est&aacute;n disponibles), ajusta el brillo y el campo de visi&oacute;n (FOV). En GTA V muchos jugadores se perdieron opciones de accesibilidad por no revisar el men&uacute; inicial. No repitas ese error.</div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-slot-leaderboard" style="margin:20px 0;"><!-- AdSense --></div>
+
+    <!-- PRIMERAS HORAS -->
+    <div class="section-eyebrow" style="margin-top:8px;">Primeras horas de juego</div>
+    <h2 class="section-title" style="font-size:28px;">Qu&eacute; hacer primero</h2>
+    <p class="section-desc" style="margin-bottom:16px;">Basado en mec&aacute;nicas confirmadas por Rockstar. Se actualizar&aacute; con el orden exacto el 19 de noviembre.</p>
+
+    <div class="guia-step">
+      <div class="guia-step-num green">1</div>
+      <div class="guia-step-body">
+        <div class="guia-step-title">&#128100; Entiende el sistema dual Jason / Lucia</div>
+        <div class="guia-step-desc">GTA 6 tiene <b>dos protagonistas jugables</b> que puedes cambiar libremente. Rockstar confirm&oacute; un <b>modo dual simult&aacute;neo</b> para ciertos robos en mundo abierto. Aprende desde el inicio cu&aacute;ndo usar a cada uno — tienen <b>habilidades especiales diferentes</b> (modo c&aacute;mara lenta individual). <span class="tip">&#128161; No ignores las habilidades de c&aacute;mara lenta — son clave en combates dif&iacute;ciles</span></div>
+      </div>
+    </div>
+
+    <div class="guia-step">
+      <div class="guia-step-num green">2</div>
+      <div class="guia-step-body">
+        <div class="guia-step-title">&#128737;&#65039; Asegura tu primer veh&iacute;culo en un garaje</div>
+        <div class="guia-step-desc">Cl&aacute;sico de GTA: el primer coche que te guste, gu&aacute;rdalo <b>inmediatamente en un garaje</b>. Los veh&iacute;culos abandonados en la calle desaparecen. Si tienes la Ultimate Edition, tus veh&iacute;culos exclusivos (Grotti Cheetah, Dominator Buggy) estar&aacute;n disponibles — guard&aacute;los desde el primer momento. <span class="tip">&#128161; Encuentra un garaje lo antes posible en el mapa</span></div>
+      </div>
+    </div>
+
+    <div class="guia-step">
+      <div class="guia-step-num green">3</div>
+      <div class="guia-step-body">
+        <div class="guia-step-title">&#128084; Personaliza a Jason y Lucia desde el inicio</div>
+        <div class="guia-step-desc">Rockstar confirm&oacute; <b>personalizaci&oacute;n profunda</b> desde el inicio — ropa, tatuajes y peinados para ambos protagonistas. No dejes esto para despu&eacute;s. Si tienes la Ultimate Edition, visita <b>Sara's Unisex Salon</b>, <b>Stock 305</b> y <b>Electric Fang Tattoo</b> temprano para acceder a los estilos exclusivos.</div>
+      </div>
+    </div>
+
+    <div class="guia-step">
+      <div class="guia-step-num green">4</div>
+      <div class="guia-step-body">
+        <div class="guia-step-title">&#127919; Explora Vice City antes de apresurarte con la historia</div>
+        <div class="guia-step-desc">GTA siempre recompensa la exploraci&oacute;n libre. Antes de avanzar en la historia principal, da una vuelta por Vice City para <b>localizar tiendas, garajes, puntos de guardado y zonas de inter&eacute;s</b>. Conocer el mapa te salvar&aacute; en misiones de persecuci&oacute;n.</div>
+      </div>
+    </div>
+
+    <div class="guia-step">
+      <div class="guia-step-num green">5</div>
+      <div class="guia-step-body">
+        <div class="guia-step-title">&#128176; Aprende el sistema de venta de bot&iacute;n robado</div>
+        <div class="guia-step-desc">Rockstar confirm&oacute; que puedes <b>vender mercanc&iacute;a robada desde tus veh&iacute;culos</b> — es una de las nuevas formas de generar dinero. Localiza los puntos de venta en el mapa temprano. Si tienes el Dominator Buggy de la Ultimate Edition, tiene un <b>punto de venta incorporado</b>.</div>
+      </div>
+    </div>
+
+    <div class="guia-step">
+      <div class="guia-step-num green">6</div>
+      <div class="guia-step-body">
+        <div class="guia-step-title">&#127907; Usa el sistema de di&aacute;logo a tu favor</div>
+        <div class="guia-step-desc">GTA 6 tiene un sistema de di&aacute;logo al estilo RDR2 — puedes <b>Saludar, Amenazar o Robar</b> a los NPCs. Exp&eacute;rimentalo desde el inicio para entender c&oacute;mo funciona antes de encontrarte en una situaci&oacute;n cr&iacute;tica donde necesites usarlo r&aacute;pido.</div>
+      </div>
+    </div>
+
+    <!-- ERRORES COMUNES -->
+    <div class="section-eyebrow" style="margin-top:8px;">Errores cl&aacute;sicos de GTA</div>
+    <h2 class="section-title" style="font-size:28px;">Lo que NO debes hacer</h2>
+    <p class="section-desc" style="margin-bottom:16px;">Errores que se repiten en cada entrega de GTA y que casi seguro ocurrir&aacute;n en GTA 6.</p>
+
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+
+      <div class="error-card">
+        <div class="error-icon">&#10060;</div>
+        <div>
+          <div class="error-title">No guardar el juego regularmente</div>
+          <div class="error-desc">GTA tiene guardado manual adem&aacute;s del autosave. <b>No conf&iacute;es solo en el autosave</b> — guarda manualmente antes de misiones importantes, saltos de misi&oacute;n y antes de cerrar el juego.</div>
+        </div>
+      </div>
+
+      <div class="error-card">
+        <div class="error-icon">&#10060;</div>
+        <div>
+          <div class="error-title">Gastar todo el dinero al inicio</div>
+          <div class="error-desc">Al inicio el dinero es escaso. <b>No compres ropa o modificaciones de coche antes de tener propiedades y veh&iacute;culos seguros.</b> En GTA V muchos jugadores arruinaron su progreso early-game gastando en cosm&eacute;ticos.</div>
+        </div>
+      </div>
+
+      <div class="error-card">
+        <div class="error-icon">&#10060;</div>
+        <div>
+          <div class="error-title">Acumular 6 estrellas sin un plan de escape</div>
+          <div class="error-desc">GTA 6 tiene <b>6 niveles de b&uacute;squeda</b>. No pruebes el nivel m&aacute;ximo sin saber c&oacute;mo escapar — aprende primero las rutas de escape de Vice City, las zonas de agua y los t&uacute;neles antes de provocar persecuciones de alto nivel.</div>
+        </div>
+      </div>
+
+      <div class="error-card">
+        <div class="error-icon">&#10060;</div>
+        <div>
+          <div class="error-title">Ignorar las misiones secundarias de Boobie Ike y Dre'Quan</div>
+          <div class="error-desc">Basado en los perfiles oficiales, <b>Boobie Ike y Dre'Quan Priest</b> tienen l&iacute;neas de misi&oacute;n relacionadas con el sello Only Raw Records. Estas misiones secundarias suelen desbloquear recompensas &uacute;nicas — no las saltes por apresurarte en la historia principal.</div>
+        </div>
+      </div>
+
+      <div class="error-card">
+        <div class="error-icon">&#10060;</div>
+        <div>
+          <div class="error-title">No explorar los Cayos de Leonida al inicio</div>
+          <div class="error-desc">Jason comienza en los Cayos — esa zona est&aacute; dise&ntilde;ada como el tutorial natural del mundo. <b>No te apresures en llegar a Vice City</b>. Los Cayos tienen contenido &uacute;nico y mecanismos que el juego introduce all&iacute; por algo.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MECÁNICAS NUEVAS -->
+    <div class="section-eyebrow" style="margin-top:8px;">Mec&aacute;nicas nuevas confirmadas</div>
+    <h2 class="section-title" style="font-size:28px;">Lo que GTA 6 hace diferente</h2>
+    <p class="section-desc" style="margin-bottom:16px;">Mec&aacute;nicas oficialmente confirmadas por Rockstar que cambian c&oacute;mo juegas respecto a GTA V.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:28px;">
+      <div class="mecanica-card">
+        <div class="mecanica-icon">&#127907;</div>
+        <div>
+          <div class="mecanica-title">Di&aacute;logo contextual RDR2</div>
+          <div class="mecanica-desc">Saludar, Amenazar o Robar a NPCs en tiempo real. Las respuestas cambian seg&uacute;n el contexto.</div>
+        </div>
+      </div>
+      <div class="mecanica-card">
+        <div class="mecanica-icon">&#128100;&#128101;</div>
+        <div>
+          <div class="mecanica-title">Modo dual Jason / Lucia</div>
+          <div class="mecanica-desc">Cambio libre entre protagonistas. Modo simult&aacute;neo en robos. Habilidades &uacute;nicas para cada uno.</div>
+        </div>
+      </div>
+      <div class="mecanica-card">
+        <div class="mecanica-icon">&#128230;</div>
+        <div>
+          <div class="mecanica-title">Venta de bot&iacute;n desde veh&iacute;culos</div>
+          <div class="mecanica-desc">Roba mercanc&iacute;a y v&eacute;ndela en puntos espec&iacute;ficos del mapa sin necesidad de ir a una propiedad.</div>
+        </div>
+      </div>
+      <div class="mecanica-card">
+        <div class="mecanica-icon">&#129424;</div>
+        <div>
+          <div class="mecanica-title">Pesca</div>
+          <div class="mecanica-desc">Mini-juego de pesca confirmado — posiblemente en Grassrivers y los Cayos de Leonida.</div>
+        </div>
+      </div>
+      <div class="mecanica-card">
+        <div class="mecanica-icon">&#128421;&#65039;</div>
+        <div>
+          <div class="mecanica-title">Show de TV in-game</div>
+          <div class="mecanica-desc">"Macca the Gator" en el programa Goodtime State. El mundo tiene su propio entretenimiento interactivo.</div>
+        </div>
+      </div>
+      <div class="mecanica-card">
+        <div class="mecanica-icon">&#128274;</div>
+        <div>
+          <div class="mecanica-title">Zip ties y escudos humanos</div>
+          <div class="mecanica-desc">Ata NPCs con zip ties. Usa personas como escudo en enfrentamientos. Nuevo nivel de control táctico.</div>
+        </div>
+      </div>
+      <div class="mecanica-card">
+        <div class="mecanica-icon">&#11088;</div>
+        <div>
+          <div class="mecanica-title">6 estrellas de b&uacute;squeda</div>
+          <div class="mecanica-desc">El sistema de b&uacute;squeda regresa con 6 niveles. Se espera que la respuesta policial sea m&aacute;s variada que en GTA V.</div>
+        </div>
+      </div>
+      <div class="mecanica-card">
+        <div class="mecanica-icon">&#128084;</div>
+        <div>
+          <div class="mecanica-title">Personalizaci&oacute;n profunda</div>
+          <div class="mecanica-desc">Ropa, tatuajes, peinados y vello facial para Jason y Lucia. M&aacute;s opciones que cualquier GTA anterior.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-slot ad-slot-leaderboard"><!-- AdSense --></div>
+
+  </section>
 
   <!-- TAB LEAKS -->
   <section class="panel-section" id="panel-leaks">
