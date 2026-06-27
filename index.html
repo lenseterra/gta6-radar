@@ -334,7 +334,7 @@
   .site-layout{display:flex;min-height:100vh;}
 
   /* SIDEBAR */
-  .sidebar{
+  .sidebar{will-change:transform;
     position:fixed;top:0;left:0;bottom:0;
     width:240px;z-index:100;
     background:rgba(8,6,12,0.97);
@@ -439,7 +439,7 @@
 
   /* MOBILE */
   @media(max-width:860px){
-    .sidebar{transform:translateX(-100%);}
+    .sidebar{will-change:transform;transform:translateX(-100%);}
     .sidebar.open{transform:translateX(0);}
     .hamburger{display:flex;}
     .main-content{margin-left:0;}
@@ -1009,8 +1009,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-desc">Todos confirmados oficialmente por Rockstar. Disponibles a lo largo de la historia seg&#250;n el cap&#237;tulo.</p>
 
     <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
-      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/grotti-cheetah-95.png',&quot;&#39;95 Grotti Cheetah&quot;,&quot;Veh&#237;culo exclusivo Ultimate Edition · Sports car retro-futurista&quot;)">
-        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/grotti-cheetah-95.png" alt="Grotti Cheetah 95">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/grotti-cheetah-95.webp',&quot;&#39;95 Grotti Cheetah&quot;,&quot;Veh&#237;culo exclusivo Ultimate Edition · Sports car retro-futurista&quot;)">
+        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/grotti-cheetah-95.webp" alt="Grotti Cheetah 95">
         <div class="loc-dot" style="background:var(--amber);box-shadow:0 0 8px rgba(255,193,69,0.6);"></div>
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:13.5px;" class="loc-name">'95 Grotti Cheetah</div>
@@ -1018,8 +1018,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="img-hint">&#128247; clic para ver imagen</div>
         </div>
       </div>
-      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/dominator-buggy.png','Dominator Buggy','Veh&#237;culo exclusivo Ultimate Edition · Off-road con Paradise Garage en Watson Bay')">
-        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/dominator-buggy.png" alt="Dominator Buggy">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/dominator-buggy.webp','Dominator Buggy','Veh&#237;culo exclusivo Ultimate Edition · Off-road con Paradise Garage en Watson Bay')">
+        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/dominator-buggy.webp" alt="Dominator Buggy">
         <div class="loc-dot" style="background:var(--amber);box-shadow:0 0 8px rgba(255,193,69,0.6);"></div>
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:13.5px;" class="loc-name">Dominator Buggy</div>
@@ -1027,8 +1027,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="img-hint">&#128247; clic para ver imagen</div>
         </div>
       </div>
-      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/vapid-ganado-retro.png','Vapid Ganado (Retro Build)','Pickup exclusiva de Jason · Mods muscle-car y low-rider · Ultimate Edition')">
-        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/vapid-ganado-retro.png" alt="Vapid Ganado Retro Build">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/vapid-ganado-retro.webp','Vapid Ganado (Retro Build)','Pickup exclusiva de Jason · Mods muscle-car y low-rider · Ultimate Edition')">
+        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/vapid-ganado-retro.webp" alt="Vapid Ganado Retro Build">
         <div class="loc-dot" style="background:var(--amber);box-shadow:0 0 8px rgba(255,193,69,0.6);"></div>
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:13.5px;" class="loc-name">Vapid Ganado (Retro Build)</div>
@@ -1056,8 +1056,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="section-title">Armas exclusivas</h2>
     <p class="section-desc">Dos conjuntos de armas con dise&#241;o personalizado, exclusivos para propietarios de la Ultimate Edition.</p>
     <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
-      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/revolvers-hawk-morgan.png','Revolvers Hawk &amp; Little Morgan','Armas exclusivas Ultimate Edition · Par his-and-hers · Estilo Vercetti Estate')">
-        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/revolvers-hawk-morgan.png" alt="Revolvers Hawk & Little Morgan">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/revolvers-hawk-morgan.webp','Revolvers Hawk &amp; Little Morgan','Armas exclusivas Ultimate Edition · Par his-and-hers · Estilo Vercetti Estate')">
+        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/revolvers-hawk-morgan.webp" alt="Revolvers Hawk & Little Morgan">
         <div class="loc-dot" style="background:var(--red);box-shadow:0 0 8px rgba(255,77,106,0.6);"></div>
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:13.5px;" class="loc-name">Revolvers Hawk &amp; Little Morgan</div>
@@ -1065,8 +1065,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="img-hint">&#128247; clic para ver imagen</div>
         </div>
       </div>
-      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/pistolas-girardi-klose.png','Pistola Girardi ES9 de Jason (grabada)','Arma signature de Jason · Grabado exclusivo Ultimate Edition · Arriba en la imagen')">
-        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/pistolas-girardi-klose.png" alt="Pistola Girardi ES9 Jason">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/pistolas-girardi-klose.webp','Pistola Girardi ES9 de Jason (grabada)','Arma signature de Jason · Grabado exclusivo Ultimate Edition · Arriba en la imagen')">
+        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/pistolas-girardi-klose.webp" alt="Pistola Girardi ES9 Jason">
         <div class="loc-dot" style="background:var(--red);box-shadow:0 0 8px rgba(255,77,106,0.6);"></div>
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:13.5px;" class="loc-name">Pistola Girardi ES9 de Jason (grabada)</div>
@@ -1074,8 +1074,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="img-hint">&#128247; clic para ver imagen</div>
         </div>
       </div>
-      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/pistolas-girardi-klose.png','Pistola Klose K17 de Lucia (grabada)','Arma signature de Lucia · Grabado exclusivo Ultimate Edition · Abajo en la imagen')">
-        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/pistolas-girardi-klose.png" alt="Pistola Klose K17 Lucia">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/pistolas-girardi-klose.webp','Pistola Klose K17 de Lucia (grabada)','Arma signature de Lucia · Grabado exclusivo Ultimate Edition · Abajo en la imagen')">
+        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/pistolas-girardi-klose.webp" alt="Pistola Klose K17 Lucia">
         <div class="loc-dot" style="background:var(--red);box-shadow:0 0 8px rgba(255,77,106,0.6);"></div>
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:13.5px;" class="loc-name">Pistola Klose K17 de Lucia (grabada)</div>
@@ -1089,8 +1089,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2 class="section-title">5 tiendas exclusivas</h2>
     <p class="section-desc">Completamente inaccesibles para propietarios de la Edici&#243;n Est&#225;ndar. Son locaciones f&#237;sicas dentro del mundo del juego.</p>
     <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
-      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/rideout-customs.png','Rideout Customs','Tienda exclusiva Ultimate Edition · Taller de modificaci&#243;n completo con estilo donk')">
-        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/rideout-customs.png" alt="Rideout Customs">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/rideout-customs.webp','Rideout Customs','Tienda exclusiva Ultimate Edition · Taller de modificaci&#243;n completo con estilo donk')">
+        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/rideout-customs.webp" alt="Rideout Customs">
         <div class="loc-dot" style="background:var(--cyan);"></div>
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:13.5px;" class="loc-name">Rideout Customs</div>
@@ -1105,8 +1105,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div style="font-size:12px;color:var(--chrome-faint);">Sal&#243;n unisex · Estilos signature para Jason y Lucia · Cubre vello facial, maquillaje y u&#241;as · Opciones no disponibles en otros salones del juego</div>
         </div>
       </div>
-      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/stock-305.png','Stock 305','Tienda exclusiva Ultimate Edition · Streetwear &#250;nico para Jason y Lucia · Stockyard')">
-        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/stock-305.png" alt="Stock 305">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/stock-305.webp','Stock 305','Tienda exclusiva Ultimate Edition · Streetwear &#250;nico para Jason y Lucia · Stockyard')">
+        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/stock-305.webp" alt="Stock 305">
         <div class="loc-dot" style="background:var(--cyan);"></div>
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:13.5px;" class="loc-name">Stock 305</div>
@@ -1114,8 +1114,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="img-hint">&#128247; clic para ver imagen</div>
         </div>
       </div>
-      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/electric-fang-tattoo.png','Electric Fang Tattoo','Tienda exclusiva Ultimate Edition · +50 dise&#241;os del colectivo FAILE · Stockyard')">
-        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/electric-fang-tattoo.png" alt="Electric Fang Tattoo">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/electric-fang-tattoo.webp','Electric Fang Tattoo','Tienda exclusiva Ultimate Edition · +50 dise&#241;os del colectivo FAILE · Stockyard')">
+        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/electric-fang-tattoo.webp" alt="Electric Fang Tattoo">
         <div class="loc-dot" style="background:var(--cyan);"></div>
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:13.5px;" class="loc-name">Electric Fang Tattoo</div>
@@ -1155,8 +1155,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- COSMÉTICOS Y ROPA -->
     <h2 class="section-title">Cosm&#233;ticos y ropa exclusiva</h2>
     <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
-      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/vice-city-style.png','Vice City Style Collection','Outfits exclusivos Ultimate Edition · Est&#233;tica Vice City signature para Jason y Lucia')">
-        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/vice-city-style.png" alt="Vice City Style Collection">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/vice-city-style.webp','Vice City Style Collection','Outfits exclusivos Ultimate Edition · Est&#233;tica Vice City signature para Jason y Lucia')">
+        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/vice-city-style.webp" alt="Vice City Style Collection">
         <div class="loc-dot" style="background:var(--green);"></div>
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:13.5px;" class="loc-name">Vice City Style Collection</div>
@@ -1171,8 +1171,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div style="font-size:12px;color:var(--chrome-faint);">Colecci&#243;n c&#225;psula de ropa inspirada en el personaje del show de TV in-game "Macca the Gator" del programa Goodtime State</div>
         </div>
       </div>
-      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/electric-fang-tattoo.png','+50 Tatu&#225;jes FAILE (Electric Fang)','Dise&#241;ados por el colectivo de arte FAILE · Exclusivos Ultimate Edition')">
-        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/electric-fang-tattoo.png" alt="Tatuajes FAILE Electric Fang">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/electric-fang-tattoo.webp','+50 Tatu&#225;jes FAILE (Electric Fang)','Dise&#241;ados por el colectivo de arte FAILE · Exclusivos Ultimate Edition')">
+        <img class="img-thumb" loading="lazy" decoding="async" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/electric-fang-tattoo.webp" alt="Tatuajes FAILE Electric Fang">
         <div class="loc-dot" style="background:var(--green);"></div>
         <div style="flex:1;min-width:200px;">
           <div style="font-weight:700;font-size:13.5px;" class="loc-name">M&#225;s de 50 tatuajes FAILE (Electric Fang)</div>
@@ -1190,11 +1190,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="preorder-items">
         <div class="preorder-item"><span class="preorder-badge badge-all">ambas</span><div><b>'55 Vapid Stanier</b> — sed&#225;n cl&#225;sico de 1955 con est&#233;tica de &#233;poca</div></div>
         <div class="preorder-item"><span class="preorder-badge badge-all">ambas</span><div><b>Garage en Ocean Beach</b> — propiedad exclusiva de pre-orden en una de las zonas m&#225;s ic&#243;nicas de Vice City</div></div>
-        <div class="preorder-item" style="cursor:pointer;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/outfits-retro.png','Outfits Retro — Vintage Vice City Pack','Bonus de pre-orden · Est&#233;tica 80s inspirada en el Vice City original · Para Jason y Lucia')">
+        <div class="preorder-item" style="cursor:pointer;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/outfits-retro.webp','Outfits Retro — Vintage Vice City Pack','Bonus de pre-orden · Est&#233;tica 80s inspirada en el Vice City original · Para Jason y Lucia')">
           <span class="preorder-badge badge-all">ambas</span>
           <div style="flex:1;">
             <div style="display:flex;align-items:center;gap:10px;">
-              <img src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/outfits-retro.png" alt="Outfits Retro" style="width:60px;height:40px;object-fit:cover;object-position:top;border-radius:5px;border:1px solid var(--line);flex-shrink:0;" loading="lazy" decoding="async">
+              <img src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/outfits-retro.webp" alt="Outfits Retro" style="width:60px;height:40px;object-fit:cover;object-position:top;border-radius:5px;border:1px solid var(--line);flex-shrink:0;" loading="lazy" decoding="async">
               <div><b>Outfits retro</b> para Jason y Lucia inspirados en la est&#233;tica de los 80s del Vice City original <span class="img-hint" style="display:inline;">&#128247; ver</span></div>
             </div>
           </div>
