@@ -444,6 +444,24 @@
     .sidebar-overlay.open{display:block;}
   }
 
+
+  /* LIGHTBOX */
+  .lightbox-overlay{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.92);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px;cursor:zoom-out;}
+  .lightbox-overlay.open{display:flex;animation:fadein 0.2s ease;}
+  .lightbox-inner{position:relative;max-width:900px;width:100%;}
+  .lightbox-img{width:100%;border-radius:12px;border:1px solid var(--line-bright);box-shadow:0 0 60px rgba(0,0,0,0.8);}
+  .lightbox-caption{font-family:'Teko',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;color:var(--chrome);margin-top:14px;text-align:center;letter-spacing:0.05em;}
+  .lightbox-sub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chrome-faint);text-align:center;margin-top:4px;}
+  .lightbox-close{position:absolute;top:-14px;right:-14px;width:36px;height:36px;border-radius:50%;background:var(--panel);border:1px solid var(--line-bright);color:var(--chrome);font-size:18px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.15s ease;}
+  .lightbox-close:hover{background:var(--magenta);border-color:var(--magenta);color:#fff;}
+
+  /* Items con imagen clickeable */
+  .loc-row.has-img{cursor:pointer;transition:border-color 0.2s ease,transform 0.2s ease;}
+  .loc-row.has-img:hover{border-color:var(--cyan);transform:translateX(4px);}
+  .loc-row.has-img:hover .loc-name{color:var(--cyan);}
+  .img-thumb{width:56px;height:42px;object-fit:cover;border-radius:6px;border:1px solid var(--line);flex-shrink:0;}
+  .img-hint{font-size:9px;color:var(--cyan);font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;margin-top:3px;opacity:0.8;}
+
 </style>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -483,6 +501,28 @@ window.addEventListener('load', function(){
       const banner = document.getElementById('cookieBanner');
       if(banner) banner.style.display='flex';
     }, 1500);
+  }
+});
+
+
+// LIGHTBOX
+function openLightbox(src, caption, sub){
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxCaption').textContent = caption;
+  document.getElementById('lightboxSub').textContent = sub || '';
+  document.getElementById('lightboxOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(e){
+  if(e.target === document.getElementById('lightboxOverlay') || e.target.classList.contains('lightbox-close')){
+    document.getElementById('lightboxOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape'){
+    document.getElementById('lightboxOverlay').classList.remove('open');
+    document.body.style.overflow = '';
   }
 });
 
@@ -901,11 +941,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-desc">Todos confirmados oficialmente por Rockstar. Disponibles a lo largo de la historia seg&#250;n el cap&#237;tulo.</p>
 
     <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px;">
-      <div class="loc-row" style="flex-wrap:wrap;gap:8px;">
+      <div class="loc-row has-img" style="flex-wrap:wrap;gap:8px;" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/grotti-cheetah-95.png',&quot;&#39;95 Grotti Cheetah&quot;,&quot;Veh&#237;culo exclusivo Ultimate Edition · Sports car retro-futurista&quot;)">
+        <img class="img-thumb" src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/grotti-cheetah-95.png" alt="Grotti Cheetah 95">
         <div class="loc-dot" style="background:var(--amber);box-shadow:0 0 8px rgba(255,193,69,0.6);"></div>
         <div style="flex:1;min-width:200px;">
-          <div style="font-weight:700;font-size:13.5px;">'95 Grotti Cheetah</div>
+          <div style="font-weight:700;font-size:13.5px;" class="loc-name">'95 Grotti Cheetah</div>
           <div style="font-size:12px;color:var(--chrome-faint);">Sports car · Dise&#241;o retro-futurista de mediados de los 90s · Librea minimalista exclusiva · Inspirado en la ruta Shore Drive</div>
+          <div class="img-hint">&#128247; clic para ver imagen</div>
         </div>
       </div>
       <div class="loc-row" style="flex-wrap:wrap;gap:8px;">
@@ -1430,6 +1472,17 @@ if(faqSearch){
 }
 
 </script>
+
+
+<!-- LIGHTBOX -->
+<div id="lightboxOverlay" class="lightbox-overlay" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="document.getElementById('lightboxOverlay').classList.remove('open')">&#10005;</button>
+    <img id="lightboxImg" class="lightbox-img" src="" alt="">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+    <div id="lightboxSub" class="lightbox-sub"></div>
+  </div>
+</div>
 
 <!-- PRIVACY POLICY MODAL -->
 <div id="privacyOverlay" style="position:fixed;inset:0;z-index:300;background:rgba(5,3,9,0.92);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;">
