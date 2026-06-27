@@ -1669,21 +1669,37 @@ if(langSelect){
   langSelect.value='es';
   langSelect.addEventListener('change',function(){
     const lang=this.value;
-    renderFAQ(lang);
+    // 1. Primero traducir todos los elementos data-i18n
     if(lang==='pt'){
-      // aplicar portugués
       currentLang='pt';
       const dict=i18n_pt;
       document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.getAttribute('data-i18n');if(dict[key]!==undefined)el.innerHTML=dict[key];});
-      document.title=dict.page_title;
+      document.title=dict.page_title||'GTA 6 Intel';
       document.documentElement.setAttribute('lang','pt');
       const cl=document.getElementById('checklist');
       if(cl){const done=Array.from(cl.children).map(c=>c.classList.contains('done'));cl.innerHTML='';dict.checklist_items.forEach((text,i)=>{const item=document.createElement('div');item.className='check-item'+(done[i]?' done':'');item.innerHTML='<div class="check-box">'+(done[i]?'✓':'')+'</div><span class="label">'+text+'</span>';item.addEventListener('click',()=>{item.classList.toggle('done');item.querySelector('.check-box').textContent=item.classList.contains('done')?'✓':'';});cl.appendChild(item);});}
     } else {
       applyLanguage(lang);
     }
+    // 2. Después renderizar el FAQ en el idioma correcto
+    renderFAQ(lang);
+    // 3. Actualizar el sidebar
+    const sidebarSub=document.querySelector('.sidebar-sub');
+    if(sidebarSub){
+      const subs={es:'Inteligencia no oficial',en:'Unofficial Intel',pt:'Inteligência não oficial'};
+      sidebarSub.textContent=subs[lang]||subs.es;
+    }
+    // 4. Actualizar countdown label
+    const cdLabel=document.querySelector('.sidebar .sidebar-clock div div:last-child');
+    if(cdLabel){
+      const labels={es:'PARA EL LANZAMIENTO',en:'TO LAUNCH',pt:'PARA O LANÇAMENTO'};
+      cdLabel.textContent=labels[lang]||labels.es;
+    }
   });
 }
+
+// Init FAQ y checklist ES
+renderFAQ('es');
 
 // Init checklist ES
 (function(){
