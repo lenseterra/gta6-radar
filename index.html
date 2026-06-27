@@ -516,6 +516,13 @@
   .char-img-wrap:hover img{transform:scale(1.05);}
   .char-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(8,6,12,0.9) 100%);display:flex;align-items:flex-end;padding:12px;}
   .char-img-hint{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:0.05em;}
+
+  .zona-img-wrap{width:100%;height:160px;overflow:hidden;border-radius:8px 8px 0 0;position:relative;cursor:pointer;}
+  .zona-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s ease;}
+  .zona-img-wrap:hover img{transform:scale(1.05);}
+  .zona-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(8,6,12,0.7) 100%);display:flex;align-items:flex-end;padding:8px 10px;}
+  .zona-card.with-img{padding:0;overflow:hidden;}
+  .zona-card.with-img .zona-content{padding:14px;}
 </style>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -1644,9 +1651,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="section-desc">Cada zona est&aacute; asociada a un personaje de la historia — Rockstar confirma indirectamente la extensi&oacute;n del mapa a trav&eacute;s de los perfiles de personajes.</p>
 
     <div class="zona-grid">
-      <div class="zona-card">
-        <div class="zona-name"><span class="zona-dot" style="background:var(--cyan);box-shadow:0 0 6px var(--cyan);"></span>Vice City</div>
-        <div class="zona-desc">Ciudad principal del juego. Asociada a <b>Boobie Ike</b> y <b>Dre'Quan Priest</b>. Inspirada en Miami — calles neón, club de striptease, sello discográfico y el submundo criminal organizado.</div>
+      <div class="zona-card with-img">
+        <div class="zona-img-wrap" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/zonas/vice-city.png','Vice City','Ciudad principal de GTA 6 · Inspirada en Miami · Zona de Boobie Ike y Dre Quan Priest')">
+          <img src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/zonas/vice-city.png" alt="Vice City GTA 6" loading="lazy" decoding="async">
+          <div class="zona-img-overlay"><span class="char-img-hint">&#128247; ver imagen</span></div>
+        </div>
+        <div class="zona-content">
+          <div class="zona-name"><span class="zona-dot" style="background:var(--cyan);box-shadow:0 0 6px var(--cyan);"></span>Vice City</div>
+          <div class="zona-desc">Ciudad principal del juego. Asociada a <b>Boobie Ike</b> y <b>Dre'Quan Priest</b>. Inspirada en Miami — calles neón, club de striptease, sello discográfico y el submundo criminal organizado.</div>
+        </div>
       </div>
       <div class="zona-card">
         <div class="zona-name"><span class="zona-dot" style="background:var(--green);box-shadow:0 0 6px var(--green);"></span>Leonida Keys</div>
