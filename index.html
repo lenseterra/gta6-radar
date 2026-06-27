@@ -14,6 +14,10 @@
 <meta name="twitter:description" content="Tu fuente de inteligencia para Grand Theft Auto VI. Noticias verificadas, guías, comparativa de ediciones y leaks de la comunidad.">
 <meta name="keywords" content="GTA 6, Grand Theft Auto 6, GTA VI, guías GTA 6, noticias GTA 6, leaks GTA 6, mapa Leonida, Vice City, Lucia, Jason, ediciones GTA 6, precio GTA 6">
 <link rel="canonical" href="https://gta6latino.com">
+<meta name="robots" content="index, follow">
+<meta name="author" content="GTA 6 Intel">
+<meta name="language" content="Spanish">
+<meta name="revisit-after" content="3 days">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Teko:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
@@ -327,7 +331,43 @@
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MQTDR4LT');</script>
+})(window,document,'script','dataLayer','GTM-MQTDR4LT');
+// Privacy modal
+const privacyOverlay = document.getElementById('privacyOverlay');
+if(privacyOverlay){
+  privacyOverlay.style.display = 'none';
+  privacyOverlay.classList.add = function(cls){
+    if(cls === 'open') this.style.display = 'flex';
+  };
+  privacyOverlay.classList.remove = function(cls){
+    if(cls === 'open') this.style.display = 'none';
+  };
+  privacyOverlay.addEventListener('click', function(e){
+    if(e.target === this) this.style.display = 'none';
+  });
+}
+
+
+// Cookie consent
+function acceptCookies(){
+  localStorage.setItem('cookieConsent','accepted');
+  document.getElementById('cookieBanner').style.display='none';
+}
+function declineCookies(){
+  localStorage.setItem('cookieConsent','declined');
+  document.getElementById('cookieBanner').style.display='none';
+}
+window.addEventListener('load', function(){
+  const consent = localStorage.getItem('cookieConsent');
+  if(!consent){
+    setTimeout(()=>{
+      const banner = document.getElementById('cookieBanner');
+      if(banner) banner.style.display='flex';
+    }, 1500);
+  }
+});
+
+</script>
 <!-- End Google Tag Manager -->
 </head>
 <body>
@@ -1026,6 +1066,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer>
   <div class="fwordmark">GTA6 // INTEL</div>
+  <div style="margin-top:10px;margin-bottom:8px;">
+    <a href="#" onclick="document.getElementById('privacyOverlay').classList.add('open');return false;" style="color:var(--chrome-faint);text-decoration:underline;font-size:10px;margin:0 10px;">Política de Privacidad</a>
+    <span style="color:var(--line-bright);">·</span>
+    <a href="#" onclick="document.getElementById('privacyOverlay').classList.add('open');return false;" style="color:var(--chrome-faint);text-decoration:underline;font-size:10px;margin:0 10px;">Privacy Policy</a>
+    <span style="color:var(--line-bright);">·</span>
+    <a href="mailto:contacto@gta6latino.com" style="color:var(--chrome-faint);text-decoration:underline;font-size:10px;margin:0 10px;">Contacto</a>
+  </div>
   <div style="margin-top:6px;" data-i18n="footer_text">proyecto de seguimiento no oficial · datos confirmados vía Rockstar Games / Take-Two · leaks vía comunidad GTA6</div>
 </footer>
 
@@ -1253,5 +1300,85 @@ if(faqSearch){
 }
 
 </script>
+
+<!-- PRIVACY POLICY MODAL -->
+<div id="privacyOverlay" style="position:fixed;inset:0;z-index:300;background:rgba(5,3,9,0.92);backdrop-filter:blur(8px);display:none;align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto;">
+  <div style="position:relative;width:min(760px,100%);background:var(--panel);border:1px solid var(--line-bright);border-radius:16px;padding:36px 32px;margin:auto;">
+    <button onclick="document.getElementById('privacyOverlay').classList.remove('open')" style="position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:var(--panel-2);border:1px solid var(--line);color:var(--chrome-dim);font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;">✕</button>
+    
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px;">// Legal</div>
+    <h2 style="font-family:'Teko',sans-serif;font-size:36px;font-weight:700;text-transform:uppercase;margin-bottom:6px;">Política de Privacidad</h2>
+    <p style="font-size:11px;color:var(--chrome-faint);font-family:'JetBrains Mono',monospace;margin-bottom:28px;">Última actualización: 27 de junio de 2026 · gta6latino.com</p>
+
+    <div style="font-size:13px;color:var(--chrome-dim);line-height:1.8;display:flex;flex-direction:column;gap:20px;">
+
+      <div>
+        <h3 style="color:var(--chrome);font-size:15px;font-weight:700;margin-bottom:6px;">1. Información general</h3>
+        <p>GTA 6 Intel (gta6latino.com) es un sitio web de información y seguimiento no oficial sobre Grand Theft Auto VI, operado de forma independiente. Este sitio no está afiliado, patrocinado ni respaldado por Rockstar Games, Take-Two Interactive ni ninguna empresa relacionada.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--chrome);font-size:15px;font-weight:700;margin-bottom:6px;">2. Información que recopilamos</h3>
+        <p>No recopilamos información personal identificable directamente. Sin embargo, utilizamos herramientas de terceros que pueden recopilar datos de uso de forma anónima:</p>
+        <ul style="margin-top:8px;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+          <li><b style="color:var(--chrome);">Google Analytics (GA4):</b> Recopila datos anónimos sobre visitas, páginas vistas, tiempo en el sitio, país de origen y dispositivo utilizado. No recopila información personal identificable.</li>
+          <li><b style="color:var(--chrome);">Google Tag Manager:</b> Gestiona las etiquetas de seguimiento del sitio.</li>
+          <li><b style="color:var(--chrome);">Google AdSense:</b> Puede usar cookies para mostrar anuncios relevantes basados en visitas anteriores a este u otros sitios web.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 style="color:var(--chrome);font-size:15px;font-weight:700;margin-bottom:6px;">3. Cookies</h3>
+        <p>Este sitio utiliza cookies de terceros a través de Google Analytics y Google AdSense. Las cookies son pequeños archivos de texto almacenados en tu dispositivo que nos permiten analizar el tráfico y mostrar anuncios relevantes. Puedes desactivar las cookies en la configuración de tu navegador, aunque esto puede afectar la funcionalidad del sitio.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--chrome);font-size:15px;font-weight:700;margin-bottom:6px;">4. Publicidad</h3>
+        <p>Este sitio utiliza Google AdSense para mostrar anuncios. Google puede usar cookies para mostrar anuncios basados en visitas anteriores al sitio. Los usuarios pueden optar por no recibir publicidad personalizada visitando <a href="https://www.google.com/settings/ads" target="_blank" style="color:var(--cyan);">google.com/settings/ads</a>. Para más información sobre cómo Google usa los datos, visita <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--cyan);">policies.google.com/privacy</a>.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--chrome);font-size:15px;font-weight:700;margin-bottom:6px;">5. Contenido de terceros</h3>
+        <p>Este sitio puede incluir videos embebidos de YouTube (Google LLC) y enlaces a sitios externos. Estos sitios tienen sus propias políticas de privacidad independientes. No tenemos control sobre el contenido ni las prácticas de privacidad de estos sitios.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--chrome);font-size:15px;font-weight:700;margin-bottom:6px;">6. Derechos del usuario (GDPR / Ley colombiana)</h3>
+        <p>Tienes derecho a acceder, rectificar o eliminar cualquier dato personal que podamos tener sobre ti. Para ejercer estos derechos, contáctanos en <a href="mailto:contacto@gta6latino.com" style="color:var(--cyan);">contacto@gta6latino.com</a>. Los usuarios en la Unión Europea también tienen derechos adicionales bajo el GDPR.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--chrome);font-size:15px;font-weight:700;margin-bottom:6px;">7. Propiedad intelectual</h3>
+        <p>GTA 6, Grand Theft Auto, Rockstar Games y todos los nombres, logos e imágenes relacionados son marcas registradas de Take-Two Interactive Software, Inc. Este sitio es un proyecto de fans no oficial con fines informativos. Todo el contenido original del sitio pertenece a GTA 6 Intel.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--chrome);font-size:15px;font-weight:700;margin-bottom:6px;">8. Cambios a esta política</h3>
+        <p>Podemos actualizar esta política de privacidad ocasionalmente. Los cambios serán publicados en esta página con la fecha de actualización correspondiente.</p>
+      </div>
+
+      <div>
+        <h3 style="color:var(--chrome);font-size:15px;font-weight:700;margin-bottom:6px;">9. Contacto</h3>
+        <p>Si tienes preguntas sobre esta política de privacidad, contáctanos en: <a href="mailto:contacto@gta6latino.com" style="color:var(--cyan);">contacto@gta6latino.com</a></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookieBanner" style="position:fixed;bottom:0;left:0;right:0;z-index:400;background:rgba(10,6,18,0.97);border-top:1px solid var(--line-bright);padding:16px 24px;display:none;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;backdrop-filter:blur(10px);">
+  <p style="font-size:12.5px;color:var(--chrome-dim);max-width:700px;line-height:1.6;margin:0;">
+    🍪 Usamos cookies de <b style="color:var(--chrome);">Google Analytics</b> y <b style="color:var(--chrome);">Google AdSense</b> para analizar el tráfico y mostrar anuncios relevantes. 
+    Al continuar navegando aceptas su uso. 
+    <a href="#" onclick="document.getElementById('privacyOverlay').style.display='flex';return false;" style="color:var(--cyan);text-decoration:underline;">Ver política de privacidad</a>
+  </p>
+  <div style="display:flex;gap:10px;flex-shrink:0;">
+    <button onclick="acceptCookies()" style="background:linear-gradient(135deg,var(--cyan),#0d9c8f);color:#000;border:none;padding:10px 22px;border-radius:8px;font-weight:700;font-size:13px;cursor:pointer;font-family:'Space Grotesk',sans-serif;">Aceptar</button>
+    <button onclick="declineCookies()" style="background:var(--panel-2);color:var(--chrome-faint);border:1px solid var(--line);padding:10px 16px;border-radius:8px;font-size:13px;cursor:pointer;font-family:'Space Grotesk',sans-serif;">Rechazar</button>
+  </div>
+</div>
+
 </body>
 </html>
