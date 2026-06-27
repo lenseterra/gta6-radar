@@ -304,6 +304,23 @@
   .faq-a b{color:var(--chrome);}
   .faq-item.open .faq-a{display:block;}
 
+
+  /* FAQ GENERAL */
+  .faq-category{margin-bottom:36px;}
+  .faq-category-title{font-family:'Teko',sans-serif;font-weight:700;font-size:26px;text-transform:uppercase;color:var(--chrome);margin-bottom:4px;display:flex;align-items:center;gap:10px;}
+  .faq-category-title .cat-icon{font-size:20px;}
+  .faq-category-desc{font-size:12.5px;color:var(--chrome-faint);margin-bottom:14px;font-family:'JetBrains Mono',monospace;letter-spacing:0.03em;}
+  .faq-search{width:100%;padding:12px 16px;background:var(--panel);border:1px solid var(--line-bright);border-radius:10px;color:var(--chrome);font-family:'Space Grotesk',sans-serif;font-size:14px;margin-bottom:28px;transition:border-color 0.2s ease;}
+  .faq-search:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(29,233,216,0.1);}
+  .faq-search::placeholder{color:var(--chrome-faint);}
+  .faq-item.hidden{display:none;}
+  .faq-a a{color:var(--cyan);text-decoration:none;}
+  .faq-a a:hover{text-decoration:underline;}
+  .faq-tag{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:0.05em;margin-left:8px;vertical-align:middle;}
+  .faq-tag-confirmed{background:rgba(61,240,140,0.12);color:var(--green);border:1px solid rgba(61,240,140,0.3);}
+  .faq-tag-rumor{background:rgba(255,193,69,0.12);color:var(--amber);border:1px solid rgba(255,193,69,0.3);}
+  .faq-no-results{text-align:center;padding:40px 20px;color:var(--chrome-faint);font-size:13px;display:none;}
+
 </style>
 </head>
 <body>
@@ -367,6 +384,7 @@
     <button class="blip-btn" data-tab="mapa"><span class="blip-dot"></span><span data-i18n="nav_mapa">Mapa &amp; puntos de interés</span></button>
     <button class="blip-btn" data-tab="guias"><span class="blip-dot"></span><span data-i18n="nav_guias">Guías &amp; actividades</span></button>
     <button class="blip-btn" data-tab="ediciones"><span class="blip-dot"></span><span data-i18n="nav_ediciones">¿Qué edición comprar?</span><span class="tag tag-official" style="background:rgba(255,193,69,0.12);color:var(--amber);border:1px solid rgba(255,193,69,0.3);">guía</span></button>
+    <button class="blip-btn" data-tab="faq"><span class="blip-dot"></span><span data-i18n="nav_faq">Preguntas frecuentes</span></button>
     <button class="blip-btn" data-tab="leaks"><span class="blip-dot"></span><span data-i18n="nav_leaks">Leaks &amp; especulación</span><span class="tag tag-leak" data-i18n="tag_no_oficial">no oficial</span></button>
   </div>
 </nav>
@@ -734,6 +752,245 @@
 
   </section>
 
+
+  <!-- TAB FAQ -->
+  <section class="panel-section" id="panel-faq">
+
+    <div class="banner banner-official">
+      <div class="banner-icon">💡</div>
+      <div>Las respuestas marcadas <span style="background:rgba(61,240,140,0.12);color:var(--green);border:1px solid rgba(61,240,140,0.3);font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 7px;border-radius:3px;text-transform:uppercase;">confirmado</span> vienen de fuentes oficiales de <b>Rockstar Games</b> y <b>Take-Two Interactive</b>. Actualizado al 26 de junio de 2026.</div>
+    </div>
+
+    <div class="section-eyebrow">Base de conocimiento</div>
+    <h2 class="section-title">Preguntas frecuentes</h2>
+    <p class="section-desc">Todo lo que necesitas saber sobre GTA 6 antes del 19 de noviembre.</p>
+
+    <input type="text" class="faq-search" id="faqSearch" placeholder="🔍  Busca tu pregunta... (ej: PC, precio, online, PS4)">
+
+    <div id="faqNoResults" class="faq-no-results">No se encontraron preguntas para esa búsqueda. <br>¿Tienes una pregunta? Escríbela en los comentarios.</div>
+
+    <!-- CATEGORÍA 1: LANZAMIENTO -->
+    <div class="faq-category">
+      <div class="faq-category-title"><span class="cat-icon">📅</span> Lanzamiento</div>
+      <div class="faq-category-desc">// fechas, plataformas y disponibilidad</div>
+      <div class="faq-list" id="faqList">
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Cuándo sale GTA 6? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a"><b>19 de noviembre de 2026</b> para PS5 y Xbox Series X/S. La fecha fue confirmada por Rockstar y reafirmada por Take-Two, que ha declarado públicamente que no habrá más retrasos.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿GTA 6 llega a PC? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a"><b>No hay fecha de PC confirmada.</b> GTA 6 lanza exclusivamente en consolas el 19 de noviembre. Siguiendo el patrón histórico de Rockstar (GTA V tardó casi 2 años en llegar a PC), lo más probable es que la versión PC llegue en <b>2027 o 2028</b>. Dos ex-desarrolladores de Rockstar han dicho que "tardará bastante".</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Funciona en PS4 o Xbox One?  <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a"><b>No.</b> GTA 6 es exclusivo de nueva generación: <b>PS5, PS5 Pro, Xbox Series X y Xbox Series S</b>. No habrá versión para PS4 ni Xbox One.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Hay diferencia entre jugarlo en PS5 y PS5 Pro?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">Sony confirmó que GTA 6 recibirá <b>soporte especial en PS5</b>, superior al de algunos exclusivos de primera parte. Se espera que PS5 Pro ofrezca mejoras visuales adicionales. Rockstar no ha confirmado que el juego corra a 60fps estables en ninguna consola.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿GTA 6 llega a Nintendo Switch 2? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a"><b>No.</b> Rockstar confirmó que Nintendo Switch 2 no está entre las plataformas de lanzamiento ni en sus planes actuales.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Cuánto pesa GTA 6? ¿Cuándo puedo pre-cargar?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">El peso exacto no está confirmado, pero se estima alrededor de <b>150 GB</b> basándose en la escala del juego (GTA V pesa más de 100 GB). La <b>pre-carga estará disponible desde el 12 de noviembre</b> para todas las ediciones digitales y físicas.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Habrá acceso anticipado o early access?  <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a"><b>No.</b> Rockstar confirmó que no habrá early access para ninguna edición. Todos los jugadores acceden al mismo tiempo el <b>19 de noviembre a medianoche</b> en hora local.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AD -->
+    <div class="ad-slot ad-slot-leaderboard"><!-- 728×90 · AdSense --></div>
+
+    <!-- CATEGORÍA 2: PRECIO Y EDICIONES -->
+    <div class="faq-category">
+      <div class="faq-category-title"><span class="cat-icon">💰</span> Precio y ediciones</div>
+      <div class="faq-category-desc">// cuánto cuesta y qué incluye cada versión</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Cuánto cuesta GTA 6? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a"><b>Edición Estándar: $79.99 USD</b> · <b>Ultimate Edition: $99.99 USD</b>. Precios confirmados por Take-Two el 25 de junio de 2026.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Vale la pena pagar $20 más por la Ultimate Edition?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">Depende de tu perfil: <br><br><b>Paga la Estándar ($79.99) si:</b> quieres disfrutar la historia completa sin extras. El 100% del contenido narrativo está incluido.<br><br><b>Paga la Ultimate ($99.99) si:</b> planeas invertir muchas horas, te importa la personalización desde el día uno (vehículos premium, ropa exclusiva, armas personalizadas, 2 tiendas exclusivas) y quieres el contenido integrado en la historia de Jason y Lucia.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Qué incluye el bonus de pre-orden? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">Pre-ordenando antes del <b>20 de noviembre</b> recibes el <b>Vintage Vice City Pack</b>: coche '55 Vapid Stanier, garage en Ocean Beach, ropa retro para Jason y Lucia, skin referenciando a Tommy Vercetti, y peinados retro. Las pre-órdenes digitales incluyen además <b>1 mes gratis de GTA+</b>.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            Las copias físicas ¿incluyen disco? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a"><b>No.</b> Las copias físicas solo contienen un <b>código de descarga dentro de la caja</b>. No hay disco. Es efectivamente una copia digital en packaging físico. Rockstar no ha descartado lanzar una versión en disco después del lanzamiento.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Puedo hacer upgrade de Estándar a Ultimate después del lanzamiento?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">Rockstar <b>no ha confirmado</b> si habrá opción de upgrade entre ediciones. En GTA V esta opción nunca existió. Si crees que querrás el contenido Ultimate, es más seguro comprarlo desde el inicio.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CATEGORÍA 3: HISTORIA Y GAMEPLAY -->
+    <div class="faq-category">
+      <div class="faq-category-title"><span class="cat-icon">🎮</span> Historia y gameplay</div>
+      <div class="faq-category-desc">// personajes, mecánicas y mundo del juego</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Quiénes son los protagonistas? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a"><b>Lucia Caminos</b> y <b>Jason Duval</b>. Lucia es la primera protagonista femenina principal de la franquicia. Ambos son jugables y puedes cambiar entre ellos libremente, incluyendo un modo dual simultáneo durante robos en mundo abierto. Lucía originalmente es de Liberty City, su padre le enseñó a pelear desde pequeña.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Cuál es la historia de GTA 6? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">Descripción oficial de Rockstar: <i>"Vice City, USA. Jason y Lucia siempre han sabido que el juego está en su contra. Pero cuando un golpe fácil sale mal, se encuentran en el lado más oscuro del lugar más soleado de América, en medio de una conspiración que abarca todo el estado de Leonida — forzados a depender el uno del otro más que nunca si quieren salir con vida."</i></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿GTA 6 tiene GTA Online desde el lanzamiento? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a"><b>No.</b> GTA 6 lanza como <b>experiencia exclusivamente single-player</b>. GTA Online para la nueva entrega llegará como actualización posterior sin fecha confirmada — igual que ocurrió con GTA V en 2013.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Mi progreso de GTA Online se transfiere a GTA 6?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">Rockstar <b>no ha confirmado</b> transferencia de progreso. Es probable que GTA 6 Online sea una pizarra en blanco para todos los jugadores, aunque algunos insiders sugieren que puede haber un bono de bienvenida para jugadores veteranos de GTA Online.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Qué mecánicas nuevas tiene GTA 6? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">Mecánicas confirmadas oficialmente: <b>pesca</b>, programa de TV animado "Macca the Gator", <b>venta de botín robado</b> desde vehículos, sistema de diálogo RDR2-style (Saludar / Amenazar / Robar), 6 estrellas de búsqueda, <b>zip ties para atar NPCs</b>, escudos humanos, personalización profunda de ropa, tatuajes y peinado para ambos protagonistas, habilidades especiales individuales para Jason y Lucia (cámara lenta), y más de 200 vehículos confirmados.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿GTA 6 tiene capítulos? ¿Cómo está estructurada la historia?
+            <span class="faq-tag faq-tag-rumor">rumor</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">Según fuentes no oficiales, la historia estaría dividida en <b>5 capítulos</b> y el juego completo sería lanzado de una sola vez (no episódico). Rockstar no ha confirmado oficialmente la estructura narrativa.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Dónde está ambientado GTA 6? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">En el <b>estado ficticio de Leonida</b>, inspirado en Florida. La ciudad principal es <b>Vice City</b>, versión ficticia de Miami. El mundo incluye zonas como Grassrivers (los Everglades), Leonida Keys (los Cayos de Florida), Mount Kalaga, Ambrosia y Port Gellhorn.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- AD -->
+    <div class="ad-slot ad-slot-rectangle" style="max-width:100%;height:90px;"><!-- 728×90 --></div>
+
+    <!-- CATEGORÍA 4: COMPRA Y PREVENTA -->
+    <div class="faq-category">
+      <div class="faq-category-title"><span class="cat-icon">🛒</span> Compra y preventa</div>
+      <div class="faq-category-desc">// dónde comprar, pre-carga y detalles de la compra</div>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Dónde puedo pre-ordenar GTA 6? <span class="faq-tag faq-tag-confirmed">confirmado</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">Las pre-órdenes están disponibles desde el <b>25 de junio de 2026</b> en: <b>PlayStation Store</b>, <b>Microsoft Store</b>, <b>Rockstar Games Store</b> y minoristas físicos seleccionados globalmente.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿Habrá edición coleccionista o de lujo?
+            <span class="faq-tag faq-tag-rumor">sin confirmar</span>
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">Rockstar solo ha confirmado <b>dos ediciones</b>: Estándar ($79.99) y Ultimate ($99.99). No hay anuncio de edición coleccionista física. Puede anunciarse más cerca del lanzamiento.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            ¿GTA 6 estará en Game Pass o PS Plus?
+            <span class="faq-arrow">▼</span>
+          </div>
+          <div class="faq-a">Rockstar <b>no ha confirmado</b> disponibilidad en Game Pass ni en PS Plus al lanzamiento. Dada la escala del juego y su precio base de $79.99, es muy poco probable que llegue a estos servicios el día uno.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
   <!-- TAB LEAKS -->
   <section class="panel-section" id="panel-leaks">
     <div class="leak-disclaimer"><div class="ico">⚠</div><div class="leak-disclaimer-text" data-i18n="leak_disclaimer"><b>Todo lo de esta sección es especulación de la comunidad, no información oficial de Rockstar.</b> Proviene de proyectos de mapeo creados por fans. Varias filtraciones han sido identificadas como generadas por IA. Trátalo como entretenimiento.</div></div>
@@ -867,7 +1124,7 @@ const i18n={
     topline:"LEONIDA STATE · UNOFFICIAL INTEL",
     hero_tagline:'Your intel hub for <b>Grand Theft Auto VI</b>: verified news, mission guides, edition comparison, the Leonida map, and everything the community has uncovered — organized and clearly labeled.',
     meta_launch:"Release date",meta_platforms:"Platforms",meta_setting:"Setting",meta_countdown:"Countdown",
-    nav_resumen:"Overview",nav_noticias:"News",nav_mapa:"Map & points of interest",nav_guias:"Guides & activities",nav_ediciones:"Which edition to buy?",nav_leaks:"Leaks & speculation",
+    nav_resumen:"Overview",nav_noticias:"News",nav_mapa:"Map & points of interest",nav_guias:"Guides & activities",nav_faq:"FAQ",nav_ediciones:"Which edition to buy?",nav_leaks:"Leaks & speculation",
     tag_oficial:"official",tag_no_oficial:"unofficial",
     banner_noticias:"Coverage based on official statements from Rockstar Games / Take-Two and verified media reports.",
     eyebrow_noticias:"Latest",title_noticias:"GTA 6 news",desc_noticias:"Recent updates on Grand Theft Auto VI, in chronological order.",
@@ -961,6 +1218,29 @@ langToggle.addEventListener('click',()=>applyLanguage(currentLang==='es'?'en':'e
     cl.appendChild(item);
   });
 })();
+
+// FAQ SEARCH
+const faqSearch = document.getElementById('faqSearch');
+if(faqSearch){
+  faqSearch.addEventListener('input', function(){
+    const q = this.value.toLowerCase().trim();
+    const items = document.querySelectorAll('.faq-item');
+    let visible = 0;
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      if(!q || text.includes(q)){
+        item.classList.remove('hidden');
+        visible++;
+      } else {
+        item.classList.add('hidden');
+        item.classList.remove('open');
+      }
+    });
+    const noResults = document.getElementById('faqNoResults');
+    if(noResults) noResults.style.display = (q && visible === 0) ? 'block' : 'none';
+  });
+}
+
 </script>
 </body>
 </html>
