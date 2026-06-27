@@ -510,6 +510,12 @@
   .zona-desc{font-size:12px;color:var(--chrome-dim);line-height:1.6;}
   .zona-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px;}
 
+
+  .char-img-wrap{width:100%;aspect-ratio:3/4;overflow:hidden;position:relative;cursor:pointer;}
+  .char-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 0.4s ease;loading:lazy;}
+  .char-img-wrap:hover img{transform:scale(1.05);}
+  .char-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(8,6,12,0.9) 100%);display:flex;align-items:flex-end;padding:12px;}
+  .char-img-hint{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);letter-spacing:0.05em;}
 </style>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -1442,6 +1448,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- JASON -->
       <div class="char-card protagonist">
+        <div class="char-img-wrap" onclick="openLightbox('https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/chars/jason-duval.png','Jason Duval','Protagonista · Los Cayos de Leonida')">
+          <img src="https://raw.githubusercontent.com/lenseterra/gta6-radar/main/img/chars/jason-duval.png" alt="Jason Duval" loading="lazy" decoding="async">
+          <div class="char-img-overlay"><span class="char-img-hint">&#128247; ver foto</span></div>
+        </div>
         <div class="char-header">
           <div class="char-avatar jason">&#127946;</div>
           <div>
