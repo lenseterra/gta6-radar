@@ -17,11 +17,12 @@
 <meta name="keywords" content="GTA 6 precio, GTA 6 Ultimate Edition, GTA 6 edición estándar, cuánto cuesta GTA 6, vale la pena Ultimate Edition GTA 6, GTA 6 fecha lanzamiento, GTA 6 PC, GTA 6 PS5, GTA VI español, GTA 6 Colombia, GTA 6 Mexico, GTA 6 pre-orden">
 <link rel="canonical" href="https://gta6latino.com">
 <meta name="robots" content="index, follow">
+<meta http-equiv="Cache-Control" content="public, max-age=3600">
 <meta name="author" content="GTA 6 Intel">
 <meta name="language" content="Spanish">
 <meta name="revisit-after" content="3 days">
 <style>
-  /* Fonts cargadas via link tag para mejor performance */
+  /* Fonts via link tag - display:swap aplicado */
 
   :root{
     --void:#08060c;--void-soft:#100b18;--panel:#150f20;--panel-2:#1a1228;
@@ -84,8 +85,8 @@
   .ad-slot-banner{width:100%;height:60px;margin:16px 0;}
 
   /* NAV */
-  .radar-nav{position:sticky;top:0;z-index:50;background:rgba(8,6,12,0.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
-  .radar-nav-inner{max-width:1180px;margin:0 auto;padding:0 22px;display:flex;align-items:center;gap:4px;overflow-x:auto;}
+  
+  
   .blip-btn{position:relative;display:flex;align-items:center;gap:10px;background:transparent;border:none;border-bottom:3px solid transparent;cursor:pointer;color:var(--chrome-faint);font-weight:700;font-size:14px;padding:18px 20px;white-space:nowrap;transition:all 0.2s ease;letter-spacing:0.02em;}
   .blip-btn .blip-dot{width:8px;height:8px;border-radius:50%;background:var(--chrome-faint);transition:all 0.2s ease;flex-shrink:0;}
   .blip-btn:hover{color:var(--chrome);background:rgba(255,255,255,0.04);border-bottom-color:var(--line-bright);}
@@ -435,7 +436,7 @@
   .sidebar-overlay{display:none;position:fixed;inset:0;z-index:90;background:rgba(0,0,0,0.6);}
 
   /* MAIN CONTENT — empuja a la derecha */
-  .main-content{margin-left:240px;flex:1;min-width:0;}
+  .main-content{margin-left:240px;flex:1;min-width:0;contain:layout style;}
 
   /* MOBILE */
   @media(max-width:860px){
@@ -463,6 +464,51 @@
   .loc-row.has-img:hover .loc-name{color:var(--cyan);}
   .img-thumb{width:56px;height:42px;object-fit:cover;border-radius:6px;border:1px solid var(--line);flex-shrink:0;}
   .img-hint{font-size:9px;color:var(--cyan);font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;margin-top:3px;opacity:0.8;}
+
+
+  /* PERSONAJES */
+  .char-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:32px;}
+  @media(max-width:700px){.char-grid{grid-template-columns:1fr;}}
+
+  .char-card{background:linear-gradient(160deg,var(--panel) 0%,var(--void-soft) 100%);border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative;transition:border-color 0.2s ease,transform 0.2s ease;}
+  .char-card:hover{border-color:var(--line-bright);transform:translateY(-3px);}
+  .char-card.protagonist{border-color:rgba(29,233,216,0.3);background:linear-gradient(160deg,#0d1520 0%,var(--void-soft) 100%);}
+  .char-card.lucia-card{border-color:rgba(255,45,120,0.3);background:linear-gradient(160deg,#1a0a14 0%,var(--void-soft) 100%);}
+
+  .char-header{padding:20px 20px 14px;display:flex;align-items:flex-start;gap:14px;border-bottom:1px solid var(--line);}
+  .char-avatar{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;border:1px solid var(--line);}
+  .char-avatar.jason{background:linear-gradient(135deg,rgba(29,233,216,0.15),rgba(29,233,216,0.05));}
+  .char-avatar.lucia{background:linear-gradient(135deg,rgba(255,45,120,0.15),rgba(255,45,120,0.05));}
+  .char-avatar.supporting{background:linear-gradient(135deg,rgba(255,193,69,0.1),rgba(255,193,69,0.03));}
+
+  .char-name{font-family:'Teko',sans-serif;font-weight:700;font-size:24px;text-transform:uppercase;line-height:1;}
+  .char-name.jason{color:var(--cyan);text-shadow:0 0 15px rgba(29,233,216,0.4);}
+  .char-name.lucia{color:var(--magenta-soft);text-shadow:0 0 15px rgba(255,45,120,0.4);}
+  .char-name.supporting{color:var(--amber);}
+  .char-role{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--chrome-faint);text-transform:uppercase;letter-spacing:0.1em;margin-top:3px;}
+  .char-tag{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:0.05em;margin-top:6px;display:inline-block;}
+  .char-tag.protagonista{background:rgba(29,233,216,0.12);color:var(--cyan);border:1px solid rgba(29,233,216,0.3);}
+  .char-tag.lucia-tag{background:rgba(255,45,120,0.12);color:var(--magenta-soft);border:1px solid rgba(255,45,120,0.3);}
+  .char-tag.secundario{background:rgba(255,193,69,0.1);color:var(--amber);border:1px solid rgba(255,193,69,0.25);}
+
+  .char-body{padding:16px 20px;}
+  .char-quote{font-size:13.5px;color:var(--cyan);font-style:italic;border-left:3px solid var(--cyan);padding-left:12px;margin-bottom:12px;line-height:1.5;}
+  .char-quote.lucia-quote{color:var(--magenta-soft);border-left-color:var(--magenta-soft);}
+  .char-quote.amber-quote{color:var(--amber);border-left-color:var(--amber);}
+  .char-desc{font-size:12.5px;color:var(--chrome-dim);line-height:1.7;}
+  .char-desc b{color:var(--chrome);}
+  .char-quotes-extra{margin-top:12px;display:flex;flex-direction:column;gap:6px;}
+  .char-line{font-size:11.5px;color:var(--chrome-faint);font-style:italic;padding:6px 10px;background:rgba(255,255,255,0.02);border-radius:6px;border-left:2px solid var(--line-bright);}
+
+  .char-full{grid-column:1/-1;}
+  @media(max-width:700px){.char-full{grid-column:1;}}
+
+  .zona-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:28px;}
+  @media(max-width:600px){.zona-grid{grid-template-columns:1fr;}}
+  .zona-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;}
+  .zona-name{font-family:'Teko',sans-serif;font-size:20px;font-weight:700;text-transform:uppercase;color:var(--chrome);margin-bottom:4px;}
+  .zona-desc{font-size:12px;color:var(--chrome-dim);line-height:1.6;}
+  .zona-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px;}
 
 </style>
 <!-- Google Tag Manager -->
@@ -686,6 +732,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="nav-icon">&#128269;</span><span class="nav-dot"></span>
       <span data-i18n="nav_leaks">Leaks</span>
       <span class="nav-tag nav-tag-leak">no oficial</span>
+    </button>
+    <button class="nav-item" data-tab="personajes">
+      <span class="nav-icon">&#128100;</span><span class="nav-dot"></span>
+      <span>Personajes</span>
+      <span class="nav-tag nav-tag-official">oficial</span>
     </button>
     <button class="nav-item" data-tab="faq">
       <span class="nav-icon">&#10067;</span><span class="nav-dot"></span>
@@ -1372,6 +1423,208 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="faq-a">Rockstar solo ha confirmado <b>dos ediciones</b>: Est&#225;ndar ($79.99) y Ultimate ($99.99). No hay anuncio de edici&#243;n coleccionista f&#237;sica por ahora.</div>
         </div>
 
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- TAB PERSONAJES -->
+  <section class="panel-section" id="panel-personajes">
+
+    <div class="section-eyebrow">Fuente oficial</div>
+    <h2 class="section-title">Personajes de GTA 6</h2>
+    <p class="section-desc">Toda la informaci&oacute;n de esta secci&oacute;n proviene directamente de <b>Rockstar Games</b> — descripciones oficiales, citas y detalles confirmados del mundo de Leonida.</p>
+
+    <!-- PROTAGONISTAS -->
+    <div class="section-eyebrow" style="margin-top:8px;">Protagonistas</div>
+    <div class="char-grid" style="margin-top:14px;">
+
+      <!-- JASON -->
+      <div class="char-card protagonist">
+        <div class="char-header">
+          <div class="char-avatar jason">&#127946;</div>
+          <div>
+            <div class="char-name jason">Jason Duval</div>
+            <div class="char-role">Protagonista masculino &middot; Los Cayos de Leonida</div>
+            <span class="char-tag protagonista">protagonista</span>
+          </div>
+        </div>
+        <div class="char-body">
+          <div class="char-quote">"Jason wants an easy life, but things just keep getting harder."</div>
+          <div class="char-desc">
+            Jason creci&oacute; rodeado de estafadores y delincuentes. Tras una temporada en el Ej&eacute;rcito intentando sacudirse sus problem&aacute;ticos a&ntilde;os de juventud, termin&oacute; en los Cayos de Leonida haciendo lo que mejor sabe: trabajar para narcotraficantes locales. Conocer a Lucia podr&iacute;a ser lo mejor o lo peor que le ha pasado.
+          </div>
+          <div class="char-quotes-extra">
+            <div class="char-line">"If anything happens, I'm right behind you."</div>
+            <div class="char-line">"Another day in paradise, right?"</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LUCIA -->
+      <div class="char-card lucia-card">
+        <div class="char-header">
+          <div class="char-avatar lucia">&#9995;</div>
+          <div>
+            <div class="char-name lucia">Lucia Caminos</div>
+            <div class="char-role">Protagonista femenina &middot; Liberty City / Leonida</div>
+            <span class="char-tag lucia-tag">primera protagonista femenina</span>
+          </div>
+        </div>
+        <div class="char-body">
+          <div class="char-quote lucia-quote">"Lucia's father taught her to fight as soon as she could walk."</div>
+          <div class="char-desc">
+            La vida le ha llegado a golpes desde siempre. Pelear por su familia la llev&oacute; a la Penitenciar&iacute;a del Estado de Leonida. La pura suerte la sac&oacute;. Su mayor sue&ntilde;o es darle a su madre la buena vida que so&ntilde;&oacute; desde sus d&iacute;as en Liberty City — pero en lugar de fantas&iacute;as a medias, Lucia est&aacute; dispuesta a tomar el asunto en sus propias manos.
+          </div>
+          <div class="char-quotes-extra">
+            <div class="char-line">"The only thing that matters is who you know and what you got."</div>
+            <div class="char-line">"A life with Jason could be her way out."</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ad-slot ad-slot-leaderboard"><!-- AdSense --></div>
+
+    <!-- PERSONAJES SECUNDARIOS -->
+    <div class="section-eyebrow" style="margin-top:8px;">Personajes secundarios confirmados</div>
+    <div class="char-grid" style="margin-top:14px;">
+
+      <!-- CAL HAMPTON -->
+      <div class="char-card">
+        <div class="char-header">
+          <div class="char-avatar supporting">&#128249;</div>
+          <div>
+            <div class="char-name supporting">Cal Hampton</div>
+            <div class="char-role">Amigo de Jason &middot; Los Cayos</div>
+            <span class="char-tag secundario">secundario</span>
+          </div>
+        </div>
+        <div class="char-body">
+          <div class="char-quote amber-quote">"What if everything on the internet was true?"</div>
+          <div class="char-desc">
+            Amigo de Jason y asociado de Brian. Cal se siente m&aacute;s seguro en casa, espiando las frecuencias de la Guardia Costera con unas cervezas y pesta&ntilde;as de navegaci&oacute;n privada abiertas. Est&aacute; en el fondo de Am&eacute;rica y feliz ah&iacute;.
+          </div>
+          <div class="char-quotes-extra">
+            <div class="char-line">"There are way too many birds flying around in perfect formation."</div>
+            <div class="char-line">"The psychopaths are in charge. Get used to it."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOOBIE IKE -->
+      <div class="char-card">
+        <div class="char-header">
+          <div class="char-avatar supporting">&#9827;</div>
+          <div>
+            <div class="char-name supporting">Boobie Ike</div>
+            <div class="char-role">Leyenda de Vice City &middot; Empresario</div>
+            <span class="char-tag secundario">secundario</span>
+          </div>
+        </div>
+        <div class="char-body">
+          <div class="char-quote amber-quote">"It's all about heart — the Jack of Hearts."</div>
+          <div class="char-desc">
+            Leyenda local de Vice City. Uno de los pocos que transform&oacute; su tiempo en las calles en un imperio leg&iacute;timo: bienes ra&iacute;ces, un club de striptease y un estudio de grabaci&oacute;n. Todo sonrisas hasta que es hora de hablar de negocios. Su apuesta m&aacute;s importante: el sello Only Raw Records junto a Dre'Quan.
+          </div>
+          <div class="char-quotes-extra">
+            <div class="char-line">"The club money pay for the studio, and the drug money pay for it all."</div>
+            <div class="char-line">"Top quality cuts."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRE'QUAN PRIEST -->
+      <div class="char-card">
+        <div class="char-header">
+          <div class="char-avatar supporting">&#127925;</div>
+          <div>
+            <div class="char-name supporting">Dre'Quan Priest</div>
+            <div class="char-role">Productor musical &middot; Only Raw Records</div>
+            <span class="char-tag secundario">secundario</span>
+          </div>
+        </div>
+        <div class="char-body">
+          <div class="char-quote amber-quote">"Only Raw... Records"</div>
+          <div class="char-desc">
+            Dre'Quan siempre fue m&aacute;s un h&uacute;stle que un gsters. Incluso cuando vend&iacute;a en las calles para sobrevivir, su meta era la m&uacute;sica. Ahora que firm&oacute; a las Real Dimez, sus d&iacute;as reservando actos en el club de Boobie podr&iacute;an estar contados.
+          </div>
+          <div class="char-quotes-extra">
+            <div class="char-line">"Dancers are like my A&Rs. If the record's a hit, DJs gonna be spinnin' it."</div>
+            <div class="char-line">"You're with the label now."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- REAL DIMEZ -->
+      <div class="char-card">
+        <div class="char-header">
+          <div class="char-avatar supporting">&#127908;</div>
+          <div>
+            <div class="char-name supporting">Real Dimez</div>
+            <div class="char-role">Bae-Luxe &amp; Roxy &middot; D&uacute;o de rap</div>
+            <span class="char-tag secundario">secundario</span>
+          </div>
+        </div>
+        <div class="char-body">
+          <div class="char-quote amber-quote">"Viral videos. Viral hooks."</div>
+          <div class="char-desc">
+            Bae-Luxe y Roxy son amigas desde la secundaria. Tienen el talento para convertir sus triquiñuelas callejeras en dinero fr&iacute;o y duro a trav&eacute;s de tracks de rap picantes y una presencia masiva en redes sociales. Ahora firmadas en Only Raw Records, esperan repetir el &eacute;xito.
+          </div>
+          <div class="char-quotes-extra">
+            <div class="char-line">"All my dimes in this club. Meet my twin, make it a dub."</div>
+            <div class="char-line">"One hit away from fame."</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RAUL BAUTISTA -->
+      <div class="char-card char-full">
+        <div class="char-header">
+          <div class="char-avatar supporting">&#128296;</div>
+          <div>
+            <div class="char-name supporting">Raul Bautista</div>
+            <div class="char-role">Ladr&oacute;n de bancos profesional &middot; Reclutador</div>
+            <span class="char-tag secundario">secundario</span>
+          </div>
+        </div>
+        <div class="char-body">
+          <div class="char-quote amber-quote">"Experience counts."</div>
+          <div class="char-desc">
+            Confianza, encanto e inteligencia — Raul es un experimentado ladr&oacute;n de bancos siempre en busca de talento listo para asumir los riesgos que traen las mayores recompensas. Su temeridad sube las apuestas con cada golpe. M&aacute;s tarde o m&aacute;s temprano, su equipo tendr&aacute; que doblar la apuesta.
+          </div>
+          <div class="char-quotes-extra" style="flex-direction:row;flex-wrap:wrap;">
+            <div class="char-line">"Life is full of surprises, my friend. I think we'd all be wise to remember that."</div>
+            <div class="char-line">"A professional adapts."</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ZONAS CONFIRMADAS -->
+    <div class="section-eyebrow" style="margin-top:8px;">Zonas del mapa — confirmadas por Rockstar</div>
+    <h2 class="section-title">Leonida: lo que se ha mostrado</h2>
+    <p class="section-desc">Cada zona est&aacute; asociada a un personaje de la historia — Rockstar confirma indirectamente la extensi&oacute;n del mapa a trav&eacute;s de los perfiles de personajes.</p>
+
+    <div class="zona-grid">
+      <div class="zona-card">
+        <div class="zona-name"><span class="zona-dot" style="background:var(--cyan);box-shadow:0 0 6px var(--cyan);"></span>Vice City</div>
+        <div class="zona-desc">Ciudad principal del juego. Asociada a <b>Boobie Ike</b> y <b>Dre'Quan Priest</b>. Inspirada en Miami — calles neón, club de striptease, sello discográfico y el submundo criminal organizado.</div>
+      </div>
+      <div class="zona-card">
+        <div class="zona-name"><span class="zona-dot" style="background:var(--green);box-shadow:0 0 6px var(--green);"></span>Leonida Keys</div>
+        <div class="zona-desc">Los Cayos de Leonida — donde opera <b>Jason Duval</b> al inicio del juego, trabajando para narcotraficantes locales. Equivalente ficticio de los Cayos de Florida.</div>
+      </div>
+      <div class="zona-card">
+        <div class="zona-name"><span class="zona-dot" style="background:var(--amber);box-shadow:0 0 6px var(--amber);"></span>Grassrivers</div>
+        <div class="zona-desc">Zona pantanosa inspirada en los Everglades. Asociada a <b>Real Dimez</b> — Bae-Luxe y Roxy. Zona de vida salvaje y actividades al aire libre.</div>
+      </div>
+      <div class="zona-card">
+        <div class="zona-name"><span class="zona-dot" style="background:var(--magenta);box-shadow:0 0 6px var(--magenta);"></span>Port Gellhorn</div>
+        <div class="zona-desc">Zona portuaria e industrial de Leonida. Asociada a <b>Real Dimez</b>. Puerto de entrada al submundo criminal del estado.</div>
       </div>
     </div>
 
