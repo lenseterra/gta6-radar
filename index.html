@@ -238,6 +238,63 @@
   .tip-qr-placeholder{width:160px;height:160px;background:#f0f0f0;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#999;font-size:11px;text-align:center;font-family:sans-serif;}
   .tip-caption{text-align:center;font-size:11.5px;color:var(--chrome-faint);font-family:'JetBrains Mono',monospace;letter-spacing:0.03em;}
   .tip-caption b{color:var(--cyan);}
+
+  /* COMPARADOR DE EDICIONES */
+  .edition-hero{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;}
+  @media(max-width:640px){.edition-hero{grid-template-columns:1fr;}}
+
+  .edition-card{border-radius:14px;padding:24px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:14px;}
+  .edition-card.standard{background:linear-gradient(160deg,var(--panel) 0%,var(--void-soft) 100%);border:1px solid var(--line);}
+  .edition-card.ultimate{background:linear-gradient(160deg,#1a0f28 0%,#0d0818 100%);border:2px solid var(--amber);box-shadow:0 0 30px rgba(255,193,69,0.1);}
+  .edition-card.ultimate::before{content:"RECOMENDADA";position:absolute;top:14px;right:-28px;background:var(--amber);color:#000;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:4px 36px;transform:rotate(45deg);letter-spacing:0.08em;}
+
+  .edition-name{font-family:'Teko',sans-serif;font-weight:700;font-size:28px;text-transform:uppercase;line-height:1;}
+  .edition-card.standard .edition-name{color:var(--chrome);}
+  .edition-card.ultimate .edition-name{color:var(--amber);text-shadow:0 0 20px rgba(255,193,69,0.4);}
+  .edition-price{display:flex;align-items:baseline;gap:6px;}
+  .edition-price .amount{font-family:'Teko',sans-serif;font-size:48px;font-weight:700;line-height:1;}
+  .edition-card.standard .amount{color:var(--chrome);}
+  .edition-card.ultimate .amount{color:var(--amber);}
+  .edition-price .currency{font-size:16px;color:var(--chrome-faint);}
+  .edition-price .period{font-size:11px;color:var(--chrome-faint);font-family:'JetBrains Mono',monospace;}
+
+  .edition-divider{height:1px;background:var(--line);margin:4px 0;}
+  .edition-features{display:flex;flex-direction:column;gap:8px;}
+  .edition-feature{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--chrome-dim);line-height:1.4;}
+  .edition-feature .feat-icon{font-size:14px;flex-shrink:0;margin-top:1px;}
+  .edition-feature.locked{color:var(--chrome-faint);opacity:0.5;}
+  .edition-feature b{color:var(--chrome);font-weight:600;}
+
+  .edition-cta{margin-top:auto;padding:12px 20px;border-radius:8px;font-weight:700;font-size:14px;text-align:center;cursor:pointer;border:none;font-family:'Space Grotesk',sans-serif;transition:all 0.2s ease;}
+  .edition-cta.standard-cta{background:var(--panel-2);border:1px solid var(--line-bright);color:var(--chrome);}
+  .edition-cta.standard-cta:hover{border-color:var(--chrome-faint);background:rgba(255,255,255,0.06);}
+  .edition-cta.ultimate-cta{background:linear-gradient(135deg,var(--amber),#d4943a);color:#000;}
+  .edition-cta.ultimate-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(255,193,69,0.3);}
+
+  .edition-verdict{background:linear-gradient(135deg,rgba(29,233,216,0.06),rgba(29,233,216,0.02));border:1px solid rgba(29,233,216,0.2);border-radius:12px;padding:20px 24px;margin-bottom:28px;}
+  .edition-verdict-title{font-weight:700;font-size:15px;color:var(--cyan);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+  .edition-verdict-body{font-size:13px;color:var(--chrome-dim);line-height:1.7;}
+  .edition-verdict-body b{color:var(--chrome);}
+
+  .preorder-box{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin-bottom:28px;}
+  .preorder-title{font-weight:700;font-size:14px;margin-bottom:14px;color:var(--chrome);display:flex;align-items:center;gap:8px;}
+  .preorder-items{display:flex;flex-direction:column;gap:8px;}
+  .preorder-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--chrome-dim);}
+  .preorder-badge{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:0.05em;flex-shrink:0;margin-top:2px;}
+  .badge-all{background:rgba(61,240,140,0.12);color:var(--green);border:1px solid rgba(61,240,140,0.3);}
+  .badge-digital{background:rgba(29,233,216,0.1);color:var(--cyan);border:1px solid rgba(29,233,216,0.25);}
+  .badge-ultimate{background:rgba(255,193,69,0.12);color:var(--amber);border:1px solid rgba(255,193,69,0.3);}
+
+  .faq-list{display:flex;flex-direction:column;gap:10px;margin-top:8px;}
+  .faq-item{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
+  .faq-q{padding:14px 18px;font-weight:600;font-size:13.5px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--chrome);user-select:none;transition:background 0.15s;}
+  .faq-q:hover{background:rgba(255,255,255,0.03);}
+  .faq-q .faq-arrow{font-size:12px;color:var(--cyan);transition:transform 0.2s ease;flex-shrink:0;}
+  .faq-item.open .faq-arrow{transform:rotate(180deg);}
+  .faq-a{display:none;padding:0 18px 14px;font-size:13px;color:var(--chrome-dim);line-height:1.7;border-top:1px solid var(--line);}
+  .faq-a b{color:var(--chrome);}
+  .faq-item.open .faq-a{display:block;}
+
 </style>
 </head>
 <body>
@@ -300,6 +357,7 @@
     <button class="blip-btn" data-tab="noticias"><span class="blip-dot"></span><span data-i18n="nav_noticias">Noticias</span></button>
     <button class="blip-btn" data-tab="mapa"><span class="blip-dot"></span><span data-i18n="nav_mapa">Mapa &amp; puntos de interés</span></button>
     <button class="blip-btn" data-tab="guias"><span class="blip-dot"></span><span data-i18n="nav_guias">Guías &amp; actividades</span></button>
+    <button class="blip-btn" data-tab="ediciones"><span class="blip-dot"></span><span data-i18n="nav_ediciones">¿Qué edición comprar?</span><span class="tag tag-official" style="background:rgba(255,193,69,0.12);color:var(--amber);border:1px solid rgba(255,193,69,0.3);">guía</span></button>
     <button class="blip-btn" data-tab="leaks"><span class="blip-dot"></span><span data-i18n="nav_leaks">Leaks &amp; especulación</span><span class="tag tag-leak" data-i18n="tag_no_oficial">no oficial</span></button>
   </div>
 </nav>
@@ -522,6 +580,151 @@
     <div class="checklist" id="checklist"></div>
   </section>
 
+
+  <!-- TAB EDICIONES -->
+  <section class="panel-section" id="panel-ediciones">
+
+    <div class="banner banner-official"><div class="banner-icon">💡</div><div>Comparativa basada en información <b>oficial de Rockstar Games</b> publicada el 25 de junio de 2026. Precios en USD · Disponible desde el 19 de noviembre de 2026.</div></div>
+
+    <div class="section-eyebrow">Comparativa oficial</div>
+    <h2 class="section-title">¿Cuál edición me conviene?</h2>
+    <p class="section-desc">Elige según cuánto tiempo piensas invertir en el juego y si la personalización extra vale los $20 adicionales.</p>
+
+    <!-- CARDS COMPARATIVAS -->
+    <div class="edition-hero">
+
+      <!-- ESTÁNDAR -->
+      <div class="edition-card standard">
+        <div>
+          <div class="edition-name">Estándar</div>
+          <div style="font-size:12px;color:var(--chrome-faint);margin-top:2px;font-family:'JetBrains Mono',monospace;">STANDARD EDITION</div>
+        </div>
+        <div class="edition-price">
+          <span class="amount">$79</span>
+          <div><div class="currency">.99 USD</div><div class="period">pago único</div></div>
+        </div>
+        <div class="edition-divider"></div>
+        <div class="edition-features">
+          <div class="edition-feature"><span class="feat-icon">✓</span><div>Historia completa de <b>Lucia y Jason</b> sin restricciones</div></div>
+          <div class="edition-feature"><span class="feat-icon">✓</span><div>Acceso a todo el mapa de <b>Leonida y Vice City</b></div></div>
+          <div class="edition-feature"><span class="feat-icon">✓</span><div><b>GTA Online</b> incluido cuando llegue (post-lanzamiento)</div></div>
+          <div class="edition-feature"><span class="feat-icon">✓</span><div>Todas las mecánicas: pesca, heists, propiedades, vehículos</div></div>
+          <div class="edition-feature"><span class="feat-icon">✓</span><div>Pre-carga desde el <b>12 de noviembre</b> (digital)</div></div>
+          <div class="edition-feature locked"><span class="feat-icon">✗</span><div>Sin vehículos premium exclusivos</div></div>
+          <div class="edition-feature locked"><span class="feat-icon">✗</span><div>Sin tiendas de modificación exclusivas</div></div>
+          <div class="edition-feature locked"><span class="feat-icon">✗</span><div>Sin armas y ropa exclusiva de la Ultimate</div></div>
+        </div>
+        <button class="edition-cta standard-cta">👍 Buena opción para la mayoría</button>
+      </div>
+
+      <!-- ULTIMATE -->
+      <div class="edition-card ultimate">
+        <div>
+          <div class="edition-name">Ultimate</div>
+          <div style="font-size:12px;color:var(--chrome-faint);margin-top:2px;font-family:'JetBrains Mono',monospace;">ULTIMATE EDITION</div>
+        </div>
+        <div class="edition-price">
+          <span class="amount">$99</span>
+          <div><div class="currency">.99 USD</div><div class="period">pago único</div></div>
+        </div>
+        <div class="edition-divider"></div>
+        <div class="edition-features">
+          <div class="edition-feature"><span class="feat-icon">✓</span><div>Todo lo de la Edición Estándar</div></div>
+          <div class="edition-feature"><span class="feat-icon">🚗</span><div><b>Vehículos premium exclusivos</b>: buggy, speedboat y más</div></div>
+          <div class="edition-feature"><span class="feat-icon">🔧</span><div><b>2 tiendas de modificación exclusivas</b> en el mundo del juego</div></div>
+          <div class="edition-feature"><span class="feat-icon">🔫</span><div><b>Armas personalizadas exclusivas</b> disponibles en la historia</div></div>
+          <div class="edition-feature"><span class="feat-icon">👗</span><div><b>Ropa, tatuajes y accesorios</b> únicos para Jason y Lucia</div></div>
+          <div class="edition-feature"><span class="feat-icon">🎮</span><div>Contenido exclusivo integrado en la <b>narrativa del juego</b></div></div>
+          <div class="edition-feature"><span class="feat-icon">✓</span><div>Pre-carga desde el <b>12 de noviembre</b> (digital)</div></div>
+        </div>
+        <button class="edition-cta ultimate-cta">⭐ Para el jugador completista</button>
+      </div>
+
+    </div>
+
+    <!-- VEREDICTO -->
+    <div class="edition-verdict">
+      <div class="edition-verdict-title">🎯 Veredicto rápido</div>
+      <div class="edition-verdict-body">
+        <b>Edición Estándar ($79.99):</b> Incluye el 100% de la historia y todas las mecánicas del juego. Si solo quieres disfrutar GTA 6 completo, esta es tu opción. Los $20 de diferencia no cambian la experiencia narrativa.<br><br>
+        <b>Ultimate Edition ($99.99):</b> Vale la pena si planeas invertir muchas horas, te importa la personalización de personajes y quieres los vehículos y tiendas exclusivas desde el día uno. El contenido está integrado en la historia, no es solo cosmético.
+      </div>
+    </div>
+
+    <!-- BONUS DE PRE-ORDEN -->
+    <div class="section-eyebrow">Bonus de pre-orden</div>
+    <h2 class="section-title">Qué obtienes por reservar antes del 20 nov</h2>
+    <div class="preorder-box">
+      <div class="preorder-title">🎁 Contenido incluido en todas las pre-órdenes</div>
+      <div class="preorder-items">
+        <div class="preorder-item"><span class="preorder-badge badge-all">todas</span><div><b>Vintage Vice City Pack</b> — colección de cosméticos que homenajean la estética neón de los 80s del Vice City original</div></div>
+        <div class="preorder-item"><span class="preorder-badge badge-digital">digital</span><div><b>1 mes gratis de GTA+</b> — acceso al servicio de suscripción de Rockstar con bonos en GTA Online</div></div>
+        <div class="preorder-item"><span class="preorder-badge badge-all">todas</span><div><b>Pre-carga desde el 12 de noviembre</b> — juega desde el minuto cero del 19 de noviembre</div></div>
+        <div class="preorder-item"><span class="preorder-badge badge-all">físico</span><div>Las copias físicas <b>solo incluyen un código de descarga</b> — no hay disco. Es efectivamente una copia digital en caja.</div></div>
+      </div>
+    </div>
+
+    <!-- AD -->
+    <div class="ad-slot ad-slot-leaderboard"><!-- 728×90 · AdSense --></div>
+
+    <!-- FAQ -->
+    <div class="section-eyebrow">Preguntas frecuentes</div>
+    <h2 class="section-title">Lo que todos preguntan</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          ¿Puedo actualizar de Estándar a Ultimate después del lanzamiento? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">Rockstar no ha confirmado si habrá opción de upgrade entre ediciones. Históricamente en GTA V no existió esta opción. Si crees que querrás el contenido Ultimate, es más seguro comprarlo desde el inicio.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          ¿El contenido de la Ultimate Edition afecta el balance del juego o es pay-to-win? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">Según Rockstar, el contenido está <b>integrado en la narrativa</b> de Jason y Lucia, no es un paquete de poder desequilibrante. Los vehículos y armas son <b>exclusivos estéticamente y en acceso</b>, pero el juego base es 100% completable con la Edición Estándar.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          ¿GTA Online estará disponible el día del lanzamiento? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a"><b>No.</b> Rockstar confirmó que GTA 6 será una experiencia <b>exclusivamente single-player al lanzamiento</b>. GTA Online para la nueva entrega llegará como actualización posterior, sin fecha confirmada aún. Igual que ocurrió con GTA V en 2013.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          ¿Cuándo llega GTA 6 a PC? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">Rockstar <b>no ha anunciado fecha de PC</b>. Basándose en el patrón histórico (GTA V tardó casi 2 años en llegar a PC), lo más probable es que la versión de PC llegue en <b>2027 o 2028</b>. Dos ex-desarrolladores de Rockstar han dicho que "tardará bastante".</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          ¿Funciona en PS4 o Xbox One? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a"><b>No.</b> GTA 6 es exclusivo de <b>PS5, PS5 Pro, Xbox Series X y Xbox Series S</b>. No habrá versión para consolas de generación anterior.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          ¿Hay diferencia entre jugar en PS5 normal y PS5 Pro? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">Sony ha confirmado que GTA 6 recibirá <b>soporte especial en PS5</b>, superior incluso al de algunos exclusivos de primera parte. Se espera que PS5 Pro ofrezca mejoras visuales adicionales, aunque Rockstar no ha confirmado que corra a 60fps estables en ninguna consola.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          ¿Cuánto pesa el juego? ¿Cuándo puedo pre-cargar? <span class="faq-arrow">▼</span>
+        </div>
+        <div class="faq-a">El peso exacto no está confirmado, pero se espera que sea <b>uno de los juegos más grandes en almacenamiento</b> de la generación. La <b>pre-carga estará disponible desde el 12 de noviembre</b> para todas las ediciones digitales.</div>
+      </div>
+
+    </div>
+
+  </section>
+
   <!-- TAB LEAKS -->
   <section class="panel-section" id="panel-leaks">
     <div class="leak-disclaimer"><div class="ico">⚠</div><div class="leak-disclaimer-text" data-i18n="leak_disclaimer"><b>Todo lo de esta sección es especulación de la comunidad, no información oficial de Rockstar.</b> Proviene de proyectos de mapeo creados por fans. Varias filtraciones han sido identificadas como generadas por IA. Trátalo como entretenimiento.</div></div>
@@ -655,7 +858,7 @@ const i18n={
     topline:"LEONIDA STATE · UNOFFICIAL TRACKER",
     hero_tagline:'Your signal hub for <b>Grand Theft Auto VI</b>: everything confirmed by Rockstar, the Leonida map, activity guides, and everything the community has tracked — clearly separated and labeled.',
     meta_launch:"Release date",meta_platforms:"Platforms",meta_setting:"Setting",meta_countdown:"Countdown",
-    nav_resumen:"Overview",nav_noticias:"News",nav_mapa:"Map & points of interest",nav_guias:"Guides & activities",nav_leaks:"Leaks & speculation",
+    nav_resumen:"Overview",nav_noticias:"News",nav_mapa:"Map & points of interest",nav_guias:"Guides & activities",nav_ediciones:"Which edition to buy?",nav_leaks:"Leaks & speculation",
     tag_oficial:"official",tag_no_oficial:"unofficial",
     banner_noticias:"Coverage based on official statements from Rockstar Games / Take-Two and verified media reports.",
     eyebrow_noticias:"Latest",title_noticias:"GTA 6 news",desc_noticias:"Recent updates on Grand Theft Auto VI, in chronological order.",
