@@ -4,66 +4,91 @@
   <!-- Página principal -->
   <url>
     <loc>https://gta6latino.com/</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Secciones principales (hash navigation) -->
+  <!-- Secciones del sitio principal -->
   <url>
     <loc>https://gta6latino.com/#noticias</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://gta6latino.com/#personajes</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://gta6latino.com/#ediciones</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://gta6latino.com/#faq</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://gta6latino.com/#inicio</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://gta6latino.com/#mapa</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://gta6latino.com/#guias</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-
   <url>
     <loc>https://gta6latino.com/#leaks</loc>
-    <lastmod>2026-06-27</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- Artículos de noticias -->
+  <url>
+    <loc>https://gta6latino.com/noticias/gta6-sin-doblaje-espanol.html</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gta6latino.com/noticias/gta6-fisico-sin-disco.html</loc>
+    <lastmod>2026-06-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gta6latino.com/noticias/gta6-mas-vendido-ps-store.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gta6latino.com/noticias/gta6-escasez-consolas.html</loc>
+    <lastmod>2026-06-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gta6latino.com/noticias/gta6-reservas-1000-millones.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
 </urlset>
