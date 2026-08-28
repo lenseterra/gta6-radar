@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTA 6: entornos destructibles, física mejorada y el regreso de los gimnasios de San Andreas — GTA VI Latino</title>
+  <meta name="description" content="GTA 6: entornos destructibles, física mejorada y el regreso de los gimnasios de San Andreas. Noticias y análisis de GTA 6 en español para LATAM.">
+  <meta property="og:title" content="GTA 6: entornos destructibles, física mejorada y el regreso de los gimnasios de San Andreas — GTA VI Latino">
+  <meta property="og:description" content="GTA 6: entornos destructibles, física mejorada y el regreso de los gimnasios de San Andreas. Noticias y análisis de GTA 6 en español para LATAM.">
+  <meta property="og:url" content="https://gta6latino.com/noticias/gta6-mecanicas-combate-mundo.html">
+  <meta property="og:image" content="https://gta6latino.com/GTAradar.jpg">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://gta6latino.com/noticias/gta6-mecanicas-combate-mundo.html">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Teko:wght@700&family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MQTDR4LT');</script>
+  <!-- AdSense -->
+  <script async defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7183282128178104" crossorigin="anonymous"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --void:#08060c;--panel:#0f0d17;--line:rgba(255,255,255,0.08);--line-bright:rgba(255,255,255,0.15);
+      --chrome:#e8e6f0;--chrome-dim:#9896a8;--chrome-faint:#5a5870;
+      --cyan:#1de9d8;--magenta:#ff2d78;--amber:#ffc145;--green:#3df08c;--red:#ff4d6a;
+    }
+    body{background:var(--void);color:var(--chrome);font-family:'Space Grotesk',sans-serif;min-height:100vh;}
+    
+    /* TOPBAR */
+    .topbar{background:rgba(8,6,12,0.95);border-bottom:1px solid var(--line);padding:12px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+    .topbar-logo{font-family:'Teko',sans-serif;font-size:28px;font-weight:700;color:var(--chrome);text-decoration:none;letter-spacing:0.02em;}
+    .topbar-logo span{color:var(--cyan);}
+    .topbar-back{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);text-decoration:none;border:1px solid rgba(29,233,216,0.3);padding:6px 14px;border-radius:6px;transition:all 0.2s;}
+    .topbar-back:hover{background:rgba(29,233,216,0.08);}
+
+    /* ARTICLE */
+    .article-wrap{max-width:760px;margin:0 auto;padding:40px 24px 80px;}
+    .article-eyebrow{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:0.12em;color:var(--cyan);margin-bottom:12px;}
+    .article-title{font-family:'Teko',sans-serif;font-size:clamp(32px,6vw,54px);font-weight:700;line-height:1.05;text-transform:uppercase;color:var(--chrome);margin-bottom:16px;}
+    .article-meta{display:flex;align-items:center;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+    .article-date{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chrome-faint);}
+    .pill{font-family:'JetBrains Mono',monospace;font-size:9px;padding:3px 9px;border-radius:4px;text-transform:uppercase;letter-spacing:0.06em;}
+    .pill-confirmed{background:rgba(61,240,140,0.12);color:var(--green);border:1px solid rgba(61,240,140,0.3);}
+    .pill-rumor{background:rgba(255,193,69,0.12);color:var(--amber);border:1px solid rgba(255,193,69,0.3);}
+    .pill-warning{background:rgba(255,77,106,0.12);color:var(--red);border:1px solid rgba(255,77,106,0.3);}
+    .pill-noticias{background:rgba(29,233,216,0.12);color:var(--cyan);border:1px solid rgba(29,233,216,0.3);}
+
+    /* AD SLOT */
+    .ad-slot{background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:8px;min-height:90px;display:flex;align-items:center;justify-content:center;margin:28px 0;font-size:11px;color:var(--chrome-faint);font-family:'JetBrains Mono',monospace;}
+
+    /* BODY */
+    .article-body{font-size:16px;line-height:1.8;color:#c8c6d8;}
+    .article-body p{margin-bottom:20px;}
+    .article-body b, .article-body strong{color:var(--chrome);}
+    .article-body h2{font-family:'Teko',sans-serif;font-size:28px;font-weight:700;text-transform:uppercase;color:var(--cyan);margin:32px 0 12px;}
+    .article-body blockquote{border-left:3px solid var(--cyan);padding:10px 16px;background:rgba(29,233,216,0.05);border-radius:0 8px 8px 0;margin:20px 0;font-style:italic;color:var(--chrome-dim);}
+    .article-body ul{padding-left:20px;margin-bottom:20px;}
+    .article-body li{margin-bottom:8px;}
+
+    .article-source{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--chrome-faint);margin-top:32px;padding-top:20px;border-top:1px solid var(--line);}
+    .article-source a{color:var(--cyan);text-decoration:none;}
+
+    /* RELACIONADAS */
+    .related{margin-top:48px;padding-top:24px;border-top:1px solid var(--line);}
+    .related-title{font-family:'Teko',sans-serif;font-size:22px;text-transform:uppercase;color:var(--chrome-dim);margin-bottom:16px;}
+    .related-list{display:flex;flex-direction:column;gap:10px;}
+    .related-link{display:block;background:rgba(255,255,255,0.03);border:1px solid var(--line);border-radius:8px;padding:12px 16px;text-decoration:none;color:var(--chrome);font-size:14px;transition:border-color 0.2s;}
+    .related-link:hover{border-color:var(--line-bright);}
+    .related-link span{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--cyan);display:block;margin-bottom:4px;text-transform:uppercase;}
+
+    /* FOOTER */
+    .article-footer{text-align:center;padding:32px 24px;border-top:1px solid var(--line);margin-top:48px;}
+    .article-footer a{color:var(--cyan);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:12px;}
+  </style>
+</head>
+<body>
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MQTDR4LT" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <nav class="topbar">
+    <a href="/" class="topbar-logo">GTA6<span>//</span>INTEL</a>
+    <a href="/#noticias" class="topbar-back">&#8592; Volver a noticias</a>
+  </nav>
+
+  <main class="article-wrap">
+    <div class="article-eyebrow">GTA VI Latino &middot; Confirmado &middot; 27 Ago 2026</div>
+    <h1 class="article-title">GTA 6: entornos destructibles, física mejorada y el regreso de los gimnasios de San Andreas</h1>
+    <div class="article-meta">
+      <span class="article-date">27 Ago 2026</span>
+      <span class="pill pill-confirmed">confirmado</span>
+      <span class="pill pill-noticias">noticias</span>
+    </div>
+
+    <!-- AD TOP -->
+    <div class="ad-slot"><!-- AdSense 728x90 --></div>
+
+    <div class="article-body">
+      <p>Más allá de la historia y los personajes, el Extended Look de Netflix dejó ver mejoras técnicas y de diseño que cambian cómo se siente jugar GTA 6 frente a sus predecesores. Aquí un repaso de las mecánicas más destacadas.</p>
+
+        <h2>Entornos más destructibles que nunca</h2>
+        <p>Los entornos rompibles no son nuevos en la saga, pero en GTA 6 se ven <strong>más dinámicos y frecuentes</strong> que en cualquier entrega anterior. Durante la secuencia del allanamiento policial en la operación de Raymond, uno de los asociados atraviesa literalmente una pared para embestir a un oficial. No está del todo claro cuán destructible es cada superficie, pero el nivel mostrado es el más alto visto hasta ahora en la serie.</p>
+
+        <h2>Física de mundo más reactiva</h2>
+        <p>Durante varias secuencias de tiroteos, se puede ver a los enemigos disparando objetos del entorno cuando fallan sus tiros contra Jason o Lucia. Lo mismo aplica al manejo de vehículos — las calles de la ciudad ahora <strong>reaccionan a las acciones del jugador y de los NPCs</strong>, en lugar de comportarse como bloques sólidos indestructibles, tal como ocurría con contenedores de basura o postes de señalización en juegos anteriores.</p>
+
+        <h2>Transiciones entre personajes en tiempo real</h2>
+        <p>Una de las mejoras más elogiadas fue la fluidez para cambiar entre Jason y Lucia durante el gameplay activo. En una escena de persecución, el jugador pasa de controlar a Jason —disparando desde la ventana del auto— a Lucia —tomando el volante— de forma prácticamente instantánea, mucho más pulida que los cambios de personaje vistos en GTA V.</p>
+
+        <h2>El regreso de los gimnasios de San Andreas</h2>
+        <p>Un guiño directo a los fans de la vieja escuela: los icónicos <strong>gimnasios de San Andreas están de vuelta</strong>. Junto a esto se confirmó un sistema de estadísticas físicas — comer comida chatarra en exceso hará que el personaje suba de peso, replicando un sistema que no se veía desde 2004 en la saga principal.</p>
+
+        <h2>Sistema de diálogo estilo Red Dead Redemption 2</h2>
+        <p>Desde los primeros minutos del video se confirmó que las interacciones con NPCs seguirán un sistema de diálogo contextual muy similar al usado en Red Dead Redemption 2 — permitiendo iniciar conversaciones, generar tensión o cooperación según cómo el jugador elija interactuar con cada personaje del mundo.</p>
+
+        <h2>¿Por qué importa todo esto?</h2>
+        <p>En conjunto, estas mejoras apuntan a un mundo mucho más <strong>reactivo y creíble</strong> que cualquier GTA anterior — no solo en la narrativa, sino en cómo responde físicamente a cada decisión del jugador. Para ver el contexto completo del gameplay mostrado, revisa nuestro <a href="/noticias/gta6-extended-look-recap-completo.html" style="color:var(--cyan);">recap del Extended Look</a>.</p>
+    </div>
+
+    <div class="article-source">
+      Fuente: <a href="https://screenrant.com/gta-6-netflix-recap-biggest-takeaways/" target="_blank" rel="noopener">Screen Rant</a>
+    </div>
+
+    <!-- AD BOTTOM -->
+    <div class="ad-slot"><!-- AdSense 300x250 --></div>
+
+    <div class="related">
+      <div class="related-title">M&aacute;s noticias</div>
+      <div class="related-list">
+        <a href="/noticias/gta6-extended-look-recap-completo.html" class="related-link"><span>Noticias</span>GTA 6 Extended Look: todo lo que mostró el gameplay oficial</a>
+        <a href="/noticias/gta6-actividades-mundo-abierto.html" class="related-link"><span>Noticias</span>Todas las actividades confirmadas en el mundo abierto de GTA 6</a>
+      >
